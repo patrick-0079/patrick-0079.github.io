@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Markdown的使用笔记</title>
+    <title>Hello</title>
+    <url>/2022/12/13/13-52-03/</url>
+    <content><![CDATA[<h1 id="Hello-This-is-Patrick’s-blog"><a href="#Hello-This-is-Patrick’s-blog" class="headerlink" title="Hello, This is Patrick’s blog!"></a><em><strong>Hello, This is Patrick’s blog!</strong></em></h1>]]></content>
+      <categories>
+        <category>Index</category>
+        <category>Hello</category>
+      </categories>
+      <tags>
+        <tag>Hello</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown的学习笔记</title>
     <url>/2022/12/13/15-02-05/</url>
-    <content><![CDATA[<h1 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a><strong>Markdown</strong></h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><table>
+    <content><![CDATA[<h1 id="Markdown学习笔记"><a href="#Markdown学习笔记" class="headerlink" title="Markdown学习笔记"></a><strong>Markdown</strong>学习笔记</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><table>
 <thead>
 <tr>
 <th>语法</th>
@@ -172,7 +184,7 @@
 <td><ol><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ol></td>
 </tr>
 <tr>
-<td>1. First item<br>1. Second item<br>$~$1.Indented item<br>    1.Indented item<br>1. Third item<br>1. Fourth item</td>
+<td>1. First item<br>1. Second item<br>▯▯▯▯1.Indented item<br>▯▯▯▯1.Indented item<br>1. Third item<br>1. Fourth item</td>
 <td><code>&lt;ol&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;ol&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code><br><code>&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code></td>
 <td><ol><li>First item</li><li>Second item</li><li>Third item<ol><li>Indented item</li><li>Indented item</li></ol></li><li>Fourth item</li></ol></td>
 </tr>
@@ -202,7 +214,7 @@
 <td><ul><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul></td>
 </tr>
 <tr>
-<td>_ First item<br>_ Second item<br>    _ Indented item<br>    _ Indented item<br>_ Third item<br>_ Fourth item</td>
+<td>_ First item<br>_ Second item<br>▯▯_ Indented item<br>▯▯_ Indented item<br>_ Third item<br>_ Fourth item</td>
 <td><code>&lt;ul&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;ul&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code><br><code>&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code></td>
 <td><ul><li>First item</li><li>Second item</li><li>Third item<ul><li>Indented item</li><li>Indented item</li></ul></li><li>Fourth item</li></ul></td>
 </tr>
@@ -292,7 +304,7 @@
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">First Term</span><br><span class="line">: This is the definition of the first term.</span><br><span class="line"></span><br><span class="line">Second Term</span><br><span class="line">: This is one definition of the second term.</span><br><span class="line">: This is another definition of the second term.</span><br></pre></td></tr></table></figure>
 <p>所生成的 HTML 为:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>First Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is the definition of the first term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Second Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is one definition of the second term. <span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is another definition of the second term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>所呈现效果为:<br>First Term<br>    This is the definition of the first term.<br>Second Term<br>    This is one definition of the second term.<br>    This is another definition of the second term.</p>
+<p>所呈现效果为:<br>First Term<br>▯▯This is the definition of the first term.<br>Second Term<br>▯▯This is one definition of the second term.<br>▯▯This is another definition of the second term.</p>
 <h2 id="Emoji"><a href="#Emoji" class="headerlink" title="Emoji"></a>Emoji</h2><p>直接使用通过键入表情符号短代码来插入表情符号<br>例如:</p>
 <p>:joy: -&gt; 😂</p>
 <h2 id="butterfly支持标签"><a href="#butterfly支持标签" class="headerlink" title="butterfly支持标签"></a>butterfly支持标签</h2><p>作者: Jerry<br>連結: <a href="https://butterfly.js.org/">https://butterfly.js.org/</a><br>來源: Butterfly<br>著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。</p>
@@ -349,8 +361,6 @@
 <div class="note green icon-padding simple"><i class="note-icon fab fa-internet-explorer"></i><p>前端最討厭的瀏覽器</p>
 </div>
 
-
-<p>作者: Jerry<br>連結: <a href="https://butterfly.js.org/posts/4aa8abbe/#Note-Bootstrap-Callout">https://butterfly.js.org/posts/4aa8abbe/#Note-Bootstrap-Callout</a><br>來源: Butterfly<br>著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。</p>
 <h3 id="tag-hide"><a href="#tag-hide" class="headerlink" title="tag-hide"></a>tag-hide</h3><span class="hide-inline"><button type="button" class="hide-button" style="background-color: bg;color: color">display
   </button><span class="hide-content">content</span></span>, 例如
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">哪個英文字母最酷？ &#123;% hideInline 因為西裝褲(C裝酷),查看答案,#FF7242,#fff %&#125;</span><br><span class="line"></span><br><span class="line">門裏站着一個人? &#123;% hideInline 閃 %&#125;</span><br></pre></td></tr></table></figure>
@@ -373,6 +383,13 @@
 <p>例如<br><code>&#123;% label text blue %&#125;</code><mark class="hl-label blue">text</mark> </p>
 <h3 id="timeline"><a href="#timeline" class="headerlink" title="timeline"></a>timeline</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% timeline title,color %&#125;</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure>
 
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% timeline 2022 %&#125;</span><br><span class="line">&lt;!-- timeline 01-02 --&gt;</span><br><span class="line">這是測試頁面</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure>
+<div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>2022</p>
+</div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>01-02</p>
+</div></div><div class='timeline-item-content'><p>這是測試頁面</p>
+</div></div></div>
+
 <h3 id="flink"><a href="#flink" class="headerlink" title="flink"></a>flink</h3><p>友链</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% flink %&#125;</span><br><span class="line">link.yml内容</span><br><span class="line">&#123;% endflink %&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -383,18 +400,6 @@
       <tags>
         <tag>Markdown</tag>
         <tag>Baisc grammar</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello</title>
-    <url>/2022/12/13/13-52-03/</url>
-    <content><![CDATA[<h1 id="Hello-This-is-Patrick’s-blog"><a href="#Hello-This-is-Patrick’s-blog" class="headerlink" title="Hello, This is Patrick’s blog!"></a><em><strong>Hello, This is Patrick’s blog!</strong></em></h1>]]></content>
-      <categories>
-        <category>Index</category>
-        <category>Hello</category>
-      </categories>
-      <tags>
-        <tag>Hello</tag>
       </tags>
   </entry>
 </search>
