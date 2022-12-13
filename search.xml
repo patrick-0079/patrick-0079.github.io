@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>home</title>
+    <url>/home/2022/12/13/</url>
+    <content><![CDATA[<h1 id="Hello-This-is-Patrick"><a href="#Hello-This-is-Patrick" class="headerlink" title="Hello This is Patrick!"></a><strong>Hello This is Patrick!</strong></h1>]]></content>
+      <categories>
+        <category>Home</category>
+      </categories>
+      <tags>
+        <tag>Home</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring security</title>
     <url>/Spring-security/2022/12/12/</url>
     <content><![CDATA[<h1 id="关键过滤器"><a href="#关键过滤器" class="headerlink" title="关键过滤器"></a>关键过滤器</h1><h2 id="org-springframework-security-web-access-intercept-FilterSecurityInterceptor"><a href="#org-springframework-security-web-access-intercept-FilterSecurityInterceptor" class="headerlink" title="org.springframework.security.web.access.intercept.FilterSecurityInterceptor"></a>org.springframework.security.web.access.intercept.FilterSecurityInterceptor</h2><p>方法级权限过滤器，位于过滤链最底部</p>
@@ -134,16 +145,14 @@
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.userdetails.UserDetailsService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.password.NoOpPasswordEncoder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.password.PasswordEncoder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.web.SecurityFilterChain;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Config</span>() &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    PersistentTokenRepository <span class="title function_">persistentTokenRepository</span><span class="params">(DataSource dataSource)</span> &#123;</span><br><span class="line">        <span class="type">JdbcTokenRepositoryImpl</span> <span class="variable">jdbcTokenRepository</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JdbcTokenRepositoryImpl</span>();</span><br><span class="line">        jdbcTokenRepository.setDataSource(dataSource);</span><br><span class="line">        <span class="comment">// jdbcTokenRepository.setCreateTableOnStartup(true); // 自动创建所需要的表</span></span><br><span class="line">        <span class="keyword">return</span> jdbcTokenRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    SecurityFilterChain <span class="title function_">filterChain</span><span class="params">(HttpSecurity http,</span></span><br><span class="line"><span class="params">                                    PersistentTokenRepository persistentTokenRepository,</span></span><br><span class="line"><span class="params">                                    UserDetailsService userDetailsService)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="keyword">return</span> http.rememberMe().tokenRepository(persistentTokenRepository) <span class="comment">// 配置自动登录</span></span><br><span class="line">                .tokenValiditySeconds(<span class="number">60</span>)<span class="comment">// 自动登录有效时常</span></span><br><span class="line">                .userDetailsService(userDetailsService);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 <span id="more"></span>]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Spring</category>
+        <category>Spring boot</category>
+        <category>Spring cloud</category>
+      </categories>
       <tags>
-        <tag>spring security</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>home</title>
-    <url>/home/2022/12/13/</url>
-    <content><![CDATA[<h1 id="Hello-This-is-Patrick"><a href="#Hello-This-is-Patrick" class="headerlink" title="Hello This is Patrick!"></a><strong>Hello This is Patrick!</strong></h1>]]></content>
-      <tags>
-        <tag>home</tag>
+        <tag>Spring security</tag>
       </tags>
   </entry>
 </search>
