@@ -14,7 +14,7 @@
   </entry>
   <entry>
     <title>Markdown的学习笔记</title>
-    <url>/2022/12/13/15-02-05/</url>
+    <url>/2022/12/13/10-01-00/</url>
     <content><![CDATA[<h1 id="Markdown学习笔记"><a href="#Markdown学习笔记" class="headerlink" title="Markdown学习笔记"></a><strong>Markdown</strong>学习笔记</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><table>
 <thead>
 <tr>
@@ -29,7 +29,7 @@
 <td><p style="font-size:32px">Heading level 1</p></td>
 </tr>
 <tr>
-<td>Heading level 1<br>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</td>
+<td>Heading level 1<br>===============</td>
 <td><code>&lt;h1&gt;Heading level 1&lt;/h1&gt;</code></td>
 <td><p style="font-size:32px">Heading level 1</p></td>
 </tr>
@@ -65,7 +65,7 @@
 </tr>
 <tr>
 <td>###### Head { #id }</td>
-<td><code>&lt;h6 id=&quot;id&quot;&gt;Heading&lt;/h6&gt;</code></td>
+<td><code>&lt;h6 id="id"&gt;Heading&lt;/h6&gt;</code></td>
 <td><p style="font-size:12px">Head</p></td>
 </tr>
 </tbody></table>
@@ -157,7 +157,7 @@
 <tr>
 <td>&gt; 这里是引用段落的引用段落</td>
 <td><code>&lt;blockquote&gt;这里是引用段落&lt;blockquote&gt;这里是引用段落引用段落&lt;/blockquote&gt;&lt;/blockquote&gt;</code></td>
-<td><blockquote>这里是引用段落<blockquote>这里是引用段落引用段落</blockquote></td>
+<td><blockquote>这里是引用段落<blockquote>这里是引用段落引用段落</blockquote></blockquote></td>
 </tr>
 </tbody></table>
 <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><table>
@@ -220,7 +220,7 @@
 </tr>
 </tbody></table>
 <h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><p>带有复选框的项目列表<br>语法为:</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [x] Write the press release</span><br><span class="line"><span class="bullet">-</span> [ ] Update the website</span><br><span class="line"><span class="bullet">-</span> [ ] Contact the media</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [x] Write the press release</span><br><span class="line"><span class="bullet">-</span> [ ] Update the website</span><br><span class="line"><span class="bullet">-</span> [ ] Contact the media</span><br></pre></td></tr></tbody></table></figure>
 <p>效果为:</p>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> Write the press release</li>
@@ -238,7 +238,7 @@
 </thead>
 <tbody><tr>
 <td>输出 `Hello` 用 Python 实现为: print(‘`hello`‘)</td>
-<td><code>输出 \`Hello\` 用 Python 实现为: &lt;code&gt;print(&#39;`hello`&#39;)&lt;/code&gt;</code></td>
+<td><code>输出 \`Hello\` 用 Python 实现为: &lt;code&gt;print('`hello`')&lt;/code&gt;</code></td>
 <td>输出 `Hello` 用 Python 实现为: <code>print('`hello`')</code></td>
 </tr>
 </tbody></table>
@@ -269,7 +269,7 @@
 <tbody><tr>
 <td>--- 或 ___ 或 ***</td>
 <td><code>&lt;tr&gt;</code></td>
-<td><tr></td>
+<td></td></tr><tr>
 </tr>
 </tbody></table>
 <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h3 id="普通链接"><a href="#普通链接" class="headerlink" title="普通链接"></a>普通链接</h3><table>
@@ -282,33 +282,33 @@
 </thead>
 <tbody><tr>
 <td>[链接名称](链接地址)</td>
-<td><code>&lt;a href=&#39;链接地址&#39;&gt;链接名称&lt;/a&gt;</code></td>
+<td><code>&lt;a href='链接地址'&gt;链接名称&lt;/a&gt;</code></td>
 <td><a href="https://patrick-0079.github.io/">Patrick’s blog</a></td>
 </tr>
 <tr>
 <td>&lt;链接地址&gt;</td>
-<td><a href='链接地址'>链接地址</a>&#96;</td>
+<td><code>&lt;a href='链接地址'&gt;链接地址&lt;/a&gt;</code></td>
 <td><a href="https://patrick-0079.github.io/">https://patrick-0079.github.io/</a></td>
 </tr>
 </tbody></table>
 <h3 id="引用类型链接"><a href="#引用类型链接" class="headerlink" title="引用类型链接"></a>引用类型链接</h3><p>语法为 <em>[链接名称][引用序号]</em>, 然后将 <em>[引用序号]: 链接地址</em> 放在之后的段落中, 例如<br><a href="https://patrick-0079.github.io/">Patrick’s blog</a></p>
-<h3 id="图片链接"><a href="#图片链接" class="headerlink" title="图片链接"></a>图片链接</h3><p>语法为 <em>![图片alt](图片链接 “图片title”)</em>, 对应的 HTML 为 <code>&lt;img src=&quot;图片链接&quot; alt=&quot;图片alt&quot; title=&quot;图片title&quot;&gt;</code>, 例如:</p>
+<h3 id="图片链接"><a href="#图片链接" class="headerlink" title="图片链接"></a>图片链接</h3><p>语法为 <em>![图片alt](图片链接 “图片title”)</em>, 对应的 HTML 为 <code>&lt;img src="图片链接" alt="图片alt" title="图片title"&gt;</code>, 例如:</p>
 <p><a href="https://patrick-0079.github.io/"><img src="https://patrick-0079.github.io/images/logo.ico" alt="Patrick" title="Patrick"></a></p>
 <h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><p>Markdown中的特殊字符可通过在其前面加 \ 转义</p>
 <h2 id="内联-HTML"><a href="#内联-HTML" class="headerlink" title="内联 HTML"></a>内联 HTML</h2><p>在需要内联的 HTML 块前后加空白行</p>
 <h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>语法:</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">| 表头1  | 表头2  |  表头3 | 表头4  |</span><br><span class="line">| ------ | :----- | -----: | :----: |</span><br><span class="line">| 1行1列 | 1行2列 | 1行3列 | 1行3列 |</span><br><span class="line">| 2行1列 | 2行2列 | 2行3列 | 2行3列 |</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">| 表头1  | 表头2  |  表头3 | 表头4  |</span><br><span class="line">| ------ | :----- | -----: | :----: |</span><br><span class="line">| 1行1列 | 1行2列 | 1行3列 | 1行3列 |</span><br><span class="line">| 2行1列 | 2行2列 | 2行3列 | 2行3列 |</span><br></pre></td></tr></tbody></table></figure>
 <p>其中 — 意为默认对齐,  :— 意为左对齐,  —: 意为右对齐,  :—: 意为居中对齐</p>
-<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>语法为 <em>[^角标文字]</em>, 然后将 <em>[角标文字]: 解释内容</em> 放在之后的段落中, 例如 Patrick’s blog<a href="Patrick%E5%8D%9A%E5%AE%A2">^1</a></p>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>语法为 <em>[^角标文字]</em>, 然后将 <em>[角标文字]: 解释内容</em> 放在之后的段落中, 例如 Patrick’s blog<a href="/2022/12/14/10-01-00/">^1</a></p>
 <h2 id="列表-1"><a href="#列表-1" class="headerlink" title="列表"></a>列表</h2><p>用法为</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">First Term</span><br><span class="line">: This is the definition of the first term.</span><br><span class="line"></span><br><span class="line">Second Term</span><br><span class="line">: This is one definition of the second term.</span><br><span class="line">: This is another definition of the second term.</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">First Term</span><br><span class="line">: This is the definition of the first term.</span><br><span class="line"></span><br><span class="line">Second Term</span><br><span class="line">: This is one definition of the second term.</span><br><span class="line">: This is another definition of the second term.</span><br></pre></td></tr></tbody></table></figure>
 <p>所生成的 HTML 为:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>First Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is the definition of the first term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Second Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is one definition of the second term. <span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is another definition of the second term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>First Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is the definition of the first term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Second Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is one definition of the second term. <span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is another definition of the second term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <p>所呈现效果为:<br>First Term<br>▯▯This is the definition of the first term.<br>Second Term<br>▯▯This is one definition of the second term.<br>▯▯This is another definition of the second term.</p>
 <h2 id="Emoji"><a href="#Emoji" class="headerlink" title="Emoji"></a>Emoji</h2><p>直接使用通过键入表情符号短代码来插入表情符号<br>例如:</p>
-<p>:joy: -&gt; 😂</p>
+<p><span class="github-emoji"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> -&gt; 😂</p>
 <h2 id="butterfly支持标签"><a href="#butterfly支持标签" class="headerlink" title="butterfly支持标签"></a>butterfly支持标签</h2><p>作者: Jerry<br>連結: <a href="https://butterfly.js.org/">https://butterfly.js.org/</a><br>來源: Butterfly<br>著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。</p>
-<h3 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note simple %&#125;</span><br><span class="line">默認 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note default simple %&#125;</span><br><span class="line">default 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary simple %&#125;</span><br><span class="line">primary 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success simple %&#125;</span><br><span class="line">success 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info simple %&#125;</span><br><span class="line">info 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning simple %&#125;</span><br><span class="line">warning 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger simple %&#125;</span><br><span class="line">danger 提示塊標籤</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% note simple %}</span><br><span class="line">默認 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note default simple %}</span><br><span class="line">default 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note primary simple %}</span><br><span class="line">primary 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note success simple %}</span><br><span class="line">success 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note info simple %}</span><br><span class="line">info 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note warning simple %}</span><br><span class="line">warning 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note danger simple %}</span><br><span class="line">danger 提示塊標籤</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
 <div class="note simple"><p>默認 提示塊標籤</p>
 </div>
 
@@ -331,7 +331,7 @@
 </div>
 
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% note &#x27;fab fa-cc-visa&#x27; simple %&#125;</span><br><span class="line">你是刷 Visa 還是 UnionPay</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line">&#123;% note blue &#x27;fas fa-bullhorn&#x27; simple %&#125;</span><br><span class="line">2021年快到了....</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line">&#123;% note pink &#x27;fas fa-car-crash&#x27; simple %&#125;</span><br><span class="line">小心開車 安全至上</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line">&#123;% note red &#x27;fas fa-fan&#x27; simple%&#125;</span><br><span class="line">這是三片呢？還是四片？</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line">&#123;% note orange &#x27;fas fa-battery-half&#x27; simple %&#125;</span><br><span class="line">你是刷 Visa 還是 UnionPay</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line">&#123;% note purple &#x27;far fa-hand-scissors&#x27; simple %&#125;</span><br><span class="line">剪刀石頭布</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line">&#123;% note green &#x27;fab fa-internet-explorer&#x27; simple %&#125;</span><br><span class="line">前端最討厭的瀏覽器</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% note 'fab fa-cc-visa' simple %}</span><br><span class="line">你是刷 Visa 還是 UnionPay</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note blue 'fas fa-bullhorn' simple %}</span><br><span class="line">2021年快到了....</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note pink 'fas fa-car-crash' simple %}</span><br><span class="line">小心開車 安全至上</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note red 'fas fa-fan' simple%}</span><br><span class="line">這是三片呢？還是四片？</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note orange 'fas fa-battery-half' simple %}</span><br><span class="line">你是刷 Visa 還是 UnionPay</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note purple 'far fa-hand-scissors' simple %}</span><br><span class="line">剪刀石頭布</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note green 'fab fa-internet-explorer' simple %}</span><br><span class="line">前端最討厭的瀏覽器</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
 <div class="note icon-padding simple"><i class="note-icon fab fa-cc-visa"></i><p>你是刷 Visa 還是 UnionPay</p>
 </div>
 <div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i><p>2021年快到了….</p>
@@ -363,35 +363,35 @@
 
 <h3 id="tag-hide"><a href="#tag-hide" class="headerlink" title="tag-hide"></a>tag-hide</h3><span class="hide-inline"><button type="button" class="hide-button" style="background-color: bg;color: color">display
   </button><span class="hide-content">content</span></span>, 例如
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">哪個英文字母最酷？ &#123;% hideInline 因為西裝褲(C裝酷),查看答案,#FF7242,#fff %&#125;</span><br><span class="line"></span><br><span class="line">門裏站着一個人? &#123;% hideInline 閃 %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">哪個英文字母最酷？ {% hideInline 因為西裝褲(C裝酷),查看答案,#FF7242,#fff %}</span><br><span class="line"></span><br><span class="line">門裏站着一個人? {% hideInline 閃 %}</span><br></pre></td></tr></tbody></table></figure>
 <p>哪個英文字母最酷？ <span class="hide-inline"><button type="button" class="hide-button" style="background-color: #FF7242;color: #fff">查看答案
   </button><span class="hide-content">因為西裝褲(C裝酷)</span></span></p>
 <p>門裏站着一個人? <span class="hide-inline"><button type="button" class="hide-button" style="">Click
   </button><span class="hide-content">閃</span></span></p>
 <h3 id="mermaid"><a href="#mermaid" class="headerlink" title="mermaid"></a>mermaid</h3><p>使用mermaid标签可以绘制Flowchart（流程图）、Sequence diagram（时序图 ）、Class Diagram（类别图）、State Diagram（状态图）、Gantt（甘特图）和Pie Chart（圆形图）<br><a href="https://mermaid-js.github.io/mermaid/#/">mermaid文档</a></p>
 <h3 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h3><p>使用方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs Unique name, [index] %&#125;</span><br><span class="line">&lt;!-- tab [Tab caption] [@icon] --&gt;</span><br><span class="line">Any content (support inline tags too).</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br><span class="line"></span><br><span class="line">Unique name   : Unique name of tabs block tag without comma.</span><br><span class="line">                Will be used in #id&#x27;s as prefix for each tab with their index numbers.</span><br><span class="line">                If there are whitespaces in name, for generate #id all whitespaces will replaced by dashes.</span><br><span class="line">                Only for current url of post/page must be unique!</span><br><span class="line">[index]       : Index number of active tab.</span><br><span class="line">                If not specified, first tab (1) will be selected.</span><br><span class="line">                If index is -1, no tab will be selected. It&#x27;s will be something like spoiler.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[Tab caption] : Caption of current tab.</span><br><span class="line">                If not caption specified, unique name with tab index suffix will be used as caption of tab.</span><br><span class="line">                If not caption specified, but specified icon, caption will empty.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[@icon]       : FontAwesome icon name (full-name, look like &#x27;fas fa-font&#x27;)</span><br><span class="line">                Can be specified with or without space; e.g. &#x27;Tab caption @icon&#x27; similar to &#x27;Tab caption@icon&#x27;.</span><br><span class="line">                Optional parameter.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% tabs Unique name, [index] %}</span><br><span class="line">&lt;!-- tab [Tab caption] [@icon] --&gt;</span><br><span class="line">Any content (support inline tags too).</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">{% endtabs %}</span><br><span class="line"></span><br><span class="line">Unique name   : Unique name of tabs block tag without comma.</span><br><span class="line">                Will be used in #id's as prefix for each tab with their index numbers.</span><br><span class="line">                If there are whitespaces in name, for generate #id all whitespaces will replaced by dashes.</span><br><span class="line">                Only for current url of post/page must be unique!</span><br><span class="line">[index]       : Index number of active tab.</span><br><span class="line">                If not specified, first tab (1) will be selected.</span><br><span class="line">                If index is -1, no tab will be selected. It's will be something like spoiler.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[Tab caption] : Caption of current tab.</span><br><span class="line">                If not caption specified, unique name with tab index suffix will be used as caption of tab.</span><br><span class="line">                If not caption specified, but specified icon, caption will empty.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[@icon]       : FontAwesome icon name (full-name, look like 'fas fa-font')</span><br><span class="line">                Can be specified with or without space; e.g. 'Tab caption @icon' similar to 'Tab caption@icon'.</span><br><span class="line">                Optional parameter.</span><br></pre></td></tr></tbody></table></figure>
 <p>例如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% tabs test1, 2 %&#125;</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 1.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 2.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 3.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% tabs test1, 2 %}</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 1.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 2.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 3.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">{% endtabs %}</span><br></pre></td></tr></tbody></table></figure>
 <div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab"><button type="button" data-href="#test1-1">test1 1</button></li><li class="tab active"><button type="button" data-href="#test1-2">test1 2</button></li><li class="tab"><button type="button" data-href="#test1-3">test1 3</button></li></ul><div class="tab-contents"><div class="tab-item-content" id="test1-1"><p><strong>This is Tab 1.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content active" id="test1-2"><p><strong>This is Tab 2.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-3"><p><strong>This is Tab 3.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 
-<h3 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% btn [url],[text],[icon],[color] [style] [layout] [position] [size] %&#125;</span><br><span class="line"></span><br><span class="line">[url]         : 鏈接</span><br><span class="line">[text]        : 按鈕文字</span><br><span class="line">[icon]        : [可選] 圖標</span><br><span class="line">[color]       : [可選] 按鈕背景顔色(默認style時）</span><br><span class="line">                      按鈕字體和邊框顔色(outline時)</span><br><span class="line">                      default/blue/pink/red/purple/orange/green</span><br><span class="line">[style]       : [可選] 按鈕樣式 默認實心</span><br><span class="line">                      outline/留空</span><br><span class="line">[layout]      : [可選] 按鈕佈局 默認為line</span><br><span class="line">                      block/留空</span><br><span class="line">[position]    : [可選] 按鈕位置 前提是設置了layout為block 默認為左邊</span><br><span class="line">                      center/right/留空</span><br><span class="line">[size]        : [可選] 按鈕大小</span><br><span class="line">                      larger/留空</span><br></pre></td></tr></table></figure>
+<h3 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% btn [url],[text],[icon],[color] [style] [layout] [position] [size] %}</span><br><span class="line"></span><br><span class="line">[url]         : 鏈接</span><br><span class="line">[text]        : 按鈕文字</span><br><span class="line">[icon]        : [可選] 圖標</span><br><span class="line">[color]       : [可選] 按鈕背景顔色(默認style時）</span><br><span class="line">                      按鈕字體和邊框顔色(outline時)</span><br><span class="line">                      default/blue/pink/red/purple/orange/green</span><br><span class="line">[style]       : [可選] 按鈕樣式 默認實心</span><br><span class="line">                      outline/留空</span><br><span class="line">[layout]      : [可選] 按鈕佈局 默認為line</span><br><span class="line">                      block/留空</span><br><span class="line">[position]    : [可選] 按鈕位置 前提是設置了layout為block 默認為左邊</span><br><span class="line">                      center/right/留空</span><br><span class="line">[size]        : [可選] 按鈕大小</span><br><span class="line">                      larger/留空</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="inlineImg"><a href="#inlineImg" class="headerlink" title="inlineImg"></a>inlineImg</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% inlineImg [src] [height] %&#125;</span><br><span class="line"></span><br><span class="line">[src]      :    圖片鏈接</span><br><span class="line">[height]   ：   圖片高度限制【可選】</span><br></pre></td></tr></table></figure>
+<h3 id="inlineImg"><a href="#inlineImg" class="headerlink" title="inlineImg"></a>inlineImg</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% inlineImg [src] [height] %}</span><br><span class="line"></span><br><span class="line">[src]      :    圖片鏈接</span><br><span class="line">[height]   ：   圖片高度限制【可選】</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% label text color %&#125;</span><br></pre></td></tr></table></figure>
-<p>例如<br><code>&#123;% label text blue %&#125;</code><mark class="hl-label blue">text</mark> </p>
-<h3 id="timeline"><a href="#timeline" class="headerlink" title="timeline"></a>timeline</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% timeline title,color %&#125;</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% label text color %}</span><br><span class="line">color: default/blue/pink/red/purple/orange/green</span><br></pre></td></tr></tbody></table></figure>
+<p>例如<br><code>{% label text blue %}</code><mark class="hl-label blue">text</mark> </p>
+<h3 id="timeline"><a href="#timeline" class="headerlink" title="timeline"></a>timeline</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% timeline title,color %}</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">{% endtimeline %}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>例如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% timeline 2022 %&#125;</span><br><span class="line">&lt;!-- timeline 01-02 --&gt;</span><br><span class="line">這是測試頁面</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure>
-<div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>2022</p>
-</div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>01-02</p>
-</div></div><div class='timeline-item-content'><p>這是測試頁面</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% timeline 2022 %}</span><br><span class="line">&lt;!-- timeline 01-02 --&gt;</span><br><span class="line">這是測試頁面</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">{% endtimeline %}</span><br></pre></td></tr></tbody></table></figure>
+<div class="timeline undefined"><div class="timeline-item headline"><div class="timeline-item-title"><div class="item-circle"><p>2022</p>
+</div></div></div><div class="timeline-item"><div class="timeline-item-title"><div class="item-circle"><p>01-02</p>
+</div></div><div class="timeline-item-content"><p>這是測試頁面</p>
 </div></div></div>
 
 <h3 id="flink"><a href="#flink" class="headerlink" title="flink"></a>flink</h3><p>友链</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% flink %&#125;</span><br><span class="line">link.yml内容</span><br><span class="line">&#123;% endflink %&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% flink %}</span><br><span class="line">link.yml内容</span><br><span class="line">{% endflink %}</span><br></pre></td></tr></tbody></table></figure>]]></content>
       <categories>
         <category>Note</category>
         <category>Tool</category>
@@ -400,6 +400,527 @@
       <tags>
         <tag>Markdown</tag>
         <tag>Baisc grammar</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Lua的学习笔记</title>
+    <url>/2022/12/14/09-16-35/</url>
+    <content><![CDATA[<h1 id="Lua学习笔记"><a href="#Lua学习笔记" class="headerlink" title="Lua学习笔记"></a><strong>Lua</strong>学习笔记</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h3><p>Lua 中的单行注释用 <code>--</code> 表示</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">-- Hello World</span></span><br><span class="line"><span class="comment">-- Hello Lua</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h3><p>Lua 中的多行注释由 <code>--[[</code> 开始, 以 <code>--]]</code> 结束</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">--[[</span></span><br><span class="line"><span class="comment">Hello World</span></span><br><span class="line"><span class="comment">Hello Lua    </span></span><br><span class="line"><span class="comment">--]]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>Lua中一共有 22 个关键字</p>
+<ul>
+<li>and<br>  布尔运算和</li>
+<li>break<br>  跳出循环</li>
+<li>do<br>  代码块开始标记</li>
+<li>else<br>  分支语句表示默认分支</li>
+<li>elseif<br>  分支语句表示另一个条件分支</li>
+<li>end<br>  代码块结束标记</li>
+<li>false<br>  条件假</li>
+<li>for<br>  循环语句关键字</li>
+<li>function<br>  函数声明关键字</li>
+<li>if<br>  分支语句关键字</li>
+<li>in<br>  迭代关键字</li>
+<li>local<br>  局部变量声明关键字</li>
+<li>nil<br>  空类型声明关键字</li>
+<li>not<br>  布尔运算非</li>
+<li>or<br>  布尔运算或</li>
+<li>repeat<br>  直到循环声明关键字</li>
+<li>return<br>  函数返回关键字</li>
+<li>then<br>  分支语句关键字</li>
+<li>true<br>  条件真</li>
+<li>until<br>  直到循环声明关键字</li>
+<li>while<br>  当循环声明关键字</li>
+<li>goto<br>  跳转语句关键字</li>
+</ul>
+<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><p>Lua 中的变量分为全局变量和局部变量, 声明变量时未加 <code>loacl</code> 关键字的变量为全局变量</p>
+<div class="note info simple"><p>全局变量的首字母通常大写</p>
+</div>
+
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line">Var = <span class="literal">nil</span> <span class="comment">-- 全局变量</span></span><br><span class="line"><span class="keyword">local</span> var = <span class="literal">nil</span> <span class="comment">-- 局部变量</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>Lua 中由8种数据类型, 分别是</p>
+<ul>
+<li>nil</li>
+<li>boolean</li>
+<li>number</li>
+<li>string</li>
+<li>table</li>
+<li>function</li>
+<li>userdata</li>
+<li>thread</li>
+</ul>
+<h3 id="nil-类型"><a href="#nil-类型" class="headerlink" title="nil 类型"></a>nil 类型</h3><p>nil类型的变量只有一种值, 即nil, 表示空</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> var = <span class="literal">nil</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(var)) <span class="comment">-- output: nil</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(var) == <span class="string">'nil'</span>) <span class="comment">-- output: true</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="boolean-类型"><a href="#boolean-类型" class="headerlink" title="boolean 类型"></a>boolean 类型</h3><p>Lua 中所有数据类型都可视作 boolean 类型, false 和 nil 看作是 false，其他的都为 true</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> var = <span class="literal">true</span> <span class="comment">-- boolean   false 和 nil 看作是 false，其他的都为 true</span></span><br><span class="line">var = <span class="literal">false</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(var)) <span class="comment">-- output: boolean</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="number-类型"><a href="#number-类型" class="headerlink" title="number 类型"></a>number 类型</h3><p>Lua 中 的数字默认可分为 64 位整数和 64 位浮点数</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> var = <span class="number">123</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(var)) <span class="comment">-- output: number</span></span><br><span class="line">var = <span class="number">0.3</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(var)) <span class="comment">-- output: number</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">0.1</span> + <span class="number">0.2</span>) <span class="comment">-- output: 0.3</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="string-类型"><a href="#string-类型" class="headerlink" title="string 类型"></a>string 类型</h3><p>Lua 中声明 string 类型变量由三种方式, 声明单行 string 可用 <code>'</code> 或 <code>"</code> , 声明多行 string 可用 <code>[[</code> 开始, <code>]]</code> 结束</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> var = <span class="string">'abc'</span></span><br><span class="line">var = <span class="string">"abc"</span></span><br><span class="line">var = <span class="string">[[</span></span><br><span class="line"><span class="string">    abc</span></span><br><span class="line"><span class="string">]]</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(var)) <span class="comment">-- output: string</span></span><br></pre></td></tr></tbody></table></figure>
+<mark class="hl-label orange">注意</mark>   在对一个数字字符串上进行算术操作时，Lua 会尝试将这个数字字符串转成一个数字, 字符串连接使用的是 .. , 使用 # 来获取字符串的长度
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"2"</span> + <span class="string">"6"</span>) <span class="comment">-- output: 8</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'2'</span> .. <span class="string">'6'</span>) <span class="comment">-- output: 26</span></span><br><span class="line"><span class="keyword">local</span> var = <span class="string">'123'</span></span><br><span class="line"><span class="built_in">print</span>(#var) <span class="comment">-- output: 3</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="funcyion-类型"><a href="#funcyion-类型" class="headerlink" title="funcyion 类型"></a>funcyion 类型</h3><p>Lua 的函数类型变量分为有名函数和匿名函数</p>
+<div class="note info simple"><p>匿名函数通常用作给函数传参来使用</p>
+</div>
+<div class="tabs" id="function-declaration"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#function-declaration-1">有名函数</button></li><li class="tab"><button type="button" data-href="#function-declaration-2">匿名函数</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="function-declaration-1"><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> var = <span class="function"><span class="keyword">function</span><span class="params">()</span></span> <span class="keyword">end</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">var</span><span class="params">()</span></span> <span class="keyword">end</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(var)) <span class="comment">-- output: function</span></span><br></pre></td></tr></tbody></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="function-declaration-2"><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="function"><span class="keyword">function</span><span class="params">()</span></span> <span class="keyword">end</span>))  <span class="comment">-- output: function</span></span><br></pre></td></tr></tbody></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+<h3 id="table-类型"><a href="#table-类型" class="headerlink" title="table 类型"></a>table 类型</h3><p>Lua 中唯一的一种内置的数据结构就是表, 由许多 k, v 键值对组成</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> var = {}</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(var)) <span class="comment">-- output: table</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="userdata-类型"><a href="#userdata-类型" class="headerlink" title="userdata 类型"></a>userdata 类型</h3><p>Lua 中的 userdata 类型变量表示任意存储在变量中的C数据结构</p>
+<h3 id="thread-类型"><a href="#thread-类型" class="headerlink" title="thread 类型"></a>thread 类型</h3><p>Lua 中的 thread 类型变量表示执行的独立线路，用于执行协同程序</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>Lua 中的函数是一种数据类型, 具体声明结构为</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun_name</span><span class="params">(arg1, arg2, arg3, ...)</span></span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line">    <span class="keyword">local</span> <span class="built_in">arg</span>={...} <span class="comment">-- 将可变参数转换为表</span></span><br><span class="line">    <span class="keyword">local</span> <span class="built_in">len</span> = <span class="built_in">select</span>(<span class="string">"#"</span>,...) <span class="comment">-- 获取可变参数长度</span></span><br><span class="line">    <span class="keyword">local</span> arg1 = <span class="built_in">select</span>(<span class="number">1</span>, ...) <span class="comment">--用于返回从起点 n 开始到结束位置的所有参数列表</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'1'</span>, <span class="number">2</span>, arg3</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<p>函数调用形式为</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> r1, r2, r3 = fun(<span class="string">'arg1'</span>, <span class="string">'arg2'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span></span> <span class="keyword">end</span>, <span class="string">'1'</span>) <span class="comment">-- 函数调用</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>lua 中 . 和 : 的区别</strong><br>首先在lua中使用 <code>:</code> 定义的函数会自动传入一个名为self的变量，这个变量是隐含的，self同c++中的this一样，表示当前对象的指针, 而 <code>.</code> 定义的函数中没有self  </p>
+<p>例如:</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line">Class = {}</span><br><span class="line">Class.<span class="built_in">__index</span> = Class</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Class.new</span><span class="params">(x,y)</span></span></span><br><span class="line">    <span class="keyword">local</span> cls = {}</span><br><span class="line">    <span class="built_in">setmetatable</span>(cls, Class)</span><br><span class="line">    cls.x = x</span><br><span class="line">    cls.y = y</span><br><span class="line">    <span class="keyword">return</span> cls</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Class:test</span><span class="params">()</span></span></span><br><span class="line">    <span class="comment">-- 等价于</span></span><br><span class="line">    <span class="comment">-- function Class.test(self)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">self</span>.x,<span class="built_in">self</span>.y)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">object = Class.new(<span class="number">10</span>,<span class="number">20</span>)</span><br><span class="line"> </span><br><span class="line">object:test() <span class="comment">-- 等价于</span></span><br><span class="line">object.test(object)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="表"><a href="#表" class="headerlink" title="表"></a>表</h2><p>Lua 中声明表时可对表进行初始化</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> var = {index1 = <span class="string">'index1'</span>, index2 = <span class="number">2</span>}</span><br></pre></td></tr></tbody></table></figure>
+<p>填充表时可用<code>.</code>运算符或<code>[]</code>运算符</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">table</span>.index1 = <span class="number">1</span></span><br><span class="line"><span class="built_in">table</span>[<span class="string">'index2'</span>] = <span class="string">'index2'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>删除表中的值时直接将该元素置为 nil 即可</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">table</span>.index2 = <span class="literal">nil</span></span><br></pre></td></tr></tbody></table></figure>
+<p>访问表中元素时可用索引去取值, 或者使用<a href="/2022/12/14/09-16-35/#%E9%81%8D%E5%8E%86%E8%A1%A8">^遍历的方法访问表</a></p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>[<span class="string">'index1'</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.index2)</span><br><span class="line"><span class="comment">-- 遍历的方法见循环语句</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>当声明表并对其初始化时不填写索引或之后用 [数字] 的方式填表中的充值, 那么此时这个表可视为数组</p>
+<div class="note warning simple"><p>Lua 的默认索引是从 <mark class="hl-label orange">1</mark>  开始的</p>
+</div>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> array = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>}</span><br><span class="line">array[<span class="number">4</span>] = <span class="number">4</span></span><br><span class="line"><span class="built_in">print</span>(array[<span class="number">1</span>]) <span class="comment">-- output: 1</span></span><br></pre></td></tr></tbody></table></figure>
+<p>可使用<a href="/2022/12/14/09-16-35/#%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84">^遍历的方法访问数组</a></p>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>Lua 中使用 <code>::tag_name::</code>的形式声明标签, 通常标签和 <code>goto</code> 关键字搭配使用</p>
+<h2 id="赋值语句"><a href="#赋值语句" class="headerlink" title="赋值语句"></a>赋值语句</h2><p>Lua 可以对多个变量同时赋值, 例如<code>local a, b = 1,2</code></p>
+<div class="note info simple"><p>当变量个数和值的个数不一致时，Lua会以变量个数为基础采取以下策略:</p>
+<ul>
+<li>变量个数 &gt; 值的个数      按变量个数补足nil</li>
+<li>变量个数 &lt; 值的个数      多余的值会被忽略</li>
+</ul>
+</div>
+
+<h2 id="分支语句"><a href="#分支语句" class="headerlink" title="分支语句"></a>分支语句</h2><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> condition <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> condition <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> condition <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line"><span class="keyword">elseif</span> condition <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><p>循环语句中可用 <code>break</code> 关键字跳出当前循环, 或搭配标签和 <code>goto</code>关键字实现 continue</p>
+<div class="hide-block"><button type="button" class="hide-button" style="">查看break和continue的使用
+    </button><div class="hide-content"><div class="tabs" id="break-continue"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#break-continue-1">break</button></li><li class="tab"><button type="button" data-href="#break-continue-2">continue</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="break-continue-1"><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> condition <span class="keyword">do</span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line">    <span class="keyword">break</span> <span class="comment">-- 跳出循环</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="break-continue-2"><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line">:: continue::<span class="keyword">while</span> condition <span class="keyword">do</span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line">    <span class="keyword">goto</span> continue</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div></div></div>
+
+<h3 id="当型循环"><a href="#当型循环" class="headerlink" title="当型循环"></a>当型循环</h3><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> condition <span class="keyword">do</span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="直到型循环"><a href="#直到型循环" class="headerlink" title="直到型循环"></a>直到型循环</h3><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line">:: continue::<span class="keyword">repeat</span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line"><span class="keyword">until</span>(condition)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><h4 id="普通-for-循环"><a href="#普通-for-循环" class="headerlink" title="普通 for 循环"></a>普通 for 循环</h4><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span> <span class="keyword">do</span></span><br><span class="line">    <span class="comment">-- 1 从 1（exp1） 变化到 5（exp2），每次变化以 2（exp3） 为步长递增 1，并执行一次 "执行体". exp3 是可选的，如果不指定，默认为1</span></span><br><span class="line">    <span class="comment">-- body</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="遍历表"><a href="#遍历表" class="headerlink" title="遍历表"></a>遍历表</h4><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">pairs</span>(<span class="built_in">table</span>) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(k, v)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h4><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i, v <span class="keyword">in</span> <span class="built_in">ipairs</span>(array) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(i, v)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>Lua 中有以下运算符</p>
+<ul>
+<li><p>+	加法</p>
+</li>
+<li><p>-	减法</p>
+</li>
+<li><p>*	乘法</p>
+</li>
+<li><p>/	    除法</p>
+</li>
+<li><p>%	    取余</p>
+</li>
+<li><p>^	    乘幂</p>
+</li>
+<li><p>-	负号</p>
+</li>
+<li><p>//	整除运算符(&gt;=lua5.3)</p>
+</li>
+<li><p>==	等于</p>
+</li>
+<li><p>~=	不等于</p>
+</li>
+<li><p>&gt;	大于</p>
+</li>
+<li><p>&lt;	小于</p>
+</li>
+<li><p>&gt;=	大于等于</p>
+</li>
+<li><p>&lt;=	小于等于</p>
+</li>
+<li><p>and	逻辑与</p>
+</li>
+<li><p>or	逻辑或</p>
+</li>
+<li><p>not	逻辑非</p>
+</li>
+<li><p>..	连接两个字符串</p>
+</li>
+<li><p>#	一元运算符，返回字符串或表的长度</p>
+</li>
+</ul>
+<p>运算优先级由高到低排列为</p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th align="center">运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="center">^</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">not,    - (unary)</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="center">*,      /,       %</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">+,      -</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="center">..</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="center">&lt;,      &gt;,      &lt;=,     &gt;=,     ~=,    ==</td>
+</tr>
+<tr>
+<td>7</td>
+<td align="center">and</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="center">or</td>
+</tr>
+</tbody></table>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>Lua 中引如其他模块使用<code>require("module_name")</code>函数, 此时当前程序内会引入一个其他模块名称的表</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">"module"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">module</span>.constant)</span><br><span class="line"><span class="keyword">local</span> m = <span class="built_in">require</span>(<span class="string">"module"</span>) <span class="comment">-- 模块别名</span></span><br><span class="line"><span class="built_in">print</span>(m.constant)</span><br></pre></td></tr></tbody></table></figure>
+<div class="hide-block"><button type="button" class="hide-button" style="">查看module.lua内容
+    </button><div class="hide-content"><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">-- 文件名为 module.lua</span></span><br><span class="line"><span class="built_in">module</span> = {} <span class="comment">-- 定义一个名为 module 的模块</span></span><br><span class="line"><span class="built_in">module</span>.constant = <span class="string">"constant"</span> <span class="comment">-- 将一个数据添加进 module 表</span></span><br></pre></td></tr></tbody></table></figure></div></div>
+
+<h2 id="元表"><a href="#元表" class="headerlink" title="元表"></a>元表</h2><p>元表用于为表定义一些行为, 为表添加元表的方法为</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> a_table = {}                  <span class="comment">-- 普通表</span></span><br><span class="line"><span class="keyword">local</span> metatable = {}                <span class="comment">-- 元表</span></span><br><span class="line"><span class="built_in">setmetatable</span>(a_table,metatable)     <span class="comment">-- 把 mymetatable 设为 mytable 的元表</span></span><br><span class="line"></span><br><span class="line">metatable[<span class="string">'__index'</span>] = <span class="function"><span class="keyword">function</span><span class="params">(target_table, key)</span></span> <span class="comment">-- 添加元表函数</span></span><br><span class="line">    <span class="keyword">if</span> key == <span class="string">"key2"</span> <span class="keyword">then</span></span><br><span class="line">      <span class="keyword">return</span> <span class="string">"metatablevalue"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="built_in">print</span>(a_table.key1,a_table.key2) <span class="comment">-- output： value1    metatablevalue</span></span><br></pre></td></tr></tbody></table></figure>
+<table>
+<thead>
+<tr>
+<th>函数名称</th>
+<th>函数作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>__index</td>
+<td>当通过键来访问 table 的时候，如果这个键没有值，那么Lua就会寻找该table的metatable（假定有metatable）中的__index 键. 如果__index包含一个表，Lua会在表格中查找相应的键</td>
+</tr>
+<tr>
+<td>__newindex</td>
+<td>当你给表的一个缺少的索引赋值，解释器就会查找__newindex 元方法：如果存在则调用这个函数而不进行赋值操作</td>
+</tr>
+<tr>
+<td>__call</td>
+<td>在把普通表视作函数并调用时调用</td>
+</tr>
+<tr>
+<td>__tostring</td>
+<td>修改表的输出行为</td>
+</tr>
+<tr>
+<td>__add</td>
+<td>对应的运算符 ‘+’</td>
+</tr>
+<tr>
+<td>__sub</td>
+<td>对应的运算符 ‘-‘</td>
+</tr>
+<tr>
+<td>__mul</td>
+<td>对应的运算符 ‘*’</td>
+</tr>
+<tr>
+<td>__div</td>
+<td>对应的运算符 ‘/‘</td>
+</tr>
+<tr>
+<td>__mod</td>
+<td>对应的运算符 ‘%’</td>
+</tr>
+<tr>
+<td>__unm</td>
+<td>对应的运算符 ‘-‘</td>
+</tr>
+<tr>
+<td>__concat</td>
+<td>对应的运算符 ‘..’</td>
+</tr>
+<tr>
+<td>__eq</td>
+<td>对应的运算符 ‘==’</td>
+</tr>
+<tr>
+<td>__lt</td>
+<td>对应的运算符 ‘&lt;’</td>
+</tr>
+<tr>
+<td>__le</td>
+<td>对应的运算符 ‘&lt;=’</td>
+</tr>
+</tbody></table>
+<h2 id="协同程序（coroutine）"><a href="#协同程序（coroutine）" class="headerlink" title="协同程序（coroutine）"></a>协同程序（coroutine）</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>coroutine.create(func)</td>
+<td>创建 coroutine，返回 coroutine， 参数是一个函数，当和 resume 配合使用的时候就唤醒函数调用</td>
+</tr>
+<tr>
+<td>coroutine.resume()</td>
+<td>启动 coroutine，和 create 配合使用</td>
+</tr>
+<tr>
+<td>coroutine.yield()</td>
+<td>挂起 coroutine，将 coroutine 设置为挂起状态，这个和 resume 配合使用能有很多有用的效果</td>
+</tr>
+<tr>
+<td>coroutine.status()</td>
+<td>查看 coroutine 的状态（coroutine 的状态有三种：dead，suspended，running）</td>
+</tr>
+<tr>
+<td>coroutine.wrap()</td>
+<td>创建 coroutine，返回一个函数，一旦你调用这个函数，就进入 coroutine，和 create 功能重复</td>
+</tr>
+<tr>
+<td>coroutine.running()</td>
+<td>返回正在跑的 coroutine，一个 coroutine 就是一个线程，当使用running的时候，就是返回一个 corouting 的线程号</td>
+</tr>
+</tbody></table>
+<div class="tabs" id="create-coroutine"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#create-coroutine-1">使用 create() 创建 coroutine</button></li><li class="tab"><button type="button" data-href="#create-coroutine-2">使用 wrap() 创建 coroutine</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="create-coroutine-1"><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> co = <span class="built_in">coroutine</span>.<span class="built_in">create</span>(</span><br><span class="line">    <span class="function"><span class="keyword">function</span><span class="params">(arg)</span></span></span><br><span class="line">        <span class="keyword">for</span> i = <span class="number">1</span>, <span class="number">3</span> <span class="keyword">do</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">coroutine</span>.<span class="built_in">running</span>())</span><br><span class="line">            <span class="built_in">coroutine</span>.<span class="built_in">yield</span>(<span class="built_in">arg</span>)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'status '</span> .. <span class="built_in">coroutine</span>.<span class="built_in">status</span>(co))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>, <span class="number">4</span> <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">local</span> is_success, r =  <span class="built_in">coroutine</span>.<span class="built_in">resume</span>(co, <span class="string">'arg'</span>)</span><br><span class="line">    <span class="built_in">print</span>(r)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'status '</span> .. <span class="built_in">coroutine</span>.<span class="built_in">status</span>(co))</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="create-coroutine-2"><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> wr = <span class="built_in">coroutine</span>.<span class="built_in">wrap</span>(</span><br><span class="line">    <span class="function"><span class="keyword">function</span><span class="params">(arg)</span></span></span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">arg</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">wr(<span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+<h2 id="I-x2F-O"><a href="#I-x2F-O" class="headerlink" title="I/O"></a>I/O</h2><p>IO模式</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">r</td>
+<td align="left">读模式</td>
+</tr>
+<tr>
+<td align="center">w</td>
+<td align="left">写模式</td>
+</tr>
+<tr>
+<td align="center">a</td>
+<td align="left">追加模式</td>
+</tr>
+<tr>
+<td align="center">r+</td>
+<td align="left">更新模式，所有之前的数据都保留</td>
+</tr>
+<tr>
+<td align="center">w+</td>
+<td align="left">更新模式，所有之前的数据都删除</td>
+</tr>
+<tr>
+<td align="center">a+</td>
+<td align="left">追加更新模式，所有之前的数据都保留，只允许在文件尾部做写入</td>
+</tr>
+<tr>
+<td align="center">rb</td>
+<td align="left">读模式（二进制方式）</td>
+</tr>
+<tr>
+<td align="center">wb</td>
+<td align="left">写模式（二进制方式）</td>
+</tr>
+<tr>
+<td align="center">ab</td>
+<td align="left">追加模式(二进制方式）</td>
+</tr>
+<tr>
+<td align="center">r+b</td>
+<td align="left">更新模式，所有之前的数据都保留（二进制方式）</td>
+</tr>
+<tr>
+<td align="center">w+b</td>
+<td align="left">更新模式，所有之前的数据都删除（二进制方式）</td>
+</tr>
+<tr>
+<td align="center">a+b</td>
+<td align="left">追加更新模式，所有之前的数据都保留，只允许在文件尾部做写入（二进制方式）</td>
+</tr>
+</tbody></table>
+<h3 id="简单模式"><a href="#简单模式" class="headerlink" title="简单模式"></a>简单模式</h3><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line">file = <span class="built_in">io</span>.<span class="built_in">open</span>(<span class="string">"test.lua"</span>, <span class="string">"a"</span>) <span class="comment">-- 以附加的方式打开只写文件</span></span><br><span class="line"><span class="built_in">io</span>.<span class="built_in">output</span>(file) <span class="comment">-- 设置默认输出文件为 test.lua</span></span><br><span class="line"><span class="built_in">io</span>.<span class="built_in">write</span>(<span class="string">"--  test.lua 文件末尾注释"</span>) <span class="comment">-- 在文件最后一行添加 Lua 注释</span></span><br><span class="line"><span class="built_in">io</span>.<span class="built_in">close</span>(file) <span class="comment">-- 关闭打开的文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> file = <span class="built_in">io</span>.<span class="built_in">open</span> (<span class="string">'module.lua'</span>, <span class="string">'r'</span>) <span class="comment">-- 以只读方式打开文件</span></span><br><span class="line"><span class="built_in">io</span>.<span class="built_in">input</span>(file) <span class="comment">-- 设置默认输入文件为 test.lua</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">io</span>.<span class="built_in">read</span>()) <span class="comment">-- 输出文件第一行</span></span><br><span class="line"><span class="built_in">io</span>.<span class="built_in">close</span>(file)</span><br></pre></td></tr></tbody></table></figure>
+<p>io.read()参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“*n”</td>
+<td>读取一个数字并返回它</td>
+</tr>
+<tr>
+<td>“*a”</td>
+<td>从当前位置读取整个文件</td>
+</tr>
+<tr>
+<td>“*l”(默认)</td>
+<td>读取下一行，在文件尾 (EOF) 处返回 nil</td>
+</tr>
+<tr>
+<td>number</td>
+<td>返回一个指定字符个数的字符串，或在 EOF 时返回</td>
+</tr>
+</tbody></table>
+<p>其他的 io 函数</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>io.tmpfile()</td>
+<td>返回一个临时文件句柄，该文件以更新模式打开，程序结束时自动删除</td>
+</tr>
+<tr>
+<td>io.type(file)</td>
+<td>检测obj是否一个可用的文件句柄</td>
+</tr>
+<tr>
+<td>io.flush()</td>
+<td>向文件写入缓冲中的所有数据</td>
+</tr>
+<tr>
+<td>io.lines(optional file name)</td>
+<td>返回一个迭代函数，每次调用将获得文件中的一行内容，当到文件尾时，将返回 nil，但不关闭文件</td>
+</tr>
+</tbody></table>
+<h3 id="完全模式"><a href="#完全模式" class="headerlink" title="完全模式"></a>完全模式</h3><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line">file = <span class="built_in">io</span>.<span class="built_in">open</span>(<span class="string">"test.lua"</span>, <span class="string">"r"</span>) <span class="comment">-- 以只读方式打开文件</span></span><br><span class="line"><span class="built_in">print</span>(file:<span class="built_in">read</span>()) <span class="comment">-- 输出文件第一行</span></span><br><span class="line">file:<span class="built_in">close</span>() <span class="comment">-- 关闭打开的文件</span></span><br><span class="line"></span><br><span class="line">file = <span class="built_in">io</span>.<span class="built_in">open</span>(<span class="string">"test.lua"</span>, <span class="string">"a"</span>) <span class="comment">-- 以附加的方式打开只写文件</span></span><br><span class="line">file:<span class="built_in">write</span>(<span class="string">"--test"</span>) <span class="comment">-- 在文件最后一行添加 Lua 注释</span></span><br><span class="line">file:<span class="built_in">close</span>() <span class="comment">-- 关闭打开的文件</span></span><br></pre></td></tr></tbody></table></figure>
+<p>file:read()参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“*n”</td>
+<td>读取一个数字，根据 Lua 的转换文法返回浮点数或整数</td>
+</tr>
+<tr>
+<td>“*a”</td>
+<td>从当前位置开始读取整个文件</td>
+</tr>
+<tr>
+<td>“*l”</td>
+<td>读取一行并忽略行结束标记 (默认)</td>
+</tr>
+<tr>
+<td>“*L”</td>
+<td>读取一行并保留行结束标记</td>
+</tr>
+</tbody></table>
+<p>其他函数</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>file:seek(optional whence, optional offset)</td>
+<td>设置和获取当前文件位置,成功则返回最终的文件位置(按字节),失败则返回nil加错误信息</td>
+</tr>
+<tr>
+<td>file:flush()</td>
+<td>向文件写入缓冲中的所有数据</td>
+</tr>
+<tr>
+<td>io.lines(optional file name)</td>
+<td>打开指定的文件 filename 为读模式并返回一个迭代函数，每次调用将获得文件中的一行内容，当到文件尾时，将返回 nil，并自动关闭文件. 若不带参数时io.lines() &lt;=&gt; io.input():lines(); 读取默认输入设备的内容，但结束时不关闭文件</td>
+</tr>
+</tbody></table>
+<div class="note info simple"><p>file:seek()参数:</p>
+<ol>
+<li>whence 值可以是:</li>
+</ol>
+<ul>
+<li>“set”: 从文件头开始</li>
+<li>“cur”: 从当前位置开始[默认]</li>
+<li>“end”: 从文件尾开始</li>
+</ul>
+<ol start="2">
+<li>offset 偏移量(默认为0)</li>
+</ol>
+</div>
+
+<h2 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h2><figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">assert</span>(<span class="built_in">type</span>(<span class="literal">true</span>) == <span class="string">"number"</span>, <span class="string">"true 不是一个数字"</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><h3 id="error"><a href="#error" class="headerlink" title="error()"></a>error()</h3><p>error(messahe, level) 函数可终止正在执行的函数，并返回message的内容作为错误信息(error函数永远都不会返回)<br>通常情况下，error会附加一些错误位置的信息到message头部</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>messaage</td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td>level</td>
+<td>指示获得错误的位置<br>Level=1[默认]: 为调用error位置(文件+行号)<br>Level=2: 指出哪个调用error的函数的函数<br>Level=0: 不添加错误位置信息</td>
+</tr>
+</tbody></table>
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><h4 id="pcall"><a href="#pcall" class="headerlink" title="pcall()"></a>pcall()</h4><p>pcall接收一个函数和要传递给后者的参数，并执行，执行结果：有错误、无错误；返回值true或者或false, errorinfo<br>pcall以一种”保护模式”来调用第一个参数，因此pcall可以捕获函数执行中的任何错误<br>通常在错误发生时，希望落得更多的调试信息，而不只是发生错误的位置. 但pcall返回时，它已经销毁了调用桟的部分内容</p>
+<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">pcall</span>(<span class="function"><span class="keyword">function</span> <span class="params">(x, y, z)</span></span> <span class="built_in">error</span>(<span class="string">'ERROR'</span>) <span class="keyword">end</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'SUCCESS'</span>)</span><br><span class="line">    <span class="comment">-- 没有错误</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'ERROR'</span>)</span><br><span class="line">    <span class="comment">-- 一些错误</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="xpcall"><a href="#xpcall" class="headerlink" title="xpcall()"></a>xpcall()</h4><p>xpcall接收第二个参数——一个错误处理函数，当错误发生时，Lua会在调用桟展开（unwind）前调用错误处理函数，于是就可以在这个函数中使用debug库来获取关于错误的额外信息了<br>debug库提供了两个通用的错误处理函数: </p>
+<ul>
+<li>debug.debug(): 提供一个Lua提示符，让用户来检查错误的原因</li>
+<li>debug.traceback(): 根据调用桟来构建一个扩展的错误消息<figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">local</span> myfunction = <span class="function"><span class="keyword">function</span> <span class="params">(x, y)</span></span></span><br><span class="line">   x = y / <span class="literal">nil</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> myerrorhandler =  <span class="function"><span class="keyword">function</span> <span class="params">( err )</span></span></span><br><span class="line">   <span class="built_in">print</span>( <span class="string">"ERROR:"</span>, err )</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> <span class="built_in">status</span> = <span class="built_in">xpcall</span>(myfunction, myerrorhandler, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">status</span>)</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<hr>
+<div class="flink"><div class="flink-name">Lua 相关文档</div> <div class="flink-list">
+          <div class="flink-list-item">
+            <a href="http://www.lua.org/manual/5.4/" title="Lua 5.4 Reference Manual" target="_blank">
+              <div class="flink-item-icon">
+                <img class="no-lightbox" src="http://www.lua.org/manual/5.4/logo.gif" onerror="this.onerror=null;this.src=&quot;/img/friend_404.gif&quot;" alt="Lua 5.4 Reference Manual">
+              </div>
+              <div class="flink-item-name">Lua 5.4 Reference Manual</div> 
+              <div class="flink-item-desc" title="Lua 5.4 参考文档">Lua 5.4 参考文档</div>
+            </a>
+          </div></div></div>]]></content>
+      <categories>
+        <category>Note</category>
+        <category>Language</category>
+        <category>Lua</category>
+      </categories>
+      <tags>
+        <tag>Baisc grammar</tag>
+        <tag>Lua</tag>
       </tags>
   </entry>
 </search>
