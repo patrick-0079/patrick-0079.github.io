@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Groovy 的学习笔记</title>
+    <url>/2022/12/14/11-52-35/</url>
+    <content><![CDATA[<h1 id="Groovy-学习笔记"><a href="#Groovy-学习笔记" class="headerlink" title="Groovy 学习笔记"></a><strong>Groovy</strong> 学习笔记</h1>]]></content>
+      <categories>
+        <category>Note</category>
+        <category>Language</category>
+        <category>Groovy</category>
+      </categories>
+      <tags>
+        <tag>Groovy</tag>
+        <tag>Baisc grammar</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello</title>
     <url>/2022/12/13/13-52-03/</url>
     <content><![CDATA[<h1 id="Hello-This-is-Patrick’s-blog"><a href="#Hello-This-is-Patrick’s-blog" class="headerlink" title="Hello, This is Patrick’s blog!"></a><em><strong>Hello, This is Patrick’s blog!</strong></em></h1>]]></content>
@@ -13,399 +27,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Markdown的学习笔记</title>
-    <url>/2022/12/13/10-01-00/</url>
-    <content><![CDATA[<h1 id="Markdown学习笔记"><a href="#Markdown学习笔记" class="headerlink" title="Markdown学习笔记"></a><strong>Markdown</strong>学习笔记</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td># Heading level 1</td>
-<td><code>&lt;h1&gt;Heading level 1&lt;/h1&gt;</code></td>
-<td><p style="font-size:32px">Heading level 1</p></td>
-</tr>
-<tr>
-<td>Heading level 1<br>===============</td>
-<td><code>&lt;h1&gt;Heading level 1&lt;/h1&gt;</code></td>
-<td><p style="font-size:32px">Heading level 1</p></td>
-</tr>
-<tr>
-<td>## Heading level 2</td>
-<td><code>&lt;h2&gt;Heading level 2&lt;/h2&gt;</code></td>
-<td><p style="font-size:24px">Heading level 2</p></td>
-</tr>
-<tr>
-<td>Heading level 2<br>—————</td>
-<td><code>&lt;h1&gt;Heading level 2&lt;/h1&gt;</code></td>
-<td><p style="font-size:24px">Heading level 2</p></td>
-</tr>
-<tr>
-<td>### Heading level 3</td>
-<td><code>&lt;h3&gt;Heading level 3&lt;/h3&gt;</code></td>
-<td><p style="font-size:18.72px">Heading level 3</p></td>
-</tr>
-<tr>
-<td>#### Heading level 4</td>
-<td><code>&lt;h4&gt;Heading level 4&lt;/h4&gt;</code></td>
-<td><p style="font-size:16px">Heading level 4</p></td>
-</tr>
-<tr>
-<td>##### Heading level 5</td>
-<td><code>&lt;h5&gt;Heading level 5&lt;/h5&gt;</code></td>
-<td><p style="font-size:13.28px">Heading level 5</p></td>
-</tr>
-<tr>
-<td>###### Heading level 6</td>
-<td><code>&lt;h6&gt;Heading level 6&lt;/h6&gt;</code></td>
-<td><p style="font-size:12px">Heading level 6</p></td>
-</tr>
-<tr>
-<td>###### Head { #id }</td>
-<td><code>&lt;h6 id="id"&gt;Heading&lt;/h6&gt;</code></td>
-<td><p style="font-size:12px">Head</p></td>
-</tr>
-</tbody></table>
-<h2 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h2><p>使用空白行分隔段落</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>段落一\n段落二</td>
-<td><code>&lt;p&gt;段落一&lt;/p&gt;&lt;p&gt;段落二&lt;/p&gt;</code></td>
-<td><p>段落一</p><p>段落二</p></td>
-</tr>
-</tbody></table>
-<h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p>使用<code>&lt;br&gt;</code>或两个空格实现换行</p>
-<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><h3 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h3><p>使用 ** 或 __ 包裹需要变成粗体的文字, 注意: __ 前必须有空格, 而 ** 不必有</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>这是**粗体**</td>
-<td><code>这是&lt;strong&gt;粗体&lt;/strong&gt;</code></td>
-<td>这是<strong>粗体</strong></td>
-</tr>
-<tr>
-<td>这是__粗体__</td>
-<td><code>这是&lt;strong&gt;粗体&lt;/strong&gt;</code></td>
-<td>这是<strong>粗体</strong></td>
-</tr>
-</tbody></table>
-<h3 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h3><p>使用 * 或 _ 包裹需要变成斜体的文字, 注意: _ 前必须有空格, 而 * 不必有</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>这是*斜体*</td>
-<td><code>这是&lt;em&gt;斜体&lt;/em&gt;</code></td>
-<td>这是<em>斜体</em></td>
-</tr>
-<tr>
-<td>这是__斜体__</td>
-<td><code>这是&lt;em&gt;斜体&lt;/em&gt;</code></td>
-<td>这是<em>斜体</em></td>
-</tr>
-</tbody></table>
-<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>使用 ~~ 包裹需删除的文字</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>这是要~~删除~~的内容</td>
-<td><code>这是要&lt;s&gt;删除&lt;/s&gt;的内容</code></td>
-<td>这是要<del>删除</del>的内容</td>
-</tr>
-</tbody></table>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在段落前添加 &gt; 创建引用块, &gt; 的数量是嵌套的层数</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>&gt; 这里是引用段落</td>
-<td><code>&lt;blockquote&gt;这里是引用段落&lt;/blockquote&gt;</code></td>
-<td><blockquote>这里是引用段落</blockquote></td>
-</tr>
-<tr>
-<td>&gt; 这里是引用段落的引用段落</td>
-<td><code>&lt;blockquote&gt;这里是引用段落&lt;blockquote&gt;这里是引用段落引用段落&lt;/blockquote&gt;&lt;/blockquote&gt;</code></td>
-<td><blockquote>这里是引用段落<blockquote>这里是引用段落引用段落</blockquote></blockquote></td>
-</tr>
-</tbody></table>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1. First item<br>2. Second item<br>3. Third item<br>4. Fourth item</td>
-<td><code>&lt;ol&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code></td>
-<td><ol><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ol></td>
-</tr>
-<tr>
-<td>1. First item<br>1. Second item<br>1. Third item<br>1. Fourth item</td>
-<td><code>&lt;ol&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code></td>
-<td><ol><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ol></td>
-</tr>
-<tr>
-<td>1. First item<br>3. Second item<br>5. Third item<br>7. Fourth item</td>
-<td><code>&lt;ol&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code></td>
-<td><ol><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ol></td>
-</tr>
-<tr>
-<td>1. First item<br>1. Second item<br>▯▯▯▯1.Indented item<br>▯▯▯▯1.Indented item<br>1. Third item<br>1. Fourth item</td>
-<td><code>&lt;ol&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;ol&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code><br><code>&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code></td>
-<td><ol><li>First item</li><li>Second item</li><li>Third item<ol><li>Indented item</li><li>Indented item</li></ol></li><li>Fourth item</li></ol></td>
-</tr>
-</tbody></table>
-<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>要在保留列表连续性的同时在列表中添加另一种元素, 请将该元素缩进四个空格或一个制表符<br>代码块通常采用四个空格或一个制表符缩进. 当它们被放在列表中时, 请将它们缩进八个空格或两个制表符</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>- First item<br>- Second item<br>- Third item<br>- Fourth item</td>
-<td><code>&lt;ul&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code></td>
-<td><ul><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul></td>
-</tr>
-<tr>
-<td>* First item<br>* Second item<br>* Third item<br>* Fourth item</td>
-<td><code>&lt;ul&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code></td>
-<td><ul><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul></td>
-</tr>
-<tr>
-<td>+ First item<br>+ Second item<br>+ Third item<br>+ Fourth item</td>
-<td><code>&lt;ul&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code></td>
-<td><ul><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul></td>
-</tr>
-<tr>
-<td>_ First item<br>_ Second item<br>▯▯_ Indented item<br>▯▯_ Indented item<br>_ Third item<br>_ Fourth item</td>
-<td><code>&lt;ul&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;ul&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code><br><code>&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code></td>
-<td><ul><li>First item</li><li>Second item</li><li>Third item<ul><li>Indented item</li><li>Indented item</li></ul></li><li>Fourth item</li></ul></td>
-</tr>
-</tbody></table>
-<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><p>带有复选框的项目列表<br>语法为:</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [x] Write the press release</span><br><span class="line"><span class="bullet">-</span> [ ] Update the website</span><br><span class="line"><span class="bullet">-</span> [ ] Contact the media</span><br></pre></td></tr></tbody></table></figure>
-<p>效果为:</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> Write the press release</li>
-<li><input disabled="" type="checkbox"> Update the website</li>
-<li><input disabled="" type="checkbox"> Contact the media</li>
-</ul>
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><h3 id="行内代码块"><a href="#行内代码块" class="headerlink" title="行内代码块"></a>行内代码块</h3><p>用 ` 或 `` 在一行内包裹一句代码, 代码中若出现则用 `` 包裹代码块</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>输出 `Hello` 用 Python 实现为: print(‘`hello`‘)</td>
-<td><code>输出 \`Hello\` 用 Python 实现为: &lt;code&gt;print('`hello`')&lt;/code&gt;</code></td>
-<td>输出 `Hello` 用 Python 实现为: <code>print('`hello`')</code></td>
-</tr>
-</tbody></table>
-<h3 id="跨行代码块"><a href="#跨行代码块" class="headerlink" title="跨行代码块"></a>跨行代码块</h3><p>将代码块的每一行缩进至少四个空格或一个制表符, 或使用 ```(language) 包裹代码块</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>print(‘hello’)<br>    print(‘world’)</td>
-<td>取决于解析器</td>
-<td><code>print('hello')<br>print('world')</code></td>
-</tr>
-</tbody></table>
-<h2 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h2><p>在单独一行上使用三个或多个 * , -, _ ，并且不能包含其他内容. 为了兼容性，请在分隔线的前后均添加空白行.</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>--- 或 ___ 或 ***</td>
-<td><code>&lt;tr&gt;</code></td>
-<td></td></tr><tr>
-</tr>
-</tbody></table>
-<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h3 id="普通链接"><a href="#普通链接" class="headerlink" title="普通链接"></a>普通链接</h3><table>
-<thead>
-<tr>
-<th>语法</th>
-<th>HTML</th>
-<th>预览效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[链接名称](链接地址)</td>
-<td><code>&lt;a href='链接地址'&gt;链接名称&lt;/a&gt;</code></td>
-<td><a href="https://patrick-0079.github.io/">Patrick’s blog</a></td>
-</tr>
-<tr>
-<td>&lt;链接地址&gt;</td>
-<td><code>&lt;a href='链接地址'&gt;链接地址&lt;/a&gt;</code></td>
-<td><a href="https://patrick-0079.github.io/">https://patrick-0079.github.io/</a></td>
-</tr>
-</tbody></table>
-<h3 id="引用类型链接"><a href="#引用类型链接" class="headerlink" title="引用类型链接"></a>引用类型链接</h3><p>语法为 <em>[链接名称][引用序号]</em>, 然后将 <em>[引用序号]: 链接地址</em> 放在之后的段落中, 例如<br><a href="https://patrick-0079.github.io/">Patrick’s blog</a></p>
-<h3 id="图片链接"><a href="#图片链接" class="headerlink" title="图片链接"></a>图片链接</h3><p>语法为 <em>![图片alt](图片链接 “图片title”)</em>, 对应的 HTML 为 <code>&lt;img src="图片链接" alt="图片alt" title="图片title"&gt;</code>, 例如:</p>
-<p><a href="https://patrick-0079.github.io/"><img src="https://patrick-0079.github.io/images/logo.ico" alt="Patrick" title="Patrick"></a></p>
-<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><p>Markdown中的特殊字符可通过在其前面加 \ 转义</p>
-<h2 id="内联-HTML"><a href="#内联-HTML" class="headerlink" title="内联 HTML"></a>内联 HTML</h2><p>在需要内联的 HTML 块前后加空白行</p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>语法:</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">| 表头1  | 表头2  |  表头3 | 表头4  |</span><br><span class="line">| ------ | :----- | -----: | :----: |</span><br><span class="line">| 1行1列 | 1行2列 | 1行3列 | 1行3列 |</span><br><span class="line">| 2行1列 | 2行2列 | 2行3列 | 2行3列 |</span><br></pre></td></tr></tbody></table></figure>
-<p>其中 — 意为默认对齐,  :— 意为左对齐,  —: 意为右对齐,  :—: 意为居中对齐</p>
-<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>语法为 <em>[^角标文字]</em>, 然后将 <em>[角标文字]: 解释内容</em> 放在之后的段落中, 例如 Patrick’s blog<a href="/2022/12/14/10-01-00/">^1</a></p>
-<h2 id="列表-1"><a href="#列表-1" class="headerlink" title="列表"></a>列表</h2><p>用法为</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">First Term</span><br><span class="line">: This is the definition of the first term.</span><br><span class="line"></span><br><span class="line">Second Term</span><br><span class="line">: This is one definition of the second term.</span><br><span class="line">: This is another definition of the second term.</span><br></pre></td></tr></tbody></table></figure>
-<p>所生成的 HTML 为:</p>
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>First Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is the definition of the first term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Second Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is one definition of the second term. <span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is another definition of the second term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<p>所呈现效果为:<br>First Term<br>▯▯This is the definition of the first term.<br>Second Term<br>▯▯This is one definition of the second term.<br>▯▯This is another definition of the second term.</p>
-<h2 id="Emoji"><a href="#Emoji" class="headerlink" title="Emoji"></a>Emoji</h2><p>直接使用通过键入表情符号短代码来插入表情符号<br>例如:</p>
-<p><span class="github-emoji"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> -&gt; 😂</p>
-<h2 id="butterfly支持标签"><a href="#butterfly支持标签" class="headerlink" title="butterfly支持标签"></a>butterfly支持标签</h2><p>作者: Jerry<br>連結: <a href="https://butterfly.js.org/">https://butterfly.js.org/</a><br>來源: Butterfly<br>著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。</p>
-<h3 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% note simple %}</span><br><span class="line">默認 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note default simple %}</span><br><span class="line">default 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note primary simple %}</span><br><span class="line">primary 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note success simple %}</span><br><span class="line">success 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note info simple %}</span><br><span class="line">info 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note warning simple %}</span><br><span class="line">warning 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note danger simple %}</span><br><span class="line">danger 提示塊標籤</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
-<div class="note simple"><p>默認 提示塊標籤</p>
-</div>
-
-<div class="note default simple"><p>default 提示塊標籤</p>
-</div>
-
-<div class="note primary simple"><p>primary 提示塊標籤</p>
-</div>
-
-<div class="note success simple"><p>success 提示塊標籤</p>
-</div>
-
-<div class="note info simple"><p>info 提示塊標籤</p>
-</div>
-
-<div class="note warning simple"><p>warning 提示塊標籤</p>
-</div>
-
-<div class="note danger simple"><p>danger 提示塊標籤</p>
-</div>
-
-
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% note 'fab fa-cc-visa' simple %}</span><br><span class="line">你是刷 Visa 還是 UnionPay</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note blue 'fas fa-bullhorn' simple %}</span><br><span class="line">2021年快到了....</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note pink 'fas fa-car-crash' simple %}</span><br><span class="line">小心開車 安全至上</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note red 'fas fa-fan' simple%}</span><br><span class="line">這是三片呢？還是四片？</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note orange 'fas fa-battery-half' simple %}</span><br><span class="line">你是刷 Visa 還是 UnionPay</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note purple 'far fa-hand-scissors' simple %}</span><br><span class="line">剪刀石頭布</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note green 'fab fa-internet-explorer' simple %}</span><br><span class="line">前端最討厭的瀏覽器</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
-<div class="note icon-padding simple"><i class="note-icon fab fa-cc-visa"></i><p>你是刷 Visa 還是 UnionPay</p>
-</div>
-<div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i><p>2021年快到了….</p>
-</div>
-<div class="note pink icon-padding simple"><i class="note-icon fas fa-car-crash"></i><p>小心開車 安全至上</p>
-</div>
-<div class="note red icon-padding simple"><i class="note-icon fas fa-fan"></i><p>這是三片呢？還是四片？</p>
-</div>
-<div class="note orange icon-padding simple"><i class="note-icon fas fa-battery-half"></i><p>你是刷 Visa 還是 UnionPay</p>
-</div>
-<div class="note purple icon-padding simple"><i class="note-icon far fa-hand-scissors"></i><p>剪刀石頭布</p>
-</div>
-<div class="note green icon-padding simple"><i class="note-icon fab fa-internet-explorer"></i><p>前端最討厭的瀏覽器</p>
-</div>
-<div class="note icon-padding simple"><i class="note-icon fab fa-cc-visa"></i><p>你是刷 Visa 還是 UnionPay</p>
-</div>
-<div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i><p>2021年快到了….</p>
-</div>
-<div class="note pink icon-padding simple"><i class="note-icon fas fa-car-crash"></i><p>小心開車 安全至上</p>
-</div>
-<div class="note red icon-padding simple"><i class="note-icon fas fa-fan"></i><p>這是三片呢？還是四片？</p>
-</div>
-<div class="note orange icon-padding simple"><i class="note-icon fas fa-battery-half"></i><p>你是刷 Visa 還是 UnionPay</p>
-</div>
-<div class="note purple icon-padding simple"><i class="note-icon far fa-hand-scissors"></i><p>剪刀石頭布</p>
-</div>
-<div class="note green icon-padding simple"><i class="note-icon fab fa-internet-explorer"></i><p>前端最討厭的瀏覽器</p>
-</div>
-
-<h3 id="tag-hide"><a href="#tag-hide" class="headerlink" title="tag-hide"></a>tag-hide</h3><span class="hide-inline"><button type="button" class="hide-button" style="background-color: bg;color: color">display
-  </button><span class="hide-content">content</span></span>, 例如
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">哪個英文字母最酷？ {% hideInline 因為西裝褲(C裝酷),查看答案,#FF7242,#fff %}</span><br><span class="line"></span><br><span class="line">門裏站着一個人? {% hideInline 閃 %}</span><br></pre></td></tr></tbody></table></figure>
-<p>哪個英文字母最酷？ <span class="hide-inline"><button type="button" class="hide-button" style="background-color: #FF7242;color: #fff">查看答案
-  </button><span class="hide-content">因為西裝褲(C裝酷)</span></span></p>
-<p>門裏站着一個人? <span class="hide-inline"><button type="button" class="hide-button" style="">Click
-  </button><span class="hide-content">閃</span></span></p>
-<h3 id="mermaid"><a href="#mermaid" class="headerlink" title="mermaid"></a>mermaid</h3><p>使用mermaid标签可以绘制Flowchart（流程图）、Sequence diagram（时序图 ）、Class Diagram（类别图）、State Diagram（状态图）、Gantt（甘特图）和Pie Chart（圆形图）<br><a href="https://mermaid-js.github.io/mermaid/#/">mermaid文档</a></p>
-<h3 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h3><p>使用方法</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% tabs Unique name, [index] %}</span><br><span class="line">&lt;!-- tab [Tab caption] [@icon] --&gt;</span><br><span class="line">Any content (support inline tags too).</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">{% endtabs %}</span><br><span class="line"></span><br><span class="line">Unique name   : Unique name of tabs block tag without comma.</span><br><span class="line">                Will be used in #id's as prefix for each tab with their index numbers.</span><br><span class="line">                If there are whitespaces in name, for generate #id all whitespaces will replaced by dashes.</span><br><span class="line">                Only for current url of post/page must be unique!</span><br><span class="line">[index]       : Index number of active tab.</span><br><span class="line">                If not specified, first tab (1) will be selected.</span><br><span class="line">                If index is -1, no tab will be selected. It's will be something like spoiler.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[Tab caption] : Caption of current tab.</span><br><span class="line">                If not caption specified, unique name with tab index suffix will be used as caption of tab.</span><br><span class="line">                If not caption specified, but specified icon, caption will empty.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[@icon]       : FontAwesome icon name (full-name, look like 'fas fa-font')</span><br><span class="line">                Can be specified with or without space; e.g. 'Tab caption @icon' similar to 'Tab caption@icon'.</span><br><span class="line">                Optional parameter.</span><br></pre></td></tr></tbody></table></figure>
-<p>例如</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% tabs test1, 2 %}</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 1.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 2.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 3.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">{% endtabs %}</span><br></pre></td></tr></tbody></table></figure>
-<div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab"><button type="button" data-href="#test1-1">test1 1</button></li><li class="tab active"><button type="button" data-href="#test1-2">test1 2</button></li><li class="tab"><button type="button" data-href="#test1-3">test1 3</button></li></ul><div class="tab-contents"><div class="tab-item-content" id="test1-1"><p><strong>This is Tab 1.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content active" id="test1-2"><p><strong>This is Tab 2.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-3"><p><strong>This is Tab 3.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-
-<h3 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% btn [url],[text],[icon],[color] [style] [layout] [position] [size] %}</span><br><span class="line"></span><br><span class="line">[url]         : 鏈接</span><br><span class="line">[text]        : 按鈕文字</span><br><span class="line">[icon]        : [可選] 圖標</span><br><span class="line">[color]       : [可選] 按鈕背景顔色(默認style時）</span><br><span class="line">                      按鈕字體和邊框顔色(outline時)</span><br><span class="line">                      default/blue/pink/red/purple/orange/green</span><br><span class="line">[style]       : [可選] 按鈕樣式 默認實心</span><br><span class="line">                      outline/留空</span><br><span class="line">[layout]      : [可選] 按鈕佈局 默認為line</span><br><span class="line">                      block/留空</span><br><span class="line">[position]    : [可選] 按鈕位置 前提是設置了layout為block 默認為左邊</span><br><span class="line">                      center/right/留空</span><br><span class="line">[size]        : [可選] 按鈕大小</span><br><span class="line">                      larger/留空</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="inlineImg"><a href="#inlineImg" class="headerlink" title="inlineImg"></a>inlineImg</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% inlineImg [src] [height] %}</span><br><span class="line"></span><br><span class="line">[src]      :    圖片鏈接</span><br><span class="line">[height]   ：   圖片高度限制【可選】</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% label text color %}</span><br><span class="line">color: default/blue/pink/red/purple/orange/green</span><br></pre></td></tr></tbody></table></figure>
-<p>例如<br><code>{% label text blue %}</code><mark class="hl-label blue">text</mark> </p>
-<h3 id="timeline"><a href="#timeline" class="headerlink" title="timeline"></a>timeline</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% timeline title,color %}</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">{% endtimeline %}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>例如</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% timeline 2022 %}</span><br><span class="line">&lt;!-- timeline 01-02 --&gt;</span><br><span class="line">這是測試頁面</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">{% endtimeline %}</span><br></pre></td></tr></tbody></table></figure>
-<div class="timeline undefined"><div class="timeline-item headline"><div class="timeline-item-title"><div class="item-circle"><p>2022</p>
-</div></div></div><div class="timeline-item"><div class="timeline-item-title"><div class="item-circle"><p>01-02</p>
-</div></div><div class="timeline-item-content"><p>這是測試頁面</p>
-</div></div></div>
-
-<h3 id="flink"><a href="#flink" class="headerlink" title="flink"></a>flink</h3><p>友链</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% flink %}</span><br><span class="line">link.yml内容</span><br><span class="line">{% endflink %}</span><br></pre></td></tr></tbody></table></figure>]]></content>
-      <categories>
-        <category>Note</category>
-        <category>Tool</category>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>Baisc grammar</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Lua的学习笔记</title>
+    <title>Lua 的学习笔记</title>
     <url>/2022/12/14/09-16-35/</url>
-    <content><![CDATA[<h1 id="Lua学习笔记"><a href="#Lua学习笔记" class="headerlink" title="Lua学习笔记"></a><strong>Lua</strong>学习笔记</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h3><p>Lua 中的单行注释用 <code>--</code> 表示</p>
+    <content><![CDATA[<h1 id="Lua-学习笔记"><a href="#Lua-学习笔记" class="headerlink" title="Lua 学习笔记"></a><strong>Lua</strong> 学习笔记</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h3><p>Lua 中的单行注释用 <code>--</code> 表示</p>
 <figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">-- Hello World</span></span><br><span class="line"><span class="comment">-- Hello Lua</span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h3><p>Lua 中的多行注释由 <code>--[[</code> 开始, 以 <code>--]]</code> 结束</p>
 <figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">--[[</span></span><br><span class="line"><span class="comment">Hello World</span></span><br><span class="line"><span class="comment">Hello Lua    </span></span><br><span class="line"><span class="comment">--]]</span></span><br></pre></td></tr></tbody></table></figure>
@@ -921,6 +545,396 @@
       <tags>
         <tag>Baisc grammar</tag>
         <tag>Lua</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown 的学习笔记</title>
+    <url>/2022/12/13/10-01-00/</url>
+    <content><![CDATA[<h1 id="Markdown-学习笔记"><a href="#Markdown-学习笔记" class="headerlink" title="Markdown 学习笔记"></a><strong>Markdown</strong> 学习笔记</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td># Heading level 1</td>
+<td><code>&lt;h1&gt;Heading level 1&lt;/h1&gt;</code></td>
+<td><p style="font-size:32px">Heading level 1</p></td>
+</tr>
+<tr>
+<td>Heading level 1<br>===============</td>
+<td><code>&lt;h1&gt;Heading level 1&lt;/h1&gt;</code></td>
+<td><p style="font-size:32px">Heading level 1</p></td>
+</tr>
+<tr>
+<td>## Heading level 2</td>
+<td><code>&lt;h2&gt;Heading level 2&lt;/h2&gt;</code></td>
+<td><p style="font-size:24px">Heading level 2</p></td>
+</tr>
+<tr>
+<td>Heading level 2<br>—————</td>
+<td><code>&lt;h1&gt;Heading level 2&lt;/h1&gt;</code></td>
+<td><p style="font-size:24px">Heading level 2</p></td>
+</tr>
+<tr>
+<td>### Heading level 3</td>
+<td><code>&lt;h3&gt;Heading level 3&lt;/h3&gt;</code></td>
+<td><p style="font-size:18.72px">Heading level 3</p></td>
+</tr>
+<tr>
+<td>#### Heading level 4</td>
+<td><code>&lt;h4&gt;Heading level 4&lt;/h4&gt;</code></td>
+<td><p style="font-size:16px">Heading level 4</p></td>
+</tr>
+<tr>
+<td>##### Heading level 5</td>
+<td><code>&lt;h5&gt;Heading level 5&lt;/h5&gt;</code></td>
+<td><p style="font-size:13.28px">Heading level 5</p></td>
+</tr>
+<tr>
+<td>###### Heading level 6</td>
+<td><code>&lt;h6&gt;Heading level 6&lt;/h6&gt;</code></td>
+<td><p style="font-size:12px">Heading level 6</p></td>
+</tr>
+<tr>
+<td>###### Head { #id }</td>
+<td><code>&lt;h6 id="id"&gt;Heading&lt;/h6&gt;</code></td>
+<td><p style="font-size:12px">Head</p></td>
+</tr>
+</tbody></table>
+<h2 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h2><p>使用空白行分隔段落</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>段落一\n段落二</td>
+<td><code>&lt;p&gt;段落一&lt;/p&gt;&lt;p&gt;段落二&lt;/p&gt;</code></td>
+<td><p>段落一</p><p>段落二</p></td>
+</tr>
+</tbody></table>
+<h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p>使用<code>&lt;br&gt;</code>或两个空格实现换行</p>
+<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><h3 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h3><p>使用 ** 或 __ 包裹需要变成粗体的文字, 注意: __ 前必须有空格, 而 ** 不必有</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>这是**粗体**</td>
+<td><code>这是&lt;strong&gt;粗体&lt;/strong&gt;</code></td>
+<td>这是<strong>粗体</strong></td>
+</tr>
+<tr>
+<td>这是__粗体__</td>
+<td><code>这是&lt;strong&gt;粗体&lt;/strong&gt;</code></td>
+<td>这是<strong>粗体</strong></td>
+</tr>
+</tbody></table>
+<h3 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h3><p>使用 * 或 _ 包裹需要变成斜体的文字, 注意: _ 前必须有空格, 而 * 不必有</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>这是*斜体*</td>
+<td><code>这是&lt;em&gt;斜体&lt;/em&gt;</code></td>
+<td>这是<em>斜体</em></td>
+</tr>
+<tr>
+<td>这是__斜体__</td>
+<td><code>这是&lt;em&gt;斜体&lt;/em&gt;</code></td>
+<td>这是<em>斜体</em></td>
+</tr>
+</tbody></table>
+<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>使用 ~~ 包裹需删除的文字</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>这是要~~删除~~的内容</td>
+<td><code>这是要&lt;s&gt;删除&lt;/s&gt;的内容</code></td>
+<td>这是要<del>删除</del>的内容</td>
+</tr>
+</tbody></table>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在段落前添加 &gt; 创建引用块, &gt; 的数量是嵌套的层数</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt; 这里是引用段落</td>
+<td><code>&lt;blockquote&gt;这里是引用段落&lt;/blockquote&gt;</code></td>
+<td><blockquote>这里是引用段落</blockquote></td>
+</tr>
+<tr>
+<td>&gt; 这里是引用段落的引用段落</td>
+<td><code>&lt;blockquote&gt;这里是引用段落&lt;blockquote&gt;这里是引用段落引用段落&lt;/blockquote&gt;&lt;/blockquote&gt;</code></td>
+<td><blockquote>这里是引用段落<blockquote>这里是引用段落引用段落</blockquote></blockquote></td>
+</tr>
+</tbody></table>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. First item<br>2. Second item<br>3. Third item<br>4. Fourth item</td>
+<td><code>&lt;ol&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code></td>
+<td><ol><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ol></td>
+</tr>
+<tr>
+<td>1. First item<br>1. Second item<br>1. Third item<br>1. Fourth item</td>
+<td><code>&lt;ol&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code></td>
+<td><ol><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ol></td>
+</tr>
+<tr>
+<td>1. First item<br>3. Second item<br>5. Third item<br>7. Fourth item</td>
+<td><code>&lt;ol&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code></td>
+<td><ol><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ol></td>
+</tr>
+<tr>
+<td>1. First item<br>1. Second item<br>▯▯▯▯1.Indented item<br>▯▯▯▯1.Indented item<br>1. Third item<br>1. Fourth item</td>
+<td><code>&lt;ol&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;ol&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code><br><code>&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ol&gt;</code></td>
+<td><ol><li>First item</li><li>Second item</li><li>Third item<ol><li>Indented item</li><li>Indented item</li></ol></li><li>Fourth item</li></ol></td>
+</tr>
+</tbody></table>
+<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>要在保留列表连续性的同时在列表中添加另一种元素, 请将该元素缩进四个空格或一个制表符<br>代码块通常采用四个空格或一个制表符缩进. 当它们被放在列表中时, 请将它们缩进八个空格或两个制表符</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>- First item<br>- Second item<br>- Third item<br>- Fourth item</td>
+<td><code>&lt;ul&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code></td>
+<td><ul><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul></td>
+</tr>
+<tr>
+<td>* First item<br>* Second item<br>* Third item<br>* Fourth item</td>
+<td><code>&lt;ul&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code></td>
+<td><ul><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul></td>
+</tr>
+<tr>
+<td>+ First item<br>+ Second item<br>+ Third item<br>+ Fourth item</td>
+<td><code>&lt;ul&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code></td>
+<td><ul><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul></td>
+</tr>
+<tr>
+<td>_ First item<br>_ Second item<br>▯▯_ Indented item<br>▯▯_ Indented item<br>_ Third item<br>_ Fourth item</td>
+<td><code>&lt;ul&gt;</code><br><code>&lt;li&gt;First item&lt;/li&gt;</code><br><code>&lt;li&gt;Second item&lt;/li&gt;</code><br><code>&lt;li&gt;Third item&lt;ul&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;li&gt;Indented item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code><br><code>&lt;/li&gt;</code><br><code>&lt;li&gt;Fourth item&lt;/li&gt;</code><br><code>&lt;/ul&gt;</code></td>
+<td><ul><li>First item</li><li>Second item</li><li>Third item<ul><li>Indented item</li><li>Indented item</li></ul></li><li>Fourth item</li></ul></td>
+</tr>
+</tbody></table>
+<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><p>带有复选框的项目列表<br>语法为:</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [x] Write the press release</span><br><span class="line"><span class="bullet">-</span> [ ] Update the website</span><br><span class="line"><span class="bullet">-</span> [ ] Contact the media</span><br></pre></td></tr></tbody></table></figure>
+<p>效果为:</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Write the press release</li>
+<li><input disabled="" type="checkbox"> Update the website</li>
+<li><input disabled="" type="checkbox"> Contact the media</li>
+</ul>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><h3 id="行内代码块"><a href="#行内代码块" class="headerlink" title="行内代码块"></a>行内代码块</h3><p>用 ` 或 `` 在一行内包裹一句代码, 代码中若出现则用 `` 包裹代码块</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>输出 `Hello` 用 Python 实现为: print(‘`hello`‘)</td>
+<td><code>输出 \`Hello\` 用 Python 实现为: &lt;code&gt;print('`hello`')&lt;/code&gt;</code></td>
+<td>输出 `Hello` 用 Python 实现为: <code>print('`hello`')</code></td>
+</tr>
+</tbody></table>
+<h3 id="跨行代码块"><a href="#跨行代码块" class="headerlink" title="跨行代码块"></a>跨行代码块</h3><p>将代码块的每一行缩进至少四个空格或一个制表符, 或使用 ```(language) 包裹代码块</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>print(‘hello’)<br>    print(‘world’)</td>
+<td>取决于解析器</td>
+<td><code>print('hello')<br>print('world')</code></td>
+</tr>
+</tbody></table>
+<h2 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h2><p>在单独一行上使用三个或多个 * , -, _ ，并且不能包含其他内容. 为了兼容性，请在分隔线的前后均添加空白行.</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>--- 或 ___ 或 ***</td>
+<td><code>&lt;tr&gt;</code></td>
+<td></td></tr><tr>
+</tr>
+</tbody></table>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h3 id="普通链接"><a href="#普通链接" class="headerlink" title="普通链接"></a>普通链接</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>HTML</th>
+<th>预览效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[链接名称](链接地址)</td>
+<td><code>&lt;a href='链接地址'&gt;链接名称&lt;/a&gt;</code></td>
+<td><a href="https://patrick-0079.github.io/">Patrick’s blog</a></td>
+</tr>
+<tr>
+<td>&lt;链接地址&gt;</td>
+<td><code>&lt;a href='链接地址'&gt;链接地址&lt;/a&gt;</code></td>
+<td><a href="https://patrick-0079.github.io/">https://patrick-0079.github.io/</a></td>
+</tr>
+</tbody></table>
+<h3 id="引用类型链接"><a href="#引用类型链接" class="headerlink" title="引用类型链接"></a>引用类型链接</h3><p>语法为 <em>[链接名称][引用序号]</em>, 然后将 <em>[引用序号]: 链接地址</em> 放在之后的段落中, 例如<br><a href="https://patrick-0079.github.io/">Patrick’s blog</a></p>
+<h3 id="图片链接"><a href="#图片链接" class="headerlink" title="图片链接"></a>图片链接</h3><p>语法为 <em>![图片alt](图片链接 “图片title”)</em>, 对应的 HTML 为 <code>&lt;img src="图片链接" alt="图片alt" title="图片title"&gt;</code>, 例如:</p>
+<p><a href="https://patrick-0079.github.io/"><img src="https://patrick-0079.github.io/images/logo.ico" alt="Patrick" title="Patrick"></a></p>
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><p>Markdown中的特殊字符可通过在其前面加 \ 转义</p>
+<h2 id="内联-HTML"><a href="#内联-HTML" class="headerlink" title="内联 HTML"></a>内联 HTML</h2><p>在需要内联的 HTML 块前后加空白行</p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>语法:</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">| 表头1  | 表头2  |  表头3 | 表头4  |</span><br><span class="line">| ------ | :----- | -----: | :----: |</span><br><span class="line">| 1行1列 | 1行2列 | 1行3列 | 1行3列 |</span><br><span class="line">| 2行1列 | 2行2列 | 2行3列 | 2行3列 |</span><br></pre></td></tr></tbody></table></figure>
+<p>其中 — 意为默认对齐,  :— 意为左对齐,  —: 意为右对齐,  :—: 意为居中对齐</p>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>语法为 <em>[^角标文字]</em>, 然后将 <em>[角标文字]: 解释内容</em> 放在之后的段落中, 例如 Patrick’s blog<a href="/2022/12/14/10-01-00/">^1</a></p>
+<h2 id="列表-1"><a href="#列表-1" class="headerlink" title="列表"></a>列表</h2><p>用法为</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">First Term</span><br><span class="line">: This is the definition of the first term.</span><br><span class="line"></span><br><span class="line">Second Term</span><br><span class="line">: This is one definition of the second term.</span><br><span class="line">: This is another definition of the second term.</span><br></pre></td></tr></tbody></table></figure>
+<p>所生成的 HTML 为:</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>First Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is the definition of the first term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Second Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is one definition of the second term. <span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is another definition of the second term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>所呈现效果为:<br>First Term<br>▯▯This is the definition of the first term.<br>Second Term<br>▯▯This is one definition of the second term.<br>▯▯This is another definition of the second term.</p>
+<h2 id="Emoji"><a href="#Emoji" class="headerlink" title="Emoji"></a>Emoji</h2><p>直接使用通过键入表情符号短代码来插入表情符号<br>例如:</p>
+<p><span class="github-emoji"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> -&gt; 😂</p>
+<h2 id="butterfly支持标签"><a href="#butterfly支持标签" class="headerlink" title="butterfly支持标签"></a>butterfly支持标签</h2><p>作者: Jerry<br>連結: <a href="https://butterfly.js.org/">https://butterfly.js.org/</a><br>來源: Butterfly<br>著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。</p>
+<h3 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% note simple %}</span><br><span class="line">默認 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note default simple %}</span><br><span class="line">default 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note primary simple %}</span><br><span class="line">primary 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note success simple %}</span><br><span class="line">success 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note info simple %}</span><br><span class="line">info 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note warning simple %}</span><br><span class="line">warning 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note danger simple %}</span><br><span class="line">danger 提示塊標籤</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
+<div class="note simple"><p>默認 提示塊標籤</p>
+</div>
+
+<div class="note default simple"><p>default 提示塊標籤</p>
+</div>
+
+<div class="note primary simple"><p>primary 提示塊標籤</p>
+</div>
+
+<div class="note success simple"><p>success 提示塊標籤</p>
+</div>
+
+<div class="note info simple"><p>info 提示塊標籤</p>
+</div>
+
+<div class="note warning simple"><p>warning 提示塊標籤</p>
+</div>
+
+<div class="note danger simple"><p>danger 提示塊標籤</p>
+</div>
+
+
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% note 'fab fa-cc-visa' simple %}</span><br><span class="line">你是刷 Visa 還是 UnionPay</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note blue 'fas fa-bullhorn' simple %}</span><br><span class="line">2021年快到了....</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note pink 'fas fa-car-crash' simple %}</span><br><span class="line">小心開車 安全至上</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note red 'fas fa-fan' simple%}</span><br><span class="line">這是三片呢？還是四片？</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note orange 'fas fa-battery-half' simple %}</span><br><span class="line">你是刷 Visa 還是 UnionPay</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note purple 'far fa-hand-scissors' simple %}</span><br><span class="line">剪刀石頭布</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note green 'fab fa-internet-explorer' simple %}</span><br><span class="line">前端最討厭的瀏覽器</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
+<div class="note icon-padding simple"><i class="note-icon fab fa-cc-visa"></i><p>你是刷 Visa 還是 UnionPay</p>
+</div>
+<div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i><p>2021年快到了….</p>
+</div>
+<div class="note pink icon-padding simple"><i class="note-icon fas fa-car-crash"></i><p>小心開車 安全至上</p>
+</div>
+<div class="note red icon-padding simple"><i class="note-icon fas fa-fan"></i><p>這是三片呢？還是四片？</p>
+</div>
+<div class="note orange icon-padding simple"><i class="note-icon fas fa-battery-half"></i><p>你是刷 Visa 還是 UnionPay</p>
+</div>
+<div class="note purple icon-padding simple"><i class="note-icon far fa-hand-scissors"></i><p>剪刀石頭布</p>
+</div>
+<div class="note green icon-padding simple"><i class="note-icon fab fa-internet-explorer"></i><p>前端最討厭的瀏覽器</p>
+</div>
+<div class="note icon-padding simple"><i class="note-icon fab fa-cc-visa"></i><p>你是刷 Visa 還是 UnionPay</p>
+</div>
+<div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i><p>2021年快到了….</p>
+</div>
+<div class="note pink icon-padding simple"><i class="note-icon fas fa-car-crash"></i><p>小心開車 安全至上</p>
+</div>
+<div class="note red icon-padding simple"><i class="note-icon fas fa-fan"></i><p>這是三片呢？還是四片？</p>
+</div>
+<div class="note orange icon-padding simple"><i class="note-icon fas fa-battery-half"></i><p>你是刷 Visa 還是 UnionPay</p>
+</div>
+<div class="note purple icon-padding simple"><i class="note-icon far fa-hand-scissors"></i><p>剪刀石頭布</p>
+</div>
+<div class="note green icon-padding simple"><i class="note-icon fab fa-internet-explorer"></i><p>前端最討厭的瀏覽器</p>
+</div>
+
+<h3 id="tag-hide"><a href="#tag-hide" class="headerlink" title="tag-hide"></a>tag-hide</h3><span class="hide-inline"><button type="button" class="hide-button" style="background-color: bg;color: color">display
+  </button><span class="hide-content">content</span></span>, 例如
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">哪個英文字母最酷？ {% hideInline 因為西裝褲(C裝酷),查看答案,#FF7242,#fff %}</span><br><span class="line"></span><br><span class="line">門裏站着一個人? {% hideInline 閃 %}</span><br></pre></td></tr></tbody></table></figure>
+<p>哪個英文字母最酷？ <span class="hide-inline"><button type="button" class="hide-button" style="background-color: #FF7242;color: #fff">查看答案
+  </button><span class="hide-content">因為西裝褲(C裝酷)</span></span></p>
+<p>門裏站着一個人? <span class="hide-inline"><button type="button" class="hide-button" style="">Click
+  </button><span class="hide-content">閃</span></span></p>
+<h3 id="mermaid"><a href="#mermaid" class="headerlink" title="mermaid"></a>mermaid</h3><p>使用mermaid标签可以绘制Flowchart（流程图）、Sequence diagram（时序图 ）、Class Diagram（类别图）、State Diagram（状态图）、Gantt（甘特图）和Pie Chart（圆形图）<br><a href="https://mermaid-js.github.io/mermaid/#/">mermaid文档</a></p>
+<h3 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h3><p>使用方法</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% tabs Unique name, [index] %}</span><br><span class="line">&lt;!-- tab [Tab caption] [@icon] --&gt;</span><br><span class="line">Any content (support inline tags too).</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">{% endtabs %}</span><br><span class="line"></span><br><span class="line">Unique name   : Unique name of tabs block tag without comma.</span><br><span class="line">                Will be used in #id's as prefix for each tab with their index numbers.</span><br><span class="line">                If there are whitespaces in name, for generate #id all whitespaces will replaced by dashes.</span><br><span class="line">                Only for current url of post/page must be unique!</span><br><span class="line">[index]       : Index number of active tab.</span><br><span class="line">                If not specified, first tab (1) will be selected.</span><br><span class="line">                If index is -1, no tab will be selected. It's will be something like spoiler.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[Tab caption] : Caption of current tab.</span><br><span class="line">                If not caption specified, unique name with tab index suffix will be used as caption of tab.</span><br><span class="line">                If not caption specified, but specified icon, caption will empty.</span><br><span class="line">                Optional parameter.</span><br><span class="line">[@icon]       : FontAwesome icon name (full-name, look like 'fas fa-font')</span><br><span class="line">                Can be specified with or without space; e.g. 'Tab caption @icon' similar to 'Tab caption@icon'.</span><br><span class="line">                Optional parameter.</span><br></pre></td></tr></tbody></table></figure>
+<p>例如</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% tabs test1, 2 %}</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 1.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 2.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 3.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">{% endtabs %}</span><br></pre></td></tr></tbody></table></figure>
+<div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab"><button type="button" data-href="#test1-1">test1 1</button></li><li class="tab active"><button type="button" data-href="#test1-2">test1 2</button></li><li class="tab"><button type="button" data-href="#test1-3">test1 3</button></li></ul><div class="tab-contents"><div class="tab-item-content" id="test1-1"><p><strong>This is Tab 1.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content active" id="test1-2"><p><strong>This is Tab 2.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-3"><p><strong>This is Tab 3.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+<h3 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% btn [url],[text],[icon],[color] [style] [layout] [position] [size] %}</span><br><span class="line"></span><br><span class="line">[url]         : 鏈接</span><br><span class="line">[text]        : 按鈕文字</span><br><span class="line">[icon]        : [可選] 圖標</span><br><span class="line">[color]       : [可選] 按鈕背景顔色(默認style時）</span><br><span class="line">                      按鈕字體和邊框顔色(outline時)</span><br><span class="line">                      default/blue/pink/red/purple/orange/green</span><br><span class="line">[style]       : [可選] 按鈕樣式 默認實心</span><br><span class="line">                      outline/留空</span><br><span class="line">[layout]      : [可選] 按鈕佈局 默認為line</span><br><span class="line">                      block/留空</span><br><span class="line">[position]    : [可選] 按鈕位置 前提是設置了layout為block 默認為左邊</span><br><span class="line">                      center/right/留空</span><br><span class="line">[size]        : [可選] 按鈕大小</span><br><span class="line">                      larger/留空</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="inlineImg"><a href="#inlineImg" class="headerlink" title="inlineImg"></a>inlineImg</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% inlineImg [src] [height] %}</span><br><span class="line"></span><br><span class="line">[src]      :    圖片鏈接</span><br><span class="line">[height]   ：   圖片高度限制【可選】</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% label text color %}</span><br><span class="line">color: default/blue/pink/red/purple/orange/green</span><br></pre></td></tr></tbody></table></figure>
+<p>例如<br><code>{% label text blue %}</code><mark class="hl-label blue">text</mark> </p>
+<h3 id="timeline"><a href="#timeline" class="headerlink" title="timeline"></a>timeline</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% timeline title,color %}</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">{% endtimeline %}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>例如</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% timeline 2022 %}</span><br><span class="line">&lt;!-- timeline 01-02 --&gt;</span><br><span class="line">這是測試頁面</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">{% endtimeline %}</span><br></pre></td></tr></tbody></table></figure>
+<div class="timeline undefined"><div class="timeline-item headline"><div class="timeline-item-title"><div class="item-circle"><p>2022</p>
+</div></div></div><div class="timeline-item"><div class="timeline-item-title"><div class="item-circle"><p>01-02</p>
+</div></div><div class="timeline-item-content"><p>這是測試頁面</p>
+</div></div></div>
+
+<h3 id="flink"><a href="#flink" class="headerlink" title="flink"></a>flink</h3><p>友链</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% flink %}</span><br><span class="line">link.yml内容</span><br><span class="line">{% endflink %}</span><br></pre></td></tr></tbody></table></figure>]]></content>
+      <categories>
+        <category>Note</category>
+        <category>Tool</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Baisc grammar</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
 </search>
