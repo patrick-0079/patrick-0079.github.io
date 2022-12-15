@@ -3,7 +3,8 @@
   <entry>
     <title>Eureka 的学习笔记</title>
     <url>/2022/12/14/19-30-57/</url>
-    <content><![CDATA[<h1 id="Netflix-eureka-学习笔记"><a href="#Netflix-eureka-学习笔记" class="headerlink" title="Netflix eureka 学习笔记"></a><strong>Netflix eureka</strong> 学习笔记</h1><h2 id="注册中心简介"><a href="#注册中心简介" class="headerlink" title="注册中心简介"></a>注册中心简介</h2><p>微服务架构中的通讯录, 记录服务和服务地址的映射关系</p>
+    <content><![CDATA[<h1 id="Netflix-eureka-学习笔记"><a href="#Netflix-eureka-学习笔记" class="headerlink" title="Netflix eureka 学习笔记"></a><strong>Netflix eureka</strong> 学习笔记</h1><p>Eureka 是 Netflix 开发的服务发现框架.<br>它本身是一个基于 REST 的服务, 主要用于定位中间层服务, 同时也有负载均衡和分区容灾的目的<br>Spring cloud 将它集成在其子项目 spring-cloud-netflix 中以实现 Spring cloud 的服务发现功能</p>
+<h2 id="注册中心简介"><a href="#注册中心简介" class="headerlink" title="注册中心简介"></a>注册中心简介</h2><p>微服务架构中的通讯录, 记录服务和服务地址的映射关系</p>
 <h2 id="常见的注册中心"><a href="#常见的注册中心" class="headerlink" title="常见的注册中心"></a>常见的注册中心</h2><ul>
 <li><em><strong>Netflix Eureka</strong></em></li>
 <li><em><strong>Alibaba Nacos</strong></em></li>
@@ -235,7 +236,8 @@
   <entry>
     <title>Groovy 的学习笔记</title>
     <url>/2022/12/14/11-52-35/</url>
-    <content><![CDATA[<h1 id="Groovy-学习笔记"><a href="#Groovy-学习笔记" class="headerlink" title="Groovy 学习笔记"></a><strong>Groovy</strong> 学习笔记</h1><figure class="highlight groovy"><table><tbody><tr><td class="code"><pre><span class="line">version = <span class="number">1.0</span> <span class="comment">// 为Project的内置属性指定值</span></span><br><span class="line">description = <span class="string">'demo'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定Project义属性, 所有实现了ExtensionAware接口的API都可通过ext添加属性</span></span><br><span class="line"><span class="comment">// gradle -P key=value task 启动时为project添加属性</span></span><br><span class="line"><span class="comment">// gradle -D org.gradle.project.key=value task 启动时为project添加属性</span></span><br><span class="line">ext.project_var0 = <span class="string">'value'</span> </span><br><span class="line">ext {</span><br><span class="line">    project_var1 = <span class="string">'value'</span></span><br><span class="line">    project_var2 = <span class="string">'value'</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task _01 {</span><br><span class="line">    println <span class="string">"------------------------Task 01"</span> <span class="comment">// 构建阶段执行</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task _02 {</span><br><span class="line">    println <span class="string">"------------------------Task 02"</span></span><br><span class="line">    doLast {<span class="comment">// 运行阶段执行的Action, 晚于doFirst执行</span></span><br><span class="line">        <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0.</span>.&lt;<span class="number">3</span>){</span><br><span class="line">            print i + <span class="string">' '</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    doFirst {<span class="comment">// 运行阶段执行的Action</span></span><br><span class="line">        <span class="keyword">def</span> s = <span class="string">"hello"</span></span><br><span class="line">        println <span class="string">"First action: $s"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">tasks.create(<span class="attr">name:</span> <span class="string">'_03'</span>) {</span><br><span class="line">    doFirst {</span><br><span class="line">        println <span class="string">"tasks属性的类型: ${tasks.class}"</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 遍历所有task</span></span><br><span class="line">        tasks.each {e -&gt;</span><br><span class="line">            println e</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">tasks.create(<span class="attr">name:</span> <span class="string">'_04'</span>, <span class="attr">dependsOn:</span> <span class="string">'_02'</span>) {</span><br><span class="line">    doFirst {</span><br><span class="line">        println <span class="string">"Task 04 依赖 Task 02"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">tasks.create(<span class="attr">name:</span> <span class="string">'_05'</span>, <span class="attr">type:</span> Copy) {<span class="comment">// type的默认类型为DefaultTask, Copy类型的Task为复制文件任务</span></span><br><span class="line">    from <span class="string">'build.gradle'</span> <span class="comment">// 源文件</span></span><br><span class="line">    into <span class="string">'back'</span> <span class="comment">// 目标文件夹</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task _06(<span class="attr">dependsOn:</span> <span class="string">'_02'</span>, <span class="attr">type:</span> DefaultTask)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloTask</span> <span class="keyword">extends</span> <span class="title class_">DefaultTask</span> { <span class="comment">// 自定义Task类</span></span><br><span class="line">    <span class="comment">// @Optional</span></span><br><span class="line">    <span class="meta">@Internal</span></span><br><span class="line">    <span class="keyword">def</span> message = <span class="string">'Hello Task'</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@TaskAction</span> <span class="comment">// 是用 @TaskAction 修饰的方法视为Action</span></span><br><span class="line">    <span class="keyword">def</span> hello() {</span><br><span class="line">        println <span class="string">"HelloTask -&gt; hello(): $message"</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> info() {</span><br><span class="line">        println <span class="string">"HelloTask -&gt; info(): $message"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task hello(<span class="attr">type:</span> HelloTask) {</span><br><span class="line">    doFirst {</span><br><span class="line">        info()</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task hello2(<span class="attr">type:</span> HelloTask) {</span><br><span class="line">    message = <span class="string">'HELLO2'</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用外部自定义Task类</span></span><br><span class="line">task myTask(<span class="attr">type:</span> test.MyTask)</span><br><span class="line"></span><br><span class="line">task myTask2(<span class="attr">type:</span> test.MyTask) {</span><br><span class="line">    file = file(<span class="string">'dist.txt'</span>)</span><br><span class="line">    doLast {</span><br><span class="line">        show()</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">'java'</span> <span class="comment">// 引入java插件</span></span><br><span class="line"></span><br><span class="line">task compile(<span class="attr">type:</span> JavaCompile) {<span class="comment">// 编译Java代码任务</span></span><br><span class="line"></span><br><span class="line">    source = fileTree(<span class="string">'src/main/java'</span>)</span><br><span class="line">    classpath = sourceSets.main.compileClasspath</span><br><span class="line">    destinationDirectory = file(<span class="string">'build/classes/main'</span>)</span><br><span class="line">    options.fork = <span class="literal">true</span></span><br><span class="line">    options.incremental = <span class="literal">true</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task run(<span class="attr">type:</span> JavaExec, <span class="attr">dependsOn:</span> <span class="string">'compile'</span>) {<span class="comment">// 运行Java代码任务</span></span><br><span class="line"></span><br><span class="line">    classpath = sourceSets.main.runtimeClasspath</span><br><span class="line">    mainClass = <span class="string">'Test'</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task showProps { <span class="comment">// 显示Project和Task的内置属性</span></span><br><span class="line">    description = <span class="string">'showProps'</span> <span class="comment">// 为Task的内置属性配置值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 自定Task义属性</span></span><br><span class="line">    ext.task_var0 = <span class="string">'value'</span> </span><br><span class="line">    ext {</span><br><span class="line">        task_var1 = <span class="string">'value'</span></span><br><span class="line">        task_var2 = <span class="string">'value'</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    doFirst {</span><br><span class="line">        println version</span><br><span class="line">        println description <span class="comment">// 当Project和Task有相同属性时, 优先使用Task的属性</span></span><br><span class="line">        println project.description</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task fileContentCopy { <span class="comment">// 增量式构建</span></span><br><span class="line">    <span class="keyword">def</span> sourceTxt = fileTree(<span class="string">"source"</span>)</span><br><span class="line">    <span class="keyword">def</span> dest = file(<span class="string">'dist.txt'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 增量构建的关键</span></span><br><span class="line">    inputs.dir sourceTxt</span><br><span class="line">    outputs.file dest</span><br><span class="line"></span><br><span class="line">    doLast {</span><br><span class="line">        dest.withPrintWriter {writer -&gt;</span><br><span class="line">            sourceTxt.each {s -&gt;</span><br><span class="line">                writer.write(s.text)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">sourceSets { <span class="comment">// 配置被依赖的源代码路径</span></span><br><span class="line">    xModel <span class="comment">// 可将xModel项目的代码放在src/xModel/main中, 资源放在src/xModel/rsources, Gradle会创建compileXModelJava, processXModelResources, xModelClasses三个Task</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">repositories { <span class="comment">// 定义仓库</span></span><br><span class="line"></span><br><span class="line">    mavenLocal()</span><br><span class="line">    <span class="comment">// mavenCentral() // Maven默认仓库</span></span><br><span class="line">    <span class="comment">// maven {</span></span><br><span class="line">    <span class="comment">//     allowInsecureProtocol = true</span></span><br><span class="line">    <span class="comment">//     显示指定Maven仓库</span></span><br><span class="line">    <span class="comment">//     url "https://maven.aliyun.com/repository/public"</span></span><br><span class="line">    <span class="comment">//     显示指定本地仓库</span></span><br><span class="line">    <span class="comment">//     url "C:/Users/patrick/.m2/repository"</span></span><br><span class="line">    <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 阿里云镜像</span></span><br><span class="line">    <span class="comment">// maven { url 'https://maven.aliyun.com/repository/public/'}</span></span><br><span class="line">    maven{url <span class="string">'https://maven.aliyun.com/nexus/content/groups/public/'</span>}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">configurations { <span class="comment">//配置组</span></span><br><span class="line">    xDependence <span class="comment">// 配置名为XDependence的依赖组</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Java 插件添加的依赖组</span></span><br><span class="line">    implementation <span class="comment">// 主项目依赖组</span></span><br><span class="line">    compileOnly <span class="comment">// 编译时依赖组</span></span><br><span class="line">    runtimeOnly <span class="comment">// 运行时依赖组</span></span><br><span class="line">    testImplementation <span class="comment">// 测试依赖组</span></span><br><span class="line">    testCompileOnly <span class="comment">// 测试编译时依赖组</span></span><br><span class="line">    testRuntimeOnly <span class="comment">// 测试运行时依赖组</span></span><br><span class="line">    archives <span class="comment">// 打包时依赖组</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">dependencies { <span class="comment">// 配置依赖</span></span><br><span class="line">    xDependence <span class="attr">group:</span> <span class="string">'commons-logging'</span>, <span class="attr">name:</span> <span class="string">'commons-logging'</span>, <span class="attr">version:</span> <span class="string">'1.2'</span></span><br><span class="line">    xDependence <span class="string">'com.baomidou:mybatis-plus-boot-starter:3.5.1'</span> <span class="comment">// 简写</span></span><br><span class="line"></span><br><span class="line">    xDependence (<span class="attr">group:</span> <span class="string">'net.coobird'</span>, <span class="attr">name:</span> <span class="string">'thumbnailator'</span>, <span class="attr">version:</span> <span class="string">'0.4.17'</span>) {</span><br><span class="line">        <span class="comment">// 额外配置</span></span><br><span class="line">    }</span><br><span class="line">    xDependence (<span class="string">'org.jetbrains:annotations:23.0.0'</span>) { <span class="comment">// 简写</span></span><br><span class="line">        <span class="comment">// 额外配置</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    xDependence <span class="string">'com.alibaba:fastjson:1.2.80'</span>, <span class="string">'com.google.guava:guava:31.1-jre'</span> <span class="comment">// 一次为一个组添加多个依赖</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task showDependences { <span class="comment">// 打印依赖</span></span><br><span class="line">    doFirst {</span><br><span class="line">        println configurations.xDependence.asPath</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义插件, Gradle会为此类生成代理, 此类不能为final类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloPlugin</span> <span class="keyword">implements</span> <span class="title class_">Plugin</span>&lt;Project&gt; {</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重写 apply 方法</span></span><br><span class="line">    <span class="type">void</span> apply(Project project) {</span><br><span class="line">        project.extensions.creat(<span class="string">"user"</span>, User) <span class="comment">// 为项目额外定义属性</span></span><br><span class="line"></span><br><span class="line">        project.task(<span class="string">'showUser'</span>) { <span class="comment">// 定义任务</span></span><br><span class="line">            doLast {</span><br><span class="line">                println <span class="string">"用户名: ${project.user.name}"</span></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">User</span> {</span><br><span class="line">    String name = <span class="string">""</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用自定义插件</span></span><br><span class="line">apply <span class="attr">plugin:</span> HelloPlugin <span class="comment">// 引入自定义插件</span></span><br><span class="line">user.name = <span class="string">"Patrick"</span> <span class="comment">// 为插件引入的项目属性赋值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用外部自定义插件</span></span><br><span class="line">apply <span class="attr">plugin:</span> MyPlugin</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+    <content><![CDATA[<h1 id="Groovy-学习笔记"><a href="#Groovy-学习笔记" class="headerlink" title="Groovy 学习笔记"></a><strong>Groovy</strong> 学习笔记</h1><p>Groovy 是一种基于 JVM 的语言.<br>其语法特点类似于Python, Ruby 和 Smalltalk.<br>Groovy 代码能够与 Java 代码很好地结合, 同时也能用于扩展现有代码.<br>由于其运行在 JVM 上的特性, Groovy 也可以使用其他非 Java 语言编写的库</p>
+<h2 id="简单使用-Groovy"><a href="#简单使用-Groovy" class="headerlink" title="简单使用 Groovy"></a>简单使用 Groovy</h2><figure class="highlight groovy"><table><tbody><tr><td class="code"><pre><span class="line">version = <span class="number">1.0</span> <span class="comment">// 为Project的内置属性指定值</span></span><br><span class="line">description = <span class="string">'demo'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定Project义属性, 所有实现了ExtensionAware接口的API都可通过ext添加属性</span></span><br><span class="line"><span class="comment">// gradle -P key=value task 启动时为project添加属性</span></span><br><span class="line"><span class="comment">// gradle -D org.gradle.project.key=value task 启动时为project添加属性</span></span><br><span class="line">ext.project_var0 = <span class="string">'value'</span> </span><br><span class="line">ext {</span><br><span class="line">    project_var1 = <span class="string">'value'</span></span><br><span class="line">    project_var2 = <span class="string">'value'</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task _01 {</span><br><span class="line">    println <span class="string">"------------------------Task 01"</span> <span class="comment">// 构建阶段执行</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task _02 {</span><br><span class="line">    println <span class="string">"------------------------Task 02"</span></span><br><span class="line">    doLast {<span class="comment">// 运行阶段执行的Action, 晚于doFirst执行</span></span><br><span class="line">        <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0.</span>.&lt;<span class="number">3</span>){</span><br><span class="line">            print i + <span class="string">' '</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    doFirst {<span class="comment">// 运行阶段执行的Action</span></span><br><span class="line">        <span class="keyword">def</span> s = <span class="string">"hello"</span></span><br><span class="line">        println <span class="string">"First action: $s"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">tasks.create(<span class="attr">name:</span> <span class="string">'_03'</span>) {</span><br><span class="line">    doFirst {</span><br><span class="line">        println <span class="string">"tasks属性的类型: ${tasks.class}"</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 遍历所有task</span></span><br><span class="line">        tasks.each {e -&gt;</span><br><span class="line">            println e</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">tasks.create(<span class="attr">name:</span> <span class="string">'_04'</span>, <span class="attr">dependsOn:</span> <span class="string">'_02'</span>) {</span><br><span class="line">    doFirst {</span><br><span class="line">        println <span class="string">"Task 04 依赖 Task 02"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">tasks.create(<span class="attr">name:</span> <span class="string">'_05'</span>, <span class="attr">type:</span> Copy) {<span class="comment">// type的默认类型为DefaultTask, Copy类型的Task为复制文件任务</span></span><br><span class="line">    from <span class="string">'build.gradle'</span> <span class="comment">// 源文件</span></span><br><span class="line">    into <span class="string">'back'</span> <span class="comment">// 目标文件夹</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task _06(<span class="attr">dependsOn:</span> <span class="string">'_02'</span>, <span class="attr">type:</span> DefaultTask)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloTask</span> <span class="keyword">extends</span> <span class="title class_">DefaultTask</span> { <span class="comment">// 自定义Task类</span></span><br><span class="line">    <span class="comment">// @Optional</span></span><br><span class="line">    <span class="meta">@Internal</span></span><br><span class="line">    <span class="keyword">def</span> message = <span class="string">'Hello Task'</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@TaskAction</span> <span class="comment">// 是用 @TaskAction 修饰的方法视为Action</span></span><br><span class="line">    <span class="keyword">def</span> hello() {</span><br><span class="line">        println <span class="string">"HelloTask -&gt; hello(): $message"</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> info() {</span><br><span class="line">        println <span class="string">"HelloTask -&gt; info(): $message"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task hello(<span class="attr">type:</span> HelloTask) {</span><br><span class="line">    doFirst {</span><br><span class="line">        info()</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task hello2(<span class="attr">type:</span> HelloTask) {</span><br><span class="line">    message = <span class="string">'HELLO2'</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用外部自定义Task类</span></span><br><span class="line">task myTask(<span class="attr">type:</span> test.MyTask)</span><br><span class="line"></span><br><span class="line">task myTask2(<span class="attr">type:</span> test.MyTask) {</span><br><span class="line">    file = file(<span class="string">'dist.txt'</span>)</span><br><span class="line">    doLast {</span><br><span class="line">        show()</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">'java'</span> <span class="comment">// 引入java插件</span></span><br><span class="line"></span><br><span class="line">task compile(<span class="attr">type:</span> JavaCompile) {<span class="comment">// 编译Java代码任务</span></span><br><span class="line"></span><br><span class="line">    source = fileTree(<span class="string">'src/main/java'</span>)</span><br><span class="line">    classpath = sourceSets.main.compileClasspath</span><br><span class="line">    destinationDirectory = file(<span class="string">'build/classes/main'</span>)</span><br><span class="line">    options.fork = <span class="literal">true</span></span><br><span class="line">    options.incremental = <span class="literal">true</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task run(<span class="attr">type:</span> JavaExec, <span class="attr">dependsOn:</span> <span class="string">'compile'</span>) {<span class="comment">// 运行Java代码任务</span></span><br><span class="line"></span><br><span class="line">    classpath = sourceSets.main.runtimeClasspath</span><br><span class="line">    mainClass = <span class="string">'Test'</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task showProps { <span class="comment">// 显示Project和Task的内置属性</span></span><br><span class="line">    description = <span class="string">'showProps'</span> <span class="comment">// 为Task的内置属性配置值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 自定Task义属性</span></span><br><span class="line">    ext.task_var0 = <span class="string">'value'</span> </span><br><span class="line">    ext {</span><br><span class="line">        task_var1 = <span class="string">'value'</span></span><br><span class="line">        task_var2 = <span class="string">'value'</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    doFirst {</span><br><span class="line">        println version</span><br><span class="line">        println description <span class="comment">// 当Project和Task有相同属性时, 优先使用Task的属性</span></span><br><span class="line">        println project.description</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task fileContentCopy { <span class="comment">// 增量式构建</span></span><br><span class="line">    <span class="keyword">def</span> sourceTxt = fileTree(<span class="string">"source"</span>)</span><br><span class="line">    <span class="keyword">def</span> dest = file(<span class="string">'dist.txt'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 增量构建的关键</span></span><br><span class="line">    inputs.dir sourceTxt</span><br><span class="line">    outputs.file dest</span><br><span class="line"></span><br><span class="line">    doLast {</span><br><span class="line">        dest.withPrintWriter {writer -&gt;</span><br><span class="line">            sourceTxt.each {s -&gt;</span><br><span class="line">                writer.write(s.text)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">sourceSets { <span class="comment">// 配置被依赖的源代码路径</span></span><br><span class="line">    xModel <span class="comment">// 可将xModel项目的代码放在src/xModel/main中, 资源放在src/xModel/rsources, Gradle会创建compileXModelJava, processXModelResources, xModelClasses三个Task</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">repositories { <span class="comment">// 定义仓库</span></span><br><span class="line"></span><br><span class="line">    mavenLocal()</span><br><span class="line">    <span class="comment">// mavenCentral() // Maven默认仓库</span></span><br><span class="line">    <span class="comment">// maven {</span></span><br><span class="line">    <span class="comment">//     allowInsecureProtocol = true</span></span><br><span class="line">    <span class="comment">//     显示指定Maven仓库</span></span><br><span class="line">    <span class="comment">//     url "https://maven.aliyun.com/repository/public"</span></span><br><span class="line">    <span class="comment">//     显示指定本地仓库</span></span><br><span class="line">    <span class="comment">//     url "C:/Users/patrick/.m2/repository"</span></span><br><span class="line">    <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 阿里云镜像</span></span><br><span class="line">    <span class="comment">// maven { url 'https://maven.aliyun.com/repository/public/'}</span></span><br><span class="line">    maven{url <span class="string">'https://maven.aliyun.com/nexus/content/groups/public/'</span>}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">configurations { <span class="comment">//配置组</span></span><br><span class="line">    xDependence <span class="comment">// 配置名为XDependence的依赖组</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Java 插件添加的依赖组</span></span><br><span class="line">    implementation <span class="comment">// 主项目依赖组</span></span><br><span class="line">    compileOnly <span class="comment">// 编译时依赖组</span></span><br><span class="line">    runtimeOnly <span class="comment">// 运行时依赖组</span></span><br><span class="line">    testImplementation <span class="comment">// 测试依赖组</span></span><br><span class="line">    testCompileOnly <span class="comment">// 测试编译时依赖组</span></span><br><span class="line">    testRuntimeOnly <span class="comment">// 测试运行时依赖组</span></span><br><span class="line">    archives <span class="comment">// 打包时依赖组</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">dependencies { <span class="comment">// 配置依赖</span></span><br><span class="line">    xDependence <span class="attr">group:</span> <span class="string">'commons-logging'</span>, <span class="attr">name:</span> <span class="string">'commons-logging'</span>, <span class="attr">version:</span> <span class="string">'1.2'</span></span><br><span class="line">    xDependence <span class="string">'com.baomidou:mybatis-plus-boot-starter:3.5.1'</span> <span class="comment">// 简写</span></span><br><span class="line"></span><br><span class="line">    xDependence (<span class="attr">group:</span> <span class="string">'net.coobird'</span>, <span class="attr">name:</span> <span class="string">'thumbnailator'</span>, <span class="attr">version:</span> <span class="string">'0.4.17'</span>) {</span><br><span class="line">        <span class="comment">// 额外配置</span></span><br><span class="line">    }</span><br><span class="line">    xDependence (<span class="string">'org.jetbrains:annotations:23.0.0'</span>) { <span class="comment">// 简写</span></span><br><span class="line">        <span class="comment">// 额外配置</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    xDependence <span class="string">'com.alibaba:fastjson:1.2.80'</span>, <span class="string">'com.google.guava:guava:31.1-jre'</span> <span class="comment">// 一次为一个组添加多个依赖</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">task showDependences { <span class="comment">// 打印依赖</span></span><br><span class="line">    doFirst {</span><br><span class="line">        println configurations.xDependence.asPath</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义插件, Gradle会为此类生成代理, 此类不能为final类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloPlugin</span> <span class="keyword">implements</span> <span class="title class_">Plugin</span>&lt;Project&gt; {</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重写 apply 方法</span></span><br><span class="line">    <span class="type">void</span> apply(Project project) {</span><br><span class="line">        project.extensions.creat(<span class="string">"user"</span>, User) <span class="comment">// 为项目额外定义属性</span></span><br><span class="line"></span><br><span class="line">        project.task(<span class="string">'showUser'</span>) { <span class="comment">// 定义任务</span></span><br><span class="line">            doLast {</span><br><span class="line">                println <span class="string">"用户名: ${project.user.name}"</span></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">User</span> {</span><br><span class="line">    String name = <span class="string">""</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用自定义插件</span></span><br><span class="line">apply <span class="attr">plugin:</span> HelloPlugin <span class="comment">// 引入自定义插件</span></span><br><span class="line">user.name = <span class="string">"Patrick"</span> <span class="comment">// 为插件引入的项目属性赋值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用外部自定义插件</span></span><br><span class="line">apply <span class="attr">plugin:</span> MyPlugin</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 
 <hr>
@@ -262,7 +264,8 @@
   <entry>
     <title>Lua 的学习笔记</title>
     <url>/2022/12/14/09-16-35/</url>
-    <content><![CDATA[<h1 id="Lua-学习笔记"><a href="#Lua-学习笔记" class="headerlink" title="Lua 学习笔记"></a><strong>Lua</strong> 学习笔记</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h3><p>Lua 中的单行注释用 <code>--</code> 表示</p>
+    <content><![CDATA[<h1 id="Lua-学习笔记"><a href="#Lua-学习笔记" class="headerlink" title="Lua 学习笔记"></a><strong>Lua</strong> 学习笔记</h1><p>Lua 是一种轻量小巧的脚本语言, 使用标准C语言编写并以源代码形式开放.<br>其设计目的是为了嵌入应用程序中, 从而为应用程序提供灵活的扩展和定制功能.<br>Lua 是巴西里约热内卢天主教大学 (Pontifical Catholic University of Rio de Janeiro) 里的一个研究小组于 1993 年开发的, 该小组成员有: Roberto Ierusalimschy, Waldemar Celes, Luiz Henrique de Figueiredo</p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h3><p>Lua 中的单行注释用 <code>--</code> 表示</p>
 <figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">-- Hello World</span></span><br><span class="line"><span class="comment">-- Hello Lua</span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h3><p>Lua 中的多行注释由 <code>--[[</code> 开始, 以 <code>--]]</code> 结束</p>
 <figure class="highlight lua"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">--[[</span></span><br><span class="line"><span class="comment">Hello World</span></span><br><span class="line"><span class="comment">Hello Lua    </span></span><br><span class="line"><span class="comment">--]]</span></span><br></pre></td></tr></tbody></table></figure>
@@ -783,7 +786,8 @@
   <entry>
     <title>Markdown 的学习笔记</title>
     <url>/2022/12/13/10-01-00/</url>
-    <content><![CDATA[<h1 id="Markdown-学习笔记"><a href="#Markdown-学习笔记" class="headerlink" title="Markdown 学习笔记"></a><strong>Markdown</strong> 学习笔记</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><table>
+    <content><![CDATA[<h1 id="Markdown-学习笔记"><a href="#Markdown-学习笔记" class="headerlink" title="Markdown 学习笔记"></a><strong>Markdown</strong> 学习笔记</h1><p>Markdown 是一种轻量级标记语言, 它允许使用易读易写的纯文本格式编写文档.<br>Markdown 文件的后缀名是 .md<br>使用 Hexo 编写博客时使用的就是 Markdown.<br>不同的 Markdown 解析器对于 Markdown 的支持程度不同, 也就有了所谓的 Markdown 方言</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><table>
 <thead>
 <tr>
 <th>语法</th>
@@ -1074,7 +1078,7 @@
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>First Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is the definition of the first term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Second Term<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is one definition of the second term. <span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>This is another definition of the second term.<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <p>所呈现效果为:<br>First Term<br>▯▯This is the definition of the first term.<br>Second Term<br>▯▯This is one definition of the second term.<br>▯▯This is another definition of the second term.</p>
 <h2 id="Emoji"><a href="#Emoji" class="headerlink" title="Emoji"></a>Emoji</h2><p>直接使用通过键入表情符号短代码来插入表情符号<br>例如:</p>
-<p><span class="github-emoji"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> -&gt; 😂</p>
+<p><code>:joy:</code> -&gt; <span class="github-emoji"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
 <h2 id="butterfly支持标签"><a href="#butterfly支持标签" class="headerlink" title="butterfly支持标签"></a>butterfly支持标签</h2><p>作者: Jerry<br>連結: <a href="https://butterfly.js.org/">https://butterfly.js.org/</a><br>來源: Butterfly</p>
 <p>逗号用 &amp;sbquo; 代替</p>
 <h3 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% note simple %}</span><br><span class="line">默認 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note default simple %}</span><br><span class="line">default 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note primary simple %}</span><br><span class="line">primary 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note success simple %}</span><br><span class="line">success 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note info simple %}</span><br><span class="line">info 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note warning simple %}</span><br><span class="line">warning 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note danger simple %}</span><br><span class="line">danger 提示塊標籤</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
@@ -1217,7 +1221,7 @@
     <url>/2022/12/13/13-52-03/</url>
     <content><![CDATA[<h1 id="Hello-This-is-Patrick’s-blog"><a href="#Hello-This-is-Patrick’s-blog" class="headerlink" title="Hello, This is Patrick’s blog!"></a><em><strong>Hello, This is Patrick’s blog!</strong></em></h1><p><a href="/about/"></a></p><h2><a href="/about/">关于我</a></h2><p></p>
 <hr>
-<div class="flink"><div class="flink-name">相关博客</div><div class="flink-desc">点一下, 打开宝盒</div> <div class="flink-list">
+<div class="flink"><div class="flink-name">好友博客</div><div class="flink-desc">点一下, 打开宝盒</div> <div class="flink-list">
           <div class="flink-list-item">
             <a href="https://xavier72bit.github.io/" title="Xavier" target="_blank">
               <div class="flink-item-icon">
@@ -1238,22 +1242,570 @@
   <entry>
     <title>Nginx 的学习笔记</title>
     <url>/2022/12/14/21-44-00/</url>
-    <content><![CDATA[<h1 id="Nginx-学习笔记"><a href="#Nginx-学习笔记" class="headerlink" title="Nginx 学习笔记"></a><strong>Nginx</strong> 学习笔记</h1><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">#user nobody; # 启动用户</span><br><span class="line"></span><br><span class="line">worker_processes  6; # 业务进程数量（子进程）</span><br><span class="line"># 主进程名叫master，启动nginx后，master会启动worker，一般worker数量不超过ngingx可用的CPU内核数量</span><br><span class="line"></span><br><span class="line">events {</span><br><span class="line">    worker_connections  1024; # 单个业务进程可接受的连接数</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"># http模块</span><br><span class="line">http {</span><br><span class="line">    include       mime.types; # 引入mime.type模块</span><br><span class="line">    default_type  application/octet-stream; # 若mime类型未匹配成功， 默认使用的传输方式方式（ octet-stream 二进制字节流）传输</span><br><span class="line"></span><br><span class="line">    sendfile        on; # Linux的sendfile（socket、file、len）高效网络传输，即数据0拷贝</span><br><span class="line"></span><br><span class="line">    keepalive_timeout  65; # 连接超时时间</span><br><span class="line"></span><br><span class="line">    #gzip  on;</span><br><span class="line"></span><br><span class="line">    # http.sever模块，即nginx的服务模块（虚拟主机），可有多个，匹配顺序从头到尾</span><br><span class="line">    server {</span><br><span class="line">        listen       80; # 服务主机监听的端口号</span><br><span class="line">        server_name  localhost; # 服务主机的主机名、域名，可有多个，*为通配符，也可以用正则表达式</span><br><span class="line">        # listen与server_name元组应具有唯一性</span><br><span class="line"></span><br><span class="line">        # URI匹配</span><br><span class="line">        location / {</span><br><span class="line">            root   html; # URI指向的文件夹。注意：路径分割不可用反斜线</span><br><span class="line">            index  index.html index.htm; # 默认页</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        #                   状态码      跳转页面</span><br><span class="line">        error_page   500 502 503 504  /50x.html; # 错误页配置</span><br><span class="line">        location = /50x.html { # 当URI为/50x.html时</span><br><span class="line">            root   html; # 在nginx根目录的html目录寻找</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    server {</span><br><span class="line">        listen 8080;</span><br><span class="line">        server_name Patrick SpongeBob;</span><br><span class="line"></span><br><span class="line">        location / {</span><br><span class="line">            root C:/Patrick-program/nginx-1.23.2/learn-test/8080;</span><br><span class="line">            index hello.html;</span><br><span class="line">        }</span><br><span class="line">        location /index { # 多个location时，执行最长匹配原则</span><br><span class="line">            root learn-text/8080; # 最终指向路径为/8080/index</span><br><span class="line">            index hello.html;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    server {</span><br><span class="line">        listen 9000;</span><br><span class="line">        server_name _9000;</span><br><span class="line"></span><br><span class="line">        location /{</span><br><span class="line">            proxy_pass http://127.0.0.1:8000; # 代理其他url</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    upstream patrick_severs { # 别名</span><br><span class="line">        server 127.0.0.1:8000 weight=7; # weight 是权重，不写默认是1</span><br><span class="line">        server 127.0.0.1:8001 weight=2 down; # down意味着下线</span><br><span class="line">        server 127.0.0.1:8002 backup; # backup意味着是备用机，一般情况不会被访问</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    server {</span><br><span class="line">        listen 9001;</span><br><span class="line">        server_name _9001;</span><br><span class="line"></span><br><span class="line">        location / {</span><br><span class="line">            proxy_pass http://patrick_severs; # 利用别名代理其他url，实现负载均衡，当服务挂掉时，会执行retry</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    server {</span><br><span class="line">        listen 9002;</span><br><span class="line">        server_name _9002;</span><br><span class="line"></span><br><span class="line">        location ~/(js|img|css) { # 利用正则表达式匹配路径,~*和~好像没区别，都不区分大小写</span><br><span class="line">            # 正则表达式匹配</span><br><span class="line">            # ~ 区分大小写匹配</span><br><span class="line">            # ~* 不区分大小写匹配</span><br><span class="line">            # !~和!~*分别为区分大小写不匹配及不区分大小写不匹配</span><br><span class="line">            # ^ 以什么开头的匹配</span><br><span class="line">            # $ 以什么结尾的匹配</span><br><span class="line">            # = 表示精确匹配</span><br><span class="line">            # 转义字符\可以转. * ?等</span><br><span class="line">            # (v1|v2|v3|v4):或匹配模式</span><br><span class="line">            # * 代表任意字符</span><br><span class="line"></span><br><span class="line">            # 首先匹配 =，其次匹配^~, 其次是按文件中顺序的正则匹配，最后是交给 / 通用匹配。当有匹配成功时候，停止匹配，按当前匹配规则处理请求。</span><br><span class="line"></span><br><span class="line">            # 文件及目录匹配</span><br><span class="line">            # -f和!-f用来判断是否存在文件</span><br><span class="line">            # -d和!-d用来判断是否存在目录</span><br><span class="line">            # -e和!-e用来判断是否存在文件或目录</span><br><span class="line">            # -x和!-x用来判断文件是否可执行</span><br><span class="line">            proxy_pass http://127.0.0.1:8000; </span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        location /page {</span><br><span class="line">            #               匹配内容                    替换内容                    规则</span><br><span class="line">            rewrite     ^/page/([0-9]+)/([0-9]+)$    /page?pageNum=$1&amp;size=$2    break;</span><br><span class="line">            # 规则取值</span><br><span class="line">            # last        相当于apache里面的[L]标记，表示rewrite。</span><br><span class="line">            # break       本条规则匹配完成后，终止匹配，不再匹配后面的规则。</span><br><span class="line">            # redirect    返回302临时重定向，浏览器地址会显示跳转后的URL地址。</span><br><span class="line">            # permanent   返回301永久重定向，浏览器地址会显示跳转后的URL地址。</span><br><span class="line">            proxy_pass http://127.0.0.1:8000; </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    server {</span><br><span class="line">        listen 9003;</span><br><span class="line">        server_name _9003;</span><br><span class="line"></span><br><span class="line">        location /{</span><br><span class="line">            proxy_pass http://127.0.0.1:8000;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        location /href {</span><br><span class="line">            valid_referers 127.0.0.1; # 检测请求头里的Referer的网址（可配多个值用空格分隔），取值还可以是none（不存在Referer请求头）、blocked（Referer请求头的值被防火墙或代理服务器删除或伪装，不以http://或https://开头）</span><br><span class="line">            if ($invalid_referer) { # 当检测不通过时</span><br><span class="line">                return 401; # 返回401</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            proxy_pass http://127.0.0.1:8000;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        error_page   401  /401.html;</span><br><span class="line">        location = /401.html {</span><br><span class="line">            root   learn-test/error-page;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>]]></content>
+    <content><![CDATA[<h1 id="Nginx-学习笔记"><a href="#Nginx-学习笔记" class="headerlink" title="Nginx 学习笔记"></a><strong>Nginx</strong> 学习笔记</h1><p>Nginx 是一个轻量级的 Web 服务器 基础功能有反向代理, 邮件代理等, 同时其具有可高度定制的特点.<br>Nginx 有众多插件, 配合插件 Nginx 能实现直播等许多功能.<br>Nginx 的核心学习目标是它的配置文件 <mark class="hl-label default">nginx.conf</mark> </p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>以下面的配置文件为例</p>
+<div class="note info simple"><p>配置文件中的配置是常用配置, 值有可能不是是默认值</p>
+</div>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"># 全局块</span><br><span class="line">user                    nobody; # 启动用户</span><br><span class="line">worker_processes        1; # 业务进程数量(子进程 worker), 一般不超过ngingx可用的CPU内核数量</span><br><span class="line">error_log               logs/error.log          info; # 全局日志设置, 最后一个值为日志级别, 日志级别取值有 debug, info, notice, warn, error, crit, alert, emerg</span><br><span class="line">pid                     logs/nginx.pid; # Nginx 的 pid 存放地址</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events { # events 块</span><br><span class="line">    worker_connections  1024; # 单个业务进程可接受的连接数</span><br><span class="line">    accept_mutex        on; #设置网路连接序列化, 防止惊群现象发生</span><br><span class="line">    multi_accept        off; #设置一个进程是否同时接受多个网络连接</span><br><span class="line">    use                 epoll; #事件驱动模型, 取值有 select, poll, kqueue, epoll, resig, /dev/poll, eventport</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http { # http 块</span><br><span class="line">    include             mime.types; # 引入 mime.type 模块(文件扩展名与文件类型映射表)</span><br><span class="line">    default_type        application/octet-stream; # 若 mime 类型未匹配成功时使用的传输方式方式</span><br><span class="line">    sendfile            on; # 设置 sendfile 方式传输文件</span><br><span class="line">    keepalive_timeout   65; # 连接超时时间</span><br><span class="line">    gzip                on; # gzip 压缩</span><br><span class="line">    access_log          logs/access.log     format_name; #服务日志, 第一个值为 off 时为取消服务日志. 第一个值时日志地址, 第二个值是格式化模板(可缺省)</span><br><span class="line">    log_format          format_name         '### $remote_addr ### $request ### $status'; # 日志格式话模板</span><br><span class="line">    sendfile_max_chunk  0;  #每个进程每次调用传输数量不能大于设定的值, 0代表不设上限</span><br><span class="line">    error_page          404 500             /50x.html; # 错误页配置, 第一组值是错误码, 第二个值是错误页面的URI</span><br><span class="line">    deny                127.0.0.1 1; # 拒绝的ip组, 取值可有 address, CIDR, unix:, all</span><br><span class="line">    allow               172.18.5.54; # 允许的ip 组, 取值可有 address, CIDR, unix:, all</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    upstream servers_name { # 别名组</span><br><span class="line">        server 127.0.0.1:8000 weight=7 down; # weight 是权重, 缺省默认是1. down 代表下线, 缺省代表在线</span><br><span class="line">        server 127.0.0.1:8001 backup; # backup 代表是备用机, 有其他可访问实例时不会被访问</span><br><span class="line">        ...</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    server { # http.server 块 (server 块)</span><br><span class="line">        listen                  80; # 服务主机监听的端口号</span><br><span class="line">        server_name             localhost; # 服务主机的主机名或域名</span><br><span class="line">        keepalive_requests      120; # 单连接请求上限次数</span><br><span class="line">        sendfile                on; # 允许 sendfile 方式传输文件</span><br><span class="line">        deny                    127.0.0.1 1; # 拒绝的ip组, 取值可有 address, CIDR, unix:, all</span><br><span class="line">        allow                   172.18.5.54; # 允许的ip 组, 取值可有 address, CIDR, unix:, all</span><br><span class="line">        error_page   500 502 503 504  /50x.html; # 错误页配置</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        location / { # http.sevet.location 块 (location 块), / 是URI匹配规则</span><br><span class="line">            root            html; # URI指向的文件夹</span><br><span class="line">            index           index.html index.htm; # 默认页组</span><br><span class="line">            proxy_pass      http://127.0.0.1:8000;  #请求转发, 利用别名组代替地址可实现负载均衡</span><br><span class="line">            deny            127.0.0.1 1; # 拒绝的ip组, 取值可有 address, CIDR, unix:, all</span><br><span class="line">            allow           172.18.5.54; # 允许的ip 组, 取值可有 address, CIDR, unix:, all</span><br><span class="line">            ...</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="核心模块指令"><a href="#核心模块指令" class="headerlink" title="核心模块指令"></a>核心模块指令</h2><details class="toggle" style="border: 1px solid  #cfd2d5"><summary class="toggle-button" style="background-color:  #cfd2d5;color:  #020304">查看所有指令解释</summary><div class="toggle-content"><h3 id="absolute-redirect"><a href="#absolute-redirect" class="headerlink" title="absolute_redirect"></a>absolute_redirect</h3><ul>
+<li>取值: on | off (默认 on)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 重定向绝对地址<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#absolute_redirect"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="aio"><a href="#aio" class="headerlink" title="aio"></a>aio</h3><ul>
+<li>取值: on | off | threads[=pool] (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 异步文件 I/O<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#aio"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="aio-write"><a href="#aio-write" class="headerlink" title="aio_write"></a>aio_write</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 当开启 aio 时指定是否将其用于写入文件<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#aio_write"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h3><ul>
+<li>取值: 具体路径</li>
+<li>可配置模块: location</li>
+<li>解释: 将匹配的访问路径重新指定为新定义的文件路径. alias 指定的目录是 location 路径的实际目录，其所在 location 的 rewrite 指令不能使用 break 参数<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#alias"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="auth-delay"><a href="#auth-delay" class="headerlink" title="auth_delay"></a>auth_delay</h3><ul>
+<li>取值: 具体时间 (默认 0s)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 当访问受密码、子请求结果或 JWT 限制的资源时，使用 401 响应代码延迟处理未经授权的请求，以防止计时攻击<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#auth_delay"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="chunked-transfer-encoding"><a href="#chunked-transfer-encoding" class="headerlink" title="chunked_transfer_encoding"></a>chunked_transfer_encoding</h3><ul>
+<li>取值: on | off (默认 on)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 在 HTTP/1.1 中禁用分块传输编码<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#chunked_transfer_encoding"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="client-body-buffer-size"><a href="#client-body-buffer-size" class="headerlink" title="client_body_buffer_size"></a>client_body_buffer_size</h3><ul>
+<li>取值: 具体大小 (默认 16k)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 用于读取客户端请求正文的缓冲区大小<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_buffer_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="client-body-in-file-only"><a href="#client-body-in-file-only" class="headerlink" title="client_body_in_file_only"></a>client_body_in_file_only</h3><ul>
+<li>取值: on | clean | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 保存整个客户端请求正文到文件中<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_in_file_only"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="client-body-in-single-buffer"><a href="#client-body-in-single-buffer" class="headerlink" title="client_body_in_single_buffer"></a>client_body_in_single_buffer</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 保存整个客户端请求正文在单个缓冲区中. 建议在使用变量时使用该指令, 以节省所涉及的复制操作数<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_in_single_buffer"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="client-body-temp-path"><a href="#client-body-temp-path" class="headerlink" title="client_body_temp_path"></a>client_body_temp_path</h3><ul>
+<li>取值: 具体路径 [级别[级别[级别]]]</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 定义用于存储保存客户端请求正文的临时文件的目录. 在指定的下最多可以使用三级子目录层次结构目录<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_temp_path"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="client-body-timeout"><a href="#client-body-timeout" class="headerlink" title="client_body_timeout"></a>client_body_timeout</h3><ul>
+<li>取值: 具体时间 (默认 60s)</li>
+<li>可配置模块: http, server</li>
+<li>解释: 读取客户端请求正文的超时时间<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_timeout"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="client-header-buffer-size"><a href="#client-header-buffer-size" class="headerlink" title="client_header_buffer_size"></a>client_header_buffer_size</h3><ul>
+<li>取值: 具体大小 (默认 1k)</li>
+<li>可配置模块: http, server</li>
+<li>解释: 用于读取客户端请求标头的缓冲区大小<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#client_header_buffer_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="client-header-timeout"><a href="#client-header-timeout" class="headerlink" title="client_header_timeout"></a>client_header_timeout</h3><ul>
+<li>取值: 具体时间 (默认 60s)</li>
+<li>可配置模块: http, server</li>
+<li>解释: 读取客户端请求标头的超时时间<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#client_header_timeout"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="client-max-body-size"><a href="#client-max-body-size" class="headerlink" title="client_max_body_size"></a>client_max_body_size</h3><ul>
+<li>取值: 具体大小 (默认 1m)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 客户端请求正文允许的最大大小, 设置为 0 为不限制<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="connection-pool-size"><a href="#connection-pool-size" class="headerlink" title="connection_pool_size"></a>connection_pool_size</h3><ul>
+<li>取值: 具体大小 (默认 512)</li>
+<li>可配置模块: http, server</li>
+<li>解释: 准确调整每个连接的内存分配<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#connection_pool_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="default-type"><a href="#default-type" class="headerlink" title="default_type"></a>default_type</h3><ul>
+<li>取值: mime.types 模块中的类型 (默认 text/plain)</li>
+<li>可配置模块: http, server</li>
+<li>解释: 定义响应的默认 MIME 类型<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#default_type"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="directio"><a href="#directio" class="headerlink" title="directio"></a>directio</h3><ul>
+<li>取值: 具体大小 | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 读取大于或等于设定大小的文件时, 允许使用 flag<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#directio"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="directio-alignment"><a href="#directio-alignment" class="headerlink" title="directio_alignment"></a>directio_alignment</h3><ul>
+<li>取值: off | on if_not_owner [from=part] (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: off: 允许和不检查路径名中的符号链接; on: 如果路径名的任何组件是符号链接, 对文件的访问被拒绝; if_not_owner, from: 参见详细解释<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#directio_alignment"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="error-page"><a href="#error-page" class="headerlink" title="error_page"></a>error_page</h3><ul>
+<li>取值: 错误码… [=[response]] URI</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 指定错误码对应的错误页<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#error_page"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="etag"><a href="#etag" class="headerlink" title="etag"></a>etag</h3><ul>
+<li>取值: on | off (默认 on)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 启用或禁用 ETag 的自动生成的静态资源的响应标头字段<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#etag"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="http"><a href="#http" class="headerlink" title="http"></a>http</h3><p><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#http"><mark class="hl-label blue">详细解释</mark> </a></p>
+<h3 id="if-modified-since"><a href="#if-modified-since" class="headerlink" title="if_modified_since"></a>if_modified_since</h3><ul>
+<li>取值: off | exact | before (默认 exact)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 对文件修改时间的服务端校验提供了两种不同的比对方式. 值为 exact 时, Nginx 会将请求头中 if_modified_since 的时间与响应数据中的时间做精确匹配, 即完全相等才认为客户端缓存有效, 返回响应状态码 304; 值为 before 时, 在请求头中 if_modified_since 的时间大于响应数据中的时间也认为客户端缓存有效, 返回响应状态码 304. 该指令功能控制处于数据流的出入口, 对于任何形式产生的响应数据都有效, 值为 off 时, 关闭 Nginx 对客户端缓存文件修改时间的服务端校验功能<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#if_modified_since"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="ignore-invalid-headers"><a href="#ignore-invalid-headers" class="headerlink" title="ignore_invalid_headers"></a>ignore_invalid_headers</h3><ul>
+<li>取值: on | off (默认 on)</li>
+<li>可配置模块: http, server</li>
+<li>解释: 控制是否应忽略名称无效的标头字段<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#ignore_invalid_headers"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="internal"><a href="#internal" class="headerlink" title="internal"></a>internal</h3><ul>
+<li>取值: 无</li>
+<li>可配置模块: location</li>
+<li>解释: 指定给定位置只能用于内部请求<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#internal"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="keepalive-disable"><a href="#keepalive-disable" class="headerlink" title="keepalive_disable"></a>keepalive_disable</h3><ul>
+<li>取值: none | browser …(默认 msie6)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 禁用与行为异常的浏览器的保持活动连接<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_disable"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="keepalive-requests"><a href="#keepalive-requests" class="headerlink" title="keepalive_requests"></a>keepalive_requests</h3><ul>
+<li>取值: 具体数字 (默认 1000)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置可以通过一个保持活动连接提供的最大请求数<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_requests"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="keepalive-time"><a href="#keepalive-time" class="headerlink" title="keepalive_time"></a>keepalive_time</h3><ul>
+<li>取值: 具体时间 (默认 1h)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 限制可以通过一个保持活动连接来处理请求的最长时间<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_time"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="keepalive-timeout"><a href="#keepalive-timeout" class="headerlink" title="keepalive_timeout"></a>keepalive_timeout</h3><ul>
+<li>取值: 具体时间 [header_timeout] (默认 75s)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 第一个参数设置一个超时间, 在此期间客户端连接将在服务器端保持打开状态 (值 0 将禁用保持活动状态的客户端连接). 第二个可选参数设置在 “Keep-Alive: timeout=” 响应标头字段.<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#keepalive_timeout"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="large-client-header-buffers"><a href="#large-client-header-buffers" class="headerlink" title="large_client_header_buffers"></a>large_client_header_buffers</h3><ul>
+<li>取值: 具体数量 具体大小 (默认 4 8k)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 对读取请求头设置最大数量和大小<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#large_client_header_buffers"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="limit-except"><a href="#limit-except" class="headerlink" title="limit_except"></a>limit_except</h3><ul>
+<li>取值: Http_method{…}</li>
+<li>可配置模块: location</li>
+<li>解释: 限制允许在某个位置内使用的 HTTP 方法</li>
+<li>例子:<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">limit_except GET { # 限制对除 GET 和 HEAD 之外的所有方法的访问</span><br><span class="line">    allow 192.168.1.0/32;</span><br><span class="line">    deny  all;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#limit_except"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="limit-rate"><a href="#limit-rate" class="headerlink" title="limit_rate"></a>limit_rate</h3><ul>
+<li>取值: 具体速率 (默认 0, 单位 B/s)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 限制每个连接向客户端传输响应的速率<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#limit_rate"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="limit-rate-after"><a href="#limit-rate-after" class="headerlink" title="limit_rate_after"></a>limit_rate_after</h3><ul>
+<li>取值: 具体大小 (默认 0)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置初始值, 在此之后进一步传输响应将受到速率限制<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#limit_rate"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="lingering-close"><a href="#lingering-close" class="headerlink" title="lingering_close"></a>lingering_close</h3><ul>
+<li>取值: off | on | always (默认 on)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 控制 nginx 关闭客户端连接的方式<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#lingering_close"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="lingering-time"><a href="#lingering-time" class="headerlink" title="lingering_time"></a>lingering_time</h3><ul>
+<li>取值: 具体时间 (默认 30s)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 当 lingering_close 生效时, 此指令指定 Nginx 处理 (读取和忽略) 来自客户端的其他数据的最长时间<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#lingering_time"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="lingering-timeout"><a href="#lingering-timeout" class="headerlink" title="lingering_timeout"></a>lingering_timeout</h3><ul>
+<li>取值: 具体时间 (默认 5s)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 当 lingering_close 生效时, 此指令指定更多客户端数据到达的最长等待时间<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#lingering_timeout"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="listen"><a href="#listen" class="headerlink" title="listen"></a>listen</h3><ul>
+<li>取值: 参见详细解释</li>
+<li>可配置模块: server</li>
+<li>解释: 参见详细解释<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#listen"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="location"><a href="#location" class="headerlink" title="location"></a>location</h3><p><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#location"><mark class="hl-label blue">详细解释</mark> </a></p>
+<h3 id="log-not-found"><a href="#log-not-found" class="headerlink" title="log_not_found"></a>log_not_found</h3><ul>
+<li>取值: on | off (默认 on)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 启用或禁用将有关未找到文件的错误记录到 error_log 中<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#log_not_found"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="log-subrequest"><a href="#log-subrequest" class="headerlink" title="log_subrequest"></a>log_subrequest</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 启用或禁用将子请求记录到 access_log<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#log_subrequest"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="max-ranges"><a href="#max-ranges" class="headerlink" title="max_ranges"></a>max_ranges</h3><ul>
+<li>取值: 具体值</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 限制字节范围请求中允许的最大范围数, 值 0 将禁用字节范围支持<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#max_ranges"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="merge-slashes"><a href="#merge-slashes" class="headerlink" title="merge_slashes"></a>merge_slashes</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server</li>
+<li>解释: 启用或禁用两个或多个相邻斜杠在 URI 中变成单个斜杠的压缩<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#merge_slashes"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="msie-padding"><a href="#msie-padding" class="headerlink" title="msie_padding"></a>msie_padding</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 启用或禁用向状态为 MSIE 客户端的响应添加注释<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#msie_padding"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="msie-refresh"><a href="#msie-refresh" class="headerlink" title="msie_refresh"></a>msie_refresh</h3><ul>
+<li>取值: max=N [inactive=time] | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 配置可存储以下内容的缓存<ul>
+<li>打开文件描述符，其大小和修改时间;</li>
+<li>关于目录存在的信息;</li>
+<li>文件查找错误<br>  max: 设置缓存中的最大元素数; 在缓存溢出时，删除最近最少使用的 （LRU） 元素;<br>  inactive: 定义从缓存中删除元素的时间 如果在此期间未被访问; 默认情况下，它是 60 秒;<br>  off: 禁用缓存<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#msie_refresh"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+</li>
+</ul>
+<h3 id="open-file-cache-errors"><a href="#open-file-cache-errors" class="headerlink" title="open_file_cache_errors"></a>open_file_cache_errors</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 按open_file_cache启用或禁用文件查找错误的缓存<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#open_file_cache_errors"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="open-file-cache-min-uses"><a href="#open-file-cache-min-uses" class="headerlink" title="open_file_cache_min_uses"></a>open_file_cache_min_uses</h3><ul>
+<li>取值: 具体数值 (默认 1)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置在 open_file_cache 指令的参数所配置的时间段内文件访问的最小次数<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#open_file_cache_min_uses"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="open-file-cache-valid"><a href="#open-file-cache-valid" class="headerlink" title="open_file_cache_valid"></a>open_file_cache_valid</h3><ul>
+<li>取值: 具体时间 (默认 60s)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置验证 open_file_cache 的时间<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#open_file_cache_valid"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="output-buffers"><a href="#output-buffers" class="headerlink" title="output_buffers"></a>output_buffers</h3><ul>
+<li>取值: 具体数值 具体大小 (默认 2 32k)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置用于从磁盘读取响应的缓冲区<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#output_buffers"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="port-in-redirect"><a href="#port-in-redirect" class="headerlink" title="port_in_redirect"></a>port_in_redirect</h3><ul>
+<li>取值: on | off (默认 on)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 启用或禁用在 Nginx 发出的绝对重定向中指定端口<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#port_in_redirect"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="postpone-output"><a href="#postpone-output" class="headerlink" title="postpone_output"></a>postpone_output</h3><ul>
+<li>取值: 具体大小 (默认 1460, 单位 B)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 配置客户端数据的传输将推迟到 Nginx 至少有一定数量的字节数据要发送. 值 0 将禁用延迟数据传输<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#postpone_output"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="read-ahead"><a href="#read-ahead" class="headerlink" title="read_ahead"></a>read_ahead</h3><ul>
+<li>取值: 具体大小 (默认 0)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置处理文件时内核的预读取量<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#read_ahead"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="recursive-error-pages"><a href="#recursive-error-pages" class="headerlink" title="recursive_error_pages"></a>recursive_error_pages</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 启用或禁用使用 error_page 指令执行多个重定向<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#recursive_error_pages"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="request-pool-size"><a href="#request-pool-size" class="headerlink" title="request_pool_size"></a>request_pool_size</h3><ul>
+<li>取值: 具体大小 (默认 4k)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 调整每个请求的内存分配大小<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#request_pool_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="reset-timedout-connection"><a href="#reset-timedout-connection" class="headerlink" title="reset_timedout_connection"></a>reset_timedout_connection</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 启用或禁用重置超时连接, 以及使用非标准代码 444 关闭的连接<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#reset_timedout_connection"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="resolver"><a href="#resolver" class="headerlink" title="resolver"></a>resolver</h3><ul>
+<li>取值: address … [valid=time] [ipv4=on|off] [ipv6=on|off] [status_zone=zone]</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 配置用于解析上游服务器名称的名称服务器进入地址<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#resolver"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="resolver-timeout"><a href="#resolver-timeout" class="headerlink" title="resolver_timeout"></a>resolver_timeout</h3><ul>
+<li>取值: 具体时间 (默认 30s)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置 resolver 名称解析的超时时间<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#resolver_timeout"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="root"><a href="#root" class="headerlink" title="root"></a>root</h3><ul>
+<li>取值: 具体时间 (默认 30s)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置请求的根目录<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#root"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="satisfy"><a href="#satisfy" class="headerlink" title="satisfy"></a>satisfy</h3><ul>
+<li>取值: all | any (默认 any)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: access 阶段按照 access 模块, auth_basic 模块, auth_request模块, 其他模块执行顺序<br>  all: access 阶段的所有模块都是通过, 才可以继续往下面执行。<br>  any: 所有模块中任何一个验证通过就放行<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#satisfy"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="send-lowat"><a href="#send-lowat" class="headerlink" title="send_lowat"></a><del>send_lowat</del></h3><ul>
+<li>取值: 具体大小 (默认 0)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 如果指令设置为非零值, Nginx 将尝试最小化 使用 kqueue 方法的任一标志对客户端套接字执行的发送操作数 或套接字选项.此指令在 Linux, Solaris 和 Windows 上将被忽略<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#send_lowat"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="send-timeout"><a href="#send-timeout" class="headerlink" title="send_timeout"></a>send_timeout</h3><ul>
+<li>取值: 具体时间 (默认 60s)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置向客户端传输响应的超时时间<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#send_timeout"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="sendfile"><a href="#sendfile" class="headerlink" title="sendfile"></a>sendfile</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置 sendfile 方式传输文件<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#sendfile"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="sendfile-max-chunk"><a href="#sendfile-max-chunk" class="headerlink" title="sendfile_max_chunk"></a>sendfile_max_chunk</h3><ul>
+<li>取值: 具体大小 (默认 2m)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 限制单词调用传输的数据量<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#sendfile_max_chunk"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="server"><a href="#server" class="headerlink" title="server"></a>server</h3><p><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#server"><mark class="hl-label blue">详细解释</mark> </a></p>
+<h3 id="server-name"><a href="#server-name" class="headerlink" title="server_name"></a>server_name</h3><ul>
+<li>取值: name …</li>
+<li>可配置模块: http</li>
+<li>解释: 设置虚拟服务器的名称, 可使用正则表达式或通配符<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#server_name"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="server-name-in-redirect"><a href="#server-name-in-redirect" class="headerlink" title="server_name_in_redirect"></a>server_name_in_redirect</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 启用或禁用在 Nginx 发送的绝对重定向中由 server_name 指令指定的主服务器名称的使用<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#server_name_in_redirect"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="server-names-hash-bucket-size"><a href="#server-names-hash-bucket-size" class="headerlink" title="server_names_hash_bucket_size"></a>server_names_hash_bucket_size</h3><ul>
+<li>取值: 具体大小 (默认取决于处理器高速缓存行大小 32 | 64 | 128)</li>
+<li>可配置模块: http</li>
+<li>解释: 设置服务器名称哈希表的存储空间大小<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#server_names_hash_bucket_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="server-names-hash-max-size"><a href="#server-names-hash-max-size" class="headerlink" title="server_names_hash_max_size"></a>server_names_hash_max_size</h3><ul>
+<li>取值: 具体大小 (默认 512)</li>
+<li>可配置模块: http</li>
+<li>解释: 设置服务器名称哈希表的最大值<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#server_names_hash_max_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="server-tokens"><a href="#server-tokens" class="headerlink" title="server_tokens"></a>server_tokens</h3><ul>
+<li>取值: on | off | build | string (默认 on)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 启用或禁用在错误页面上服务器响应标头字段<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#server_tokens"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="subrequest-output-buffer-size"><a href="#subrequest-output-buffer-size" class="headerlink" title="subrequest_output_buffer_size"></a>subrequest_output_buffer_size</h3><ul>
+<li>取值: 具体大小 (默认 4k 或者 8k)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置用于存储子请求的响应正文的存储空间大小<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#subrequest_output_buffer_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="tcp-nodelay"><a href="#tcp-nodelay" class="headerlink" title="tcp_nodelay"></a>tcp_nodelay</h3><ul>
+<li>取值: on | off (默认 on)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置是否把小包组成成大包<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#tcp_nodelay"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="tcp-nopush"><a href="#tcp-nopush" class="headerlink" title="tcp_nopush"></a>tcp_nopush</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 启用或禁用 FreeBSD 或 Linux 上的套接字选项<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#tcp_nopush"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="try-files"><a href="#try-files" class="headerlink" title="try_files"></a>try_files</h3><ul>
+<li>取值: file … (URL | =code)</li>
+<li>可配置模块: server, location</li>
+<li>解释: 按指定顺序检查文件是否存在并使用, 详情参见详细解释<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#try_files"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="types"><a href="#types" class="headerlink" title="types"></a>types</h3><ul>
+<li>取值: {…} (默认值  <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">types {</span><br><span class="line">    text/html  html;</span><br><span class="line">    image/gif  gif;</span><br><span class="line">    image/jpeg jpg jpeg;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+  )</li>
+<li>可配置模块: server, location</li>
+<li>解释: 将文件扩展名映射到 MIME 类型的响应<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#types"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="types-hash-bucket-size"><a href="#types-hash-bucket-size" class="headerlink" title="types_hash_bucket_size"></a>types_hash_bucket_size</h3><ul>
+<li>取值: 具体大小 (默认 64)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置类型哈希表的存储空间大小<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#types_hash_bucket_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="types-hash-max-size"><a href="#types-hash-max-size" class="headerlink" title="types_hash_max_size"></a>types_hash_max_size</h3><ul>
+<li>取值: 具体大小 (默认 1024)</li>
+<li>可配置模块: http, server, location</li>
+<li>解释: 设置最大类型哈希表<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#types_hash_max_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="underscores-in-headers"><a href="#underscores-in-headers" class="headerlink" title="underscores_in_headers"></a>underscores_in_headers</h3><ul>
+<li>取值: on | off (默认 off)</li>
+<li>可配置模块: http, server</li>
+<li>解释: 启用或禁用在客户端请求标头字段中使用下划线<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#underscores_in_headers"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="variables-hash-bucket-size"><a href="#variables-hash-bucket-size" class="headerlink" title="variables_hash_bucket_size"></a>variables_hash_bucket_size</h3><ul>
+<li>取值: 具体大小 (默认 64)</li>
+<li>可配置模块: http</li>
+<li>解释: 设置变量哈希表的存储空间大小<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#variables_hash_bucket_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+<h3 id="variables-hash-max-size"><a href="#variables-hash-max-size" class="headerlink" title="variables_hash_max_size"></a>variables_hash_max_size</h3><ul>
+<li>取值: 具体大小 (默认 1024)</li>
+<li>可配置模块: http</li>
+<li>解释: 设置变量哈希表的最大值<br><a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#variables_hash_max_size"><mark class="hl-label blue">详细解释</mark> </a></li>
+</ul>
+</div></details>
+
+<h2 id="嵌入式变量"><a href="#嵌入式变量" class="headerlink" title="嵌入式变量"></a>嵌入式变量</h2><details class="toggle" style="border: 1px solid  #cfd2d5"><summary class="toggle-button" style="background-color:  #cfd2d5;color:  #020304">查看所有嵌入式变量解释</summary><div class="toggle-content"><h3 id="arg-name"><a href="#arg-name" class="headerlink" title="$arg_name"></a>$arg_name</h3><p>请求行中的参数名称</p>
+<h3 id="args"><a href="#args" class="headerlink" title="$args"></a>$args</h3><p>请求行中的参数</p>
+<h3 id="binary-remote-addr"><a href="#binary-remote-addr" class="headerlink" title="$binary_remote_addr"></a>$binary_remote_addr</h3><p>二进制形式的客户端地址, 值的长度始终为 4 个字节 (IPv4), 或 16 个字节 (IPv6)</p>
+<h3 id="body-bytes-sent"><a href="#body-bytes-sent" class="headerlink" title="$body_bytes_sent"></a>$body_bytes_sent</h3><p>发送到客户端的字节数，不计算响应标头; 此变量与 Apache 模块的 “” 参数兼容%Bmod_log_config</p>
+<h3 id="bytes-sent"><a href="#bytes-sent" class="headerlink" title="$bytes_sent"></a>$bytes_sent</h3><p>发送到客户端的字节数</p>
+<h3 id="connection"><a href="#connection" class="headerlink" title="$connection"></a>$connection</h3><p>连接序列号</p>
+<h3 id="connection-requests"><a href="#connection-requests" class="headerlink" title="$connection_requests"></a>$connection_requests</h3><p>当前通过连接发出的请求数</p>
+<h3 id="connection-time"><a href="#connection-time" class="headerlink" title="$connection_time"></a>$connection_time</h3><p>连接时间 (以秒为单), 分辨率为毫秒</p>
+<h3 id="content-length"><a href="#content-length" class="headerlink" title="$content_length"></a>$content_length</h3><p>Content-Length 请求标头字段</p>
+<h3 id="content-type"><a href="#content-type" class="headerlink" title="$content_type"></a>$content_type</h3><p>Content-Type 请求标头字段</p>
+<h3 id="cookie-name"><a href="#cookie-name" class="headerlink" title="$cookie_name"></a>$cookie_name</h3><p>Cookie 名称</p>
+<h3 id="document-root"><a href="#document-root" class="headerlink" title="$document_root"></a>$document_root</h3><p>对于当前请求 root 或 alias 指令的值</p>
+<h3 id="document-uri"><a href="#document-uri" class="headerlink" title="$document_uri"></a>$document_uri</h3><p>同 $uri</p>
+<h3 id="host"><a href="#host" class="headerlink" title="$host"></a>$host</h3><p>按以下优先级顺序:</p>
+<ol>
+<li>请求行中的主机名，</li>
+<li>Host 请求标头字段中的主机名</li>
+<li>与请求匹配的服务器名称</li>
+</ol>
+<h3 id="hostname"><a href="#hostname" class="headerlink" title="$hostname"></a>$hostname</h3><p>主机名</p>
+<h3 id="http-name"><a href="#http-name" class="headerlink" title="$http_name"></a>$http_name</h3><p>任意请求标头字段. 变量名称的最后一部分是转换后的字段名称改为小写且短划线替换为下划线</p>
+<h3 id="https"><a href="#https" class="headerlink" title="$https"></a>$https</h3><p>如果连接不在 SSL 模式下运行该变量为空字符串</p>
+<h3 id="is-args"><a href="#is-args" class="headerlink" title="$is_args"></a>$is_args</h3><p>求行有参数, 无参数时空字符串</p>
+<h3 id="limit-rate"><a href="#limit-rate" class="headerlink" title="$limit_rate"></a>$limit_rate</h3><p>设置此变量可启用响应速率限制. 见limit_rate指令</p>
+<h3 id="msec"><a href="#msec" class="headerlink" title="$msec"></a>$msec</h3><p>当前时间(以秒为单位) 分辨率是毫秒</p>
+<h3 id="nginx-version"><a href="#nginx-version" class="headerlink" title="$nginx_version"></a>$nginx_version</h3><p>Nginx 版本</p>
+<h3 id="pid"><a href="#pid" class="headerlink" title="$pid"></a>$pid</h3><p>worker 进程的 PID</p>
+<h3 id="pipe"><a href="#pipe" class="headerlink" title="$pipe"></a>$pipe</h3><p>请求已通过管道传输</p>
+<h3 id="proxy-protocol-addr"><a href="#proxy-protocol-addr" class="headerlink" title="$proxy_protocol_addr"></a>$proxy_protocol_addr</h3><p>来自 PROXY 协议标头的客户端地址, 在侦听指令中必须事先通过设置参数来启用代理协议</p>
+<h3 id="proxy-protocol-port"><a href="#proxy-protocol-port" class="headerlink" title="$proxy_protocol_port"></a>$proxy_protocol_port</h3><p>来自 PROXY 协议标头的客户端端口, 在侦听指令中必须事先通过设置参数来启用代理协议</p>
+<h3 id="proxy-protocol-server-addr"><a href="#proxy-protocol-server-addr" class="headerlink" title="$proxy_protocol_server_addr"></a>$proxy_protocol_server_addr</h3><p>来自 PROXY 协议标头的服务器地址, 在侦听指令中必须事先通过设置参数来启用代理协议</p>
+<h3 id="proxy-protocol-server-port"><a href="#proxy-protocol-server-port" class="headerlink" title="$proxy_protocol_server_port"></a>$proxy_protocol_server_port</h3><p>来自 PROXY 协议标头的服务器端口, 在侦听指令中必须事先通过设置参数来启用代理协议</p>
+<h3 id="proxy-protocol-tlv-name"><a href="#proxy-protocol-tlv-name" class="headerlink" title="$proxy_protocol_tlv_name"></a>$proxy_protocol_tlv_name</h3><p>来自代理协议标头的 TLV, 在侦听指令中必须事先通过设置参数来启用代理协议</p>
+<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4><p>name 取值可以是 TLV 类型名称或其数值以及 SSL TLV 类型名或其数值<br>SSL TLV类型名或其数值都以 ssl_ 开头<br>支持以下 TLV 类型名称</p>
+<ul>
+<li>alpn (0x01): 通过连接使用的上层协议</li>
+<li>authority (0x02): 客户端传递的主机名值</li>
+<li>unique_id (0x05): 唯一的连接 ID</li>
+<li>netns (0x30): 命名空间的名称</li>
+<li>ssl (0x20): 二进制 SSL TLV 结构<br>支持以下 SSL TLV 类型名称</li>
+<li>ssl_version (0x21): 客户端连接中使用的 SSL 版本</li>
+<li>ssl_cn (0x22): SSL 证书公用名</li>
+<li>ssl_cipher (0x23): 所用密码的名称</li>
+<li>ssl_sig_alg (0x24): 用于对证书进行签名的算法</li>
+<li>ssl_key_alg (0x25): 公钥算法</li>
+<li>ssl_verify: 客户端 SSL 证书验证结果 (如果客户端提供了证书) 并成功验证, 否则不为 0</li>
+</ul>
+<h3 id="query-string"><a href="#query-string" class="headerlink" title="$query_string"></a>$query_string</h3><p>同 $args</p>
+<h3 id="realpath-root"><a href="#realpath-root" class="headerlink" title="$realpath_root"></a>$realpath_root</h3><p>对于当前请求对应于根或别名指令值的绝对路径名, 将所有符号链接解析为真实路径</p>
+<h3 id="remote-addr"><a href="#remote-addr" class="headerlink" title="$remote_addr"></a>$remote_addr</h3><p>客户地址</p>
+<h3 id="remote-port"><a href="#remote-port" class="headerlink" title="$remote_port"></a>$remote_port</h3><p>客户端端口</p>
+<h3 id="remote-user"><a href="#remote-user" class="headerlink" title="$remote_user"></a>$remote_user</h3><p>基本身份验证提供的用户名</p>
+<h3 id="request"><a href="#request" class="headerlink" title="$request"></a>$request</h3><p>完整的原始请求行</p>
+<h3 id="request-body"><a href="#request-body" class="headerlink" title="$request_body"></a>$request_body</h3><p>请求正文</p>
+<h3 id="request-body-file"><a href="#request-body-file" class="headerlink" title="$request_body_file"></a>$request_body_file</h3><p>具有请求正文的临时文件的名称</p>
+<h3 id="request-completion"><a href="#request-completion" class="headerlink" title="$request_completion"></a>$request_completion</h3><p>请求未完成时为空字符串, 否则是 OK</p>
+<h3 id="request-filename"><a href="#request-filename" class="headerlink" title="$request_filename"></a>$request_filename</h3><p>当前请求的文件路径</p>
+<h3 id="request-id"><a href="#request-id" class="headerlink" title="$request_id"></a>$request_id</h3><p>唯一请求标识符</p>
+<h3 id="request-length"><a href="#request-length" class="headerlink" title="$request_length"></a>$request_length</h3><p>请求长度 (包括请求行、标头和请求正文)</p>
+<h3 id="request-method"><a href="#request-method" class="headerlink" title="$request_method"></a>$request_method</h3><p>请求方法</p>
+<h3 id="request-time"><a href="#request-time" class="headerlink" title="$request_time"></a>$request_time</h3><p>自从客户端读取第一个字节以来经过的请求处理时间 (以秒为单位), 分辨率为毫秒</p>
+<h3 id="request-uri"><a href="#request-uri" class="headerlink" title="$request_uri"></a>$request_uri</h3><p>完整的原始请求 URI(带参数)</p>
+<h3 id="scheme"><a href="#scheme" class="headerlink" title="$scheme"></a>$scheme</h3><p>请求方案 (http 或 https)</p>
+<h3 id="sent-http-name"><a href="#sent-http-name" class="headerlink" title="$sent_http_name"></a>$sent_http_name</h3><p>任意响应标头字段 (变量名称的最后一部分是转换后的字段名称改为小写且短划线替换为下划线)</p>
+<h3 id="sent-trailer-name"><a href="#sent-trailer-name" class="headerlink" title="$sent_trailer_name"></a>$sent_trailer_name</h3><p>在响应结束时发送的任意字段 (变量名称的最后一部分是转换后的字段名称改为小写且短划线替换为下划线)</p>
+<h3 id="server-addr"><a href="#server-addr" class="headerlink" title="$server_addr"></a>$server_addr</h3><p>接受请求的服务器的地址 (计算此变量的值通常需要一次系统调用)</p>
+<h3 id="server-name"><a href="#server-name" class="headerlink" title="$server_name"></a>$server_name</h3><p>接受请求的服务器的名称</p>
+<h3 id="server-port"><a href="#server-port" class="headerlink" title="$server_port"></a>$server_port</h3><p>接受请求的服务器的端口</p>
+<h3 id="server-protocol"><a href="#server-protocol" class="headerlink" title="$server_protocol"></a>$server_protocol</h3><p>请求协议 (通常是 HTTP/2.0 或 HTTP/1.0 或 HTTP/1.1)</p>
+<h3 id="status"><a href="#status" class="headerlink" title="$status"></a>$status</h3><p>响应状态</p>
+<h3 id="tcpinfo-rtt-tcpinfo-rttvar-tcpinfo-snd-cwnd-tcpinfo-rcv-space"><a href="#tcpinfo-rtt-tcpinfo-rttvar-tcpinfo-snd-cwnd-tcpinfo-rcv-space" class="headerlink" title="$tcpinfo_rtt, $tcpinfo_rttvar, $tcpinfo_snd_cwnd, $tcpinfo_rcv_space"></a>$tcpinfo_rtt, $tcpinfo_rttvar, $tcpinfo_snd_cwnd, $tcpinfo_rcv_space</h3><p>有关客户端 TCP 连接的信息</p>
+<h3 id="time-iso8601"><a href="#time-iso8601" class="headerlink" title="$time_iso8601"></a>$time_iso8601</h3><p>ISO 8601 标准格式的本地时间</p>
+<h3 id="time-local"><a href="#time-local" class="headerlink" title="$time_local"></a>$time_local</h3><p>通用日志格式的本地时间</p>
+<h3 id="uri"><a href="#uri" class="headerlink" title="$uri"></a>$uri</h3><p>请求中的当前 URI，规范化的值可能会在请求处理过程中发生变化, 例如: 在执行内部重定向或使用索引文件时</p>
+</div></details>
+
+<h2 id="location-匹配规则"><a href="#location-匹配规则" class="headerlink" title="location 匹配规则"></a>location 匹配规则</h2><h3 id="路径匹配"><a href="#路径匹配" class="headerlink" title="路径匹配"></a>路径匹配</h3><p>location 后的地址是匹配规则, 可分为前缀和地址两部分, 例如 <code>~/(js|css)</code> 中 <code>~</code> 是前缀, <code>/(js|css)</code> 是正则表达式形式地址</p>
+<table>
+<thead>
+<tr>
+<th align="center">前缀</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">缺省</td>
+<td>通用匹配</td>
+</tr>
+<tr>
+<td align="center">~</td>
+<td>匹配区分大小写正则表达式</td>
+</tr>
+<tr>
+<td align="center">~*</td>
+<td>匹配不区分大小写正则表达式</td>
+</tr>
+<tr>
+<td align="center">!~</td>
+<td>不匹配区分大小写正则表达式</td>
+</tr>
+<tr>
+<td align="center">!~*</td>
+<td>不匹配不区分大小写正则表达式</td>
+</tr>
+<tr>
+<td align="center">=</td>
+<td>精确匹配</td>
+</tr>
+<tr>
+<td align="center">@</td>
+<td>内部跳转</td>
+</tr>
+<tr>
+<td align="center">^~</td>
+<td>普通字符串匹配上以后不再进行正则匹配</td>
+</tr>
+</tbody></table>
+<div class="note info simple"><p>匹配优先级:</p>
+<ol>
+<li>精确匹配 =</li>
+<li>前缀匹配 ^~</li>
+<li>按文件中顺序的正则匹配</li>
+<li>匹配不带任何修饰的前缀匹配</li>
+<li>交给 / 通用匹配</li>
+<li>当有匹配成功时候, 停止匹配并按当前匹配规则处理请求</li>
+</ol>
+</div>
+
+<h3 id="文件及目录匹配"><a href="#文件及目录匹配" class="headerlink" title="文件及目录匹配"></a>文件及目录匹配</h3><ul>
+<li>-f和!-f用来判断是否存在文件</li>
+<li>-d和!-d用来判断是否存在目录</li>
+<li>-e和!-e用来判断是否存在文件或目录</li>
+<li>-x和!-x用来判断文件是否可执行</li>
+</ul>
+<h2 id="URI-重写"><a href="#URI-重写" class="headerlink" title="URI 重写"></a>URI 重写</h2><p>在 location 域内设置 rewrite 指令<br>例如</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line"> location /page {</span><br><span class="line">    #               匹配内容                    替换内容                   规则</span><br><span class="line">    rewrite     ^/page/([0-9]+)/([0-9]+)$    /page?pageNum=$1&amp;size=$2    break;</span><br><span class="line">    # 规则取值</span><br><span class="line">    # last        相当于apache里面的[L]标记，表示rewrite。</span><br><span class="line">    # break       本条规则匹配完成后，终止匹配，不再匹配后面的规则。</span><br><span class="line">    # redirect    返回302临时重定向，浏览器地址会显示跳转后的URL地址。</span><br><span class="line">    # permanent   返回301永久重定向，浏览器地址会显示跳转后的URL地址。</span><br><span class="line">    proxy_pass http://127.0.0.1:8000; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="检测请求头里的Referer的网址"><a href="#检测请求头里的Referer的网址" class="headerlink" title="检测请求头里的Referer的网址"></a>检测请求头里的Referer的网址</h2><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">location /href {</span><br><span class="line">    valid_referers 127.0.0.1; # 检测请求头里的Referer的网址（可配多个值用空格分隔），取值还可以是none（不存在Referer请求头）、blocked（Referer请求头的值被防火墙或代理服务器删除或伪装，不以http://或https://开头）</span><br><span class="line">    if ($invalid_referer) { # 当检测不通过时</span><br><span class="line">        return 401; # 返回401</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    proxy_pass http://127.0.0.1:8000;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<div class="flink"><div class="flink-name">相关文档</div> <div class="flink-list">
+          <div class="flink-list-item">
+            <a href="https://nginx.org/en/docs/" title="Nginx Documentation" target="_blank">
+              <div class="flink-item-icon">
+                <img class="no-lightbox" src="https://nginx.org/nginx.png" onerror="this.onerror=null;this.src=&quot;/img/friend_404.gif&quot;" alt="Nginx Documentation">
+              </div>
+              <div class="flink-item-name">Nginx Documentation</div> 
+              <div class="flink-item-desc" title="Nginx 官方文档">Nginx 官方文档</div>
+            </a>
+          </div>
+          <div class="flink-list-item">
+            <a href="https://www.runoob.com/regexp/regexp-tutorial.html" title="菜鸟教程" target="_blank">
+              <div class="flink-item-icon">
+                <img class="no-lightbox" src="null" onerror="this.onerror=null;this.src=&quot;/img/friend_404.gif&quot;" alt="菜鸟教程">
+              </div>
+              <div class="flink-item-name">菜鸟教程</div> 
+              <div class="flink-item-desc" title="正则表达式教程">正则表达式教程</div>
+            </a>
+          </div></div></div>]]></content>
       <categories>
         <category>Note</category>
         <category>Network</category>
+        <category>Basic</category>
         <category>Nginx</category>
       </categories>
       <tags>
         <tag>Network</tag>
         <tag>Nginx</tag>
         <tag>Maintenance</tag>
+        <tag>Baisc</tag>
       </tags>
   </entry>
   <entry>
     <title>Spring security 的学习笔记</title>
     <url>/2022/12/14/14-29-47/</url>
-    <content><![CDATA[<h1 id="Spring-security-学习笔记"><a href="#Spring-security-学习笔记" class="headerlink" title="Spring security 学习笔记"></a><strong>Spring security</strong> 学习笔记</h1><h2 id="关键过滤器"><a href="#关键过滤器" class="headerlink" title="关键过滤器"></a>关键过滤器</h2><h3 id="FilterSecurityInterceptor"><a href="#FilterSecurityInterceptor" class="headerlink" title="FilterSecurityInterceptor"></a>FilterSecurityInterceptor</h3><span class="hide-inline"><button type="button" class="hide-button" style="background-color:  #808080;color:  #ffffff"> 查看类全名
+    <content><![CDATA[<h1 id="Spring-security-学习笔记"><a href="#Spring-security-学习笔记" class="headerlink" title="Spring security 学习笔记"></a><strong>Spring security</strong> 学习笔记</h1><p>Spring security 是一个能高度定制的身份验证和访问控制框架, 是基于 Spring 应用程序标准.<br>相似的的框架有 Shrio, 相比于 Spring security, Shrio 更轻一些. Spring secuity 对于 Spring 框架的兼容性更好, 但同时也更依赖于 Spring 框架.</p>
+<h2 id="关键过滤器"><a href="#关键过滤器" class="headerlink" title="关键过滤器"></a>关键过滤器</h2><h3 id="FilterSecurityInterceptor"><a href="#FilterSecurityInterceptor" class="headerlink" title="FilterSecurityInterceptor"></a>FilterSecurityInterceptor</h3><span class="hide-inline"><button type="button" class="hide-button" style="background-color:  #808080;color:  #ffffff"> 查看类全名
   </button><span class="hide-content">org.springframework.security.web.access.intercept.FilterSecurityInterceptor</span></span>
 <p>方法级权限过滤器，位于过滤链最底部</p>
 <h3 id="ExceptionTranslationFilter"><a href="#ExceptionTranslationFilter" class="headerlink" title="ExceptionTranslationFilter"></a>ExceptionTranslationFilter</h3><span class="hide-inline"><button type="button" class="hide-button" style="background-color:  #808080;color:  #ffffff"> 查看类全名
