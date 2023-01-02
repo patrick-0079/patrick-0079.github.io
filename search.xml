@@ -2197,4 +2197,40 @@
         <tag>Securitu</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Nacos-note</title>
+    <url>/2023/01/02/14-50-07/</url>
+    <content><![CDATA[<h1 id="Nacos-学习笔记"><a href="#Nacos-学习笔记" class="headerlink" title="Nacos 学习笔记"></a><strong>Nacos</strong> 学习笔记</h1><p>Nacos 是 Alibaba 开发的, 具有服务注册与发现, 配置发布与获取功能的框架</p>
+<h2 id="注册中心"><a href="#注册中心" class="headerlink" title="注册中心"></a>注册中心</h2><p><a href="/2022/12/14/19-30-57#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E7%AE%80%E4%BB%8B">注册中心简介</a></p>
+<h2 id="配置中心"><a href="#配置中心" class="headerlink" title="配置中心"></a>配置中心</h2><p>配置中心是为解决不同服务运行环境需要不同的一个微服务单元<br>常用的配置中心有</p>
+<ul>
+<li>Spring cloud config</li>
+<li>Apollo</li>
+<li>Nacos</li>
+</ul>
+<h2 id="Nacos-启动"><a href="#Nacos-启动" class="headerlink" title="Nacos 启动"></a>Nacos 启动</h2><h3 id="单机模式"><a href="#单机模式" class="headerlink" title="单机模式"></a>单机模式</h3><ol>
+<li>下载 <a href="https://github.com/alibaba/nacos/releases">Nacos</a></li>
+<li>在 bin 目录下执行 startup 脚本:<br> <code>startup.cmd -m standalone</code> 或 <code>startup.sh -m standalone</code>, 其中 <code>standalone</code> 为单机模式启动</li>
+<li>使用 <code>shutdown.sh</code> 或 <code>shutdown.cmd</code> 脚本关闭服务</li>
+</ol>
+<h3 id="集群模式"><a href="#集群模式" class="headerlink" title="集群模式"></a>集群模式</h3><h2 id="使用-MySQL-替换-Derby"><a href="#使用-MySQL-替换-Derby" class="headerlink" title="使用 MySQL 替换 Derby"></a>使用 MySQL 替换 Derby</h2><h2 id="Nacos-使用"><a href="#Nacos-使用" class="headerlink" title="Nacos 使用"></a>Nacos 使用</h2><h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3>]]></content>
+      <categories>
+        <category>Note</category>
+        <category>Spring</category>
+        <category>Spring boot</category>
+        <category>Spring cloud</category>
+        <category>Spring cloud Alibaba</category>
+        <category>Nacos</category>
+      </categories>
+      <tags>
+        <tag>Note</tag>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>Spring boot</tag>
+        <tag>Registration</tag>
+        <tag>Microservices</tag>
+        <tag>Alibaba</tag>
+        <tag>Nacos</tag>
+      </tags>
+  </entry>
 </search>
