@@ -1117,68 +1117,68 @@
 <p>所呈现效果为:<br>First Term<br>▯▯This is the definition of the first term.<br>Second Term<br>▯▯This is one definition of the second term.<br>▯▯This is another definition of the second term.</p>
 <h2 id="Emoji"><a href="#Emoji" class="headerlink" title="Emoji"></a>Emoji</h2><p>直接使用通过键入表情符号短代码来插入表情符号<br>例如:</p>
 <p><code>:joy:</code> -&gt; <span class="github-emoji"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
-<h2 id="butterfly支持标签"><a href="#butterfly支持标签" class="headerlink" title="butterfly支持标签"></a>butterfly支持标签</h2><p>作者: Jerry<br>連結: <a href="https://butterfly.js.org/">https://butterfly.js.org/</a><br>來源: Butterfly</p>
+<h2 id="butterfly支持标籤"><a href="#butterfly支持标籤" class="headerlink" title="butterfly支持标籤"></a>butterfly支持标籤</h2><p>作者: Jerry<br>连结: <a href="https://butterfly.js.org/">https://butterfly.js.org/</a><br>来源: Butterfly</p>
 <p>逗号用 &amp;sbquo; 代替</p>
-<h3 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% note simple %}</span><br><span class="line">默認 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note default simple %}</span><br><span class="line">default 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note primary simple %}</span><br><span class="line">primary 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note success simple %}</span><br><span class="line">success 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note info simple %}</span><br><span class="line">info 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note warning simple %}</span><br><span class="line">warning 提示塊標籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note danger simple %}</span><br><span class="line">danger 提示塊標籤</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
-<div class="note simple"><p>默認 提示塊標籤</p>
+<h3 id="便籤"><a href="#便籤" class="headerlink" title="便籤"></a>便籤</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% note simple %}</span><br><span class="line">默认 提示块标籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note default simple %}</span><br><span class="line">default 提示块标籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note primary simple %}</span><br><span class="line">primary 提示块标籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note success simple %}</span><br><span class="line">success 提示块标籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note info simple %}</span><br><span class="line">info 提示块标籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note warning simple %}</span><br><span class="line">warning 提示块标籤</span><br><span class="line">{% endnote %}</span><br><span class="line"></span><br><span class="line">{% note danger simple %}</span><br><span class="line">danger 提示块标籤</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
+<div class="note simple"><p>默认 提示块标籤</p>
 </div>
 
-<div class="note default simple"><p>default 提示塊標籤</p>
+<div class="note default simple"><p>default 提示块标籤</p>
 </div>
 
-<div class="note primary simple"><p>primary 提示塊標籤</p>
+<div class="note primary simple"><p>primary 提示块标籤</p>
 </div>
 
-<div class="note success simple"><p>success 提示塊標籤</p>
+<div class="note success simple"><p>success 提示块标籤</p>
 </div>
 
-<div class="note info simple"><p>info 提示塊標籤</p>
+<div class="note info simple"><p>info 提示块标籤</p>
 </div>
 
-<div class="note warning simple"><p>warning 提示塊標籤</p>
+<div class="note warning simple"><p>warning 提示块标籤</p>
 </div>
 
-<div class="note danger simple"><p>danger 提示塊標籤</p>
+<div class="note danger simple"><p>danger 提示块标籤</p>
 </div>
 
 
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% note 'fab fa-cc-visa' simple %}</span><br><span class="line">你是刷 Visa 還是 UnionPay</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note blue 'fas fa-bullhorn' simple %}</span><br><span class="line">2021年快到了....</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note pink 'fas fa-car-crash' simple %}</span><br><span class="line">小心開車 安全至上</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note red 'fas fa-fan' simple%}</span><br><span class="line">這是三片呢？還是四片？</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note orange 'fas fa-battery-half' simple %}</span><br><span class="line">你是刷 Visa 還是 UnionPay</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note purple 'far fa-hand-scissors' simple %}</span><br><span class="line">剪刀石頭布</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note green 'fab fa-internet-explorer' simple %}</span><br><span class="line">前端最討厭的瀏覽器</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
-<div class="note icon-padding simple"><i class="note-icon fab fa-cc-visa"></i><p>你是刷 Visa 還是 UnionPay</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% note 'fab fa-cc-visa' simple %}</span><br><span class="line">你是刷 Visa 还是 UnionPay</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note blue 'fas fa-bullhorn' simple %}</span><br><span class="line">2021年快到了....</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note pink 'fas fa-car-crash' simple %}</span><br><span class="line">小心开车 安全至上</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note red 'fas fa-fan' simple%}</span><br><span class="line">这是三片呢？还是四片？</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note orange 'fas fa-battery-half' simple %}</span><br><span class="line">你是刷 Visa 还是 UnionPay</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note purple 'far fa-hand-scissors' simple %}</span><br><span class="line">剪刀石头布</span><br><span class="line">{% endnote %}</span><br><span class="line">{% note green 'fab fa-internet-explorer' simple %}</span><br><span class="line">前端最讨厌的浏览器</span><br><span class="line">{% endnote %}</span><br></pre></td></tr></tbody></table></figure>
+<div class="note icon-padding simple"><i class="note-icon fab fa-cc-visa"></i><p>你是刷 Visa 还是 UnionPay</p>
 </div>
 <div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i><p>2021年快到了….</p>
 </div>
-<div class="note pink icon-padding simple"><i class="note-icon fas fa-car-crash"></i><p>小心開車 安全至上</p>
+<div class="note pink icon-padding simple"><i class="note-icon fas fa-car-crash"></i><p>小心开车 安全至上</p>
 </div>
-<div class="note red icon-padding simple"><i class="note-icon fas fa-fan"></i><p>這是三片呢？還是四片？</p>
+<div class="note red icon-padding simple"><i class="note-icon fas fa-fan"></i><p>这是三片呢？还是四片？</p>
 </div>
-<div class="note orange icon-padding simple"><i class="note-icon fas fa-battery-half"></i><p>你是刷 Visa 還是 UnionPay</p>
+<div class="note orange icon-padding simple"><i class="note-icon fas fa-battery-half"></i><p>你是刷 Visa 还是 UnionPay</p>
 </div>
-<div class="note purple icon-padding simple"><i class="note-icon far fa-hand-scissors"></i><p>剪刀石頭布</p>
+<div class="note purple icon-padding simple"><i class="note-icon far fa-hand-scissors"></i><p>剪刀石头布</p>
 </div>
-<div class="note green icon-padding simple"><i class="note-icon fab fa-internet-explorer"></i><p>前端最討厭的瀏覽器</p>
+<div class="note green icon-padding simple"><i class="note-icon fab fa-internet-explorer"></i><p>前端最讨厌的浏览器</p>
 </div>
-<div class="note icon-padding simple"><i class="note-icon fab fa-cc-visa"></i><p>你是刷 Visa 還是 UnionPay</p>
+<div class="note icon-padding simple"><i class="note-icon fab fa-cc-visa"></i><p>你是刷 Visa 还是 UnionPay</p>
 </div>
 <div class="note blue icon-padding simple"><i class="note-icon fas fa-bullhorn"></i><p>2021年快到了….</p>
 </div>
-<div class="note pink icon-padding simple"><i class="note-icon fas fa-car-crash"></i><p>小心開車 安全至上</p>
+<div class="note pink icon-padding simple"><i class="note-icon fas fa-car-crash"></i><p>小心开车 安全至上</p>
 </div>
-<div class="note red icon-padding simple"><i class="note-icon fas fa-fan"></i><p>這是三片呢？還是四片？</p>
+<div class="note red icon-padding simple"><i class="note-icon fas fa-fan"></i><p>这是三片呢？还是四片？</p>
 </div>
-<div class="note orange icon-padding simple"><i class="note-icon fas fa-battery-half"></i><p>你是刷 Visa 還是 UnionPay</p>
+<div class="note orange icon-padding simple"><i class="note-icon fas fa-battery-half"></i><p>你是刷 Visa 还是 UnionPay</p>
 </div>
-<div class="note purple icon-padding simple"><i class="note-icon far fa-hand-scissors"></i><p>剪刀石頭布</p>
+<div class="note purple icon-padding simple"><i class="note-icon far fa-hand-scissors"></i><p>剪刀石头布</p>
 </div>
-<div class="note green icon-padding simple"><i class="note-icon fab fa-internet-explorer"></i><p>前端最討厭的瀏覽器</p>
+<div class="note green icon-padding simple"><i class="note-icon fab fa-internet-explorer"></i><p>前端最讨厌的浏览器</p>
 </div>
 
 <h3 id="tag-hide"><a href="#tag-hide" class="headerlink" title="tag-hide"></a>tag-hide</h3><h4 id="Inline"><a href="#Inline" class="headerlink" title="Inline"></a>Inline</h4><span class="hide-inline"><button type="button" class="hide-button" style="background-color: bg;color: color">display
   </button><span class="hide-content">content</span></span>, 例如
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">哪個英文字母最酷？ {% hideInline 因為西裝褲(C裝酷),查看答案,#FF7242,#fff %}</span><br><span class="line"></span><br><span class="line">門裏站着一個人? {% hideInline 閃 %}</span><br></pre></td></tr></tbody></table></figure>
-<p>哪個英文字母最酷？ <span class="hide-inline"><button type="button" class="hide-button" style="background-color: #FF7242;color: #fff">查看答案
-  </button><span class="hide-content">因為西裝褲(C裝酷)</span></span></p>
-<p>門裏站着一個人? <span class="hide-inline"><button type="button" class="hide-button" style="">Click
-  </button><span class="hide-content">閃</span></span></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">哪个英文字母最酷？ {% hideInline 因为西装裤(C装酷),查看答案,#FF7242,#fff %}</span><br><span class="line"></span><br><span class="line">门里站着一个人? {% hideInline 闪 %}</span><br></pre></td></tr></tbody></table></figure>
+<p>哪个英文字母最酷？ <span class="hide-inline"><button type="button" class="hide-button" style="background-color: #FF7242;color: #fff">查看答案
+  </button><span class="hide-content">因为西装裤(C装酷)</span></span></p>
+<p>门里站着一个人? <span class="hide-inline"><button type="button" class="hide-button" style="">Click
+  </button><span class="hide-content">闪</span></span></p>
 <h4 id="Block"><a href="#Block" class="headerlink" title="Block"></a>Block</h4><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% hideBlock display,bg,color %}</span><br><span class="line">content</span><br><span class="line">{% endhideBlock %}</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>content: 文本内容</li>
@@ -1199,7 +1199,7 @@
 </div></details>
 
 
-<h3 id="mermaid"><a href="#mermaid" class="headerlink" title="mermaid"></a>mermaid</h3><p>使用mermaid标签可以绘制Flowchart（流程图）、Sequence diagram（时序图 ）、Class Diagram（类别图）、State Diagram（状态图）、Gantt（甘特图）和Pie Chart（圆形图）</p>
+<h3 id="mermaid"><a href="#mermaid" class="headerlink" title="mermaid"></a>mermaid</h3><p>使用mermaid标籤可以绘制Flowchart（流程图）、Sequence diagram（时序图 ）、Class Diagram（类别图）、State Diagram（状态图）、Gantt（甘特图）和Pie Chart（圆形图）</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% mermaid %}</span><br><span class="line">内容</span><br><span class="line">{% endmermaid %}</span><br></pre></td></tr></tbody></table></figure>
 <p><a href="https://mermaid-js.github.io/mermaid/#/">mermaid文档</a></p>
 <h3 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h3><p>使用方法</p>
@@ -1208,19 +1208,19 @@
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% tabs test1, 2 %}</span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 1.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 2.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab --&gt;</span><br><span class="line">**This is Tab 3.**</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">{% endtabs %}</span><br></pre></td></tr></tbody></table></figure>
 <div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab"><button type="button" data-href="#test1-1">test1 1</button></li><li class="tab active"><button type="button" data-href="#test1-2">test1 2</button></li><li class="tab"><button type="button" data-href="#test1-3">test1 3</button></li></ul><div class="tab-contents"><div class="tab-item-content" id="test1-1"><p><strong>This is Tab 1.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content active" id="test1-2"><p><strong>This is Tab 2.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-3"><p><strong>This is Tab 3.</strong></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 
-<h3 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% btn [url],[text],[icon],[color] [style] [layout] [position] [size] %}</span><br><span class="line"></span><br><span class="line">[url]         : 鏈接</span><br><span class="line">[text]        : 按鈕文字</span><br><span class="line">[icon]        : [可選] 圖標</span><br><span class="line">[color]       : [可選] 按鈕背景顔色(默認style時）</span><br><span class="line">                      按鈕字體和邊框顔色(outline時)</span><br><span class="line">                      default/blue/pink/red/purple/orange/green</span><br><span class="line">[style]       : [可選] 按鈕樣式 默認實心</span><br><span class="line">                      outline/留空</span><br><span class="line">[layout]      : [可選] 按鈕佈局 默認為line</span><br><span class="line">                      block/留空</span><br><span class="line">[position]    : [可選] 按鈕位置 前提是設置了layout為block 默認為左邊</span><br><span class="line">                      center/right/留空</span><br><span class="line">[size]        : [可選] 按鈕大小</span><br><span class="line">                      larger/留空</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% btn [url],[text],[icon],[color] [style] [layout] [position] [size] %}</span><br><span class="line"></span><br><span class="line">[url]         : 链接</span><br><span class="line">[text]        : 按钮文字</span><br><span class="line">[icon]        : [可选] 图标</span><br><span class="line">[color]       : [可选] 按钮背景颜色(默认style时）</span><br><span class="line">                      按钮字体和边框颜色(outline时)</span><br><span class="line">                      default/blue/pink/red/purple/orange/green</span><br><span class="line">[style]       : [可选] 按钮样式 默认实心</span><br><span class="line">                      outline/留空</span><br><span class="line">[layout]      : [可选] 按钮布局 默认为line</span><br><span class="line">                      block/留空</span><br><span class="line">[position]    : [可选] 按钮位置 前提是设置了layout为block 默认为左边</span><br><span class="line">                      center/right/留空</span><br><span class="line">[size]        : [可选] 按钮大小</span><br><span class="line">                      larger/留空</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="inlineImg"><a href="#inlineImg" class="headerlink" title="inlineImg"></a>inlineImg</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% inlineImg [src] [height] %}</span><br><span class="line"></span><br><span class="line">[src]      :    圖片鏈接</span><br><span class="line">[height]   ：   圖片高度限制【可選】</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="inlineImg"><a href="#inlineImg" class="headerlink" title="inlineImg"></a>inlineImg</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% inlineImg [src] [height] %}</span><br><span class="line"></span><br><span class="line">[src]      :    图片链接</span><br><span class="line">[height]   ：   图片高度限制【可选】</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% label text color %}</span><br><span class="line">color: default/blue/pink/red/purple/orange/green</span><br></pre></td></tr></tbody></table></figure>
 <p>例如<br><code>{% label text blue %}</code><mark class="hl-label blue">text</mark> </p>
 <h3 id="timeline"><a href="#timeline" class="headerlink" title="timeline"></a>timeline</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% timeline title,color %}</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&lt;!-- timeline title --&gt;</span><br><span class="line">xxxxx</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">{% endtimeline %}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>例如</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% timeline 2022 %}</span><br><span class="line">&lt;!-- timeline 01-02 --&gt;</span><br><span class="line">這是測試頁面</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">{% endtimeline %}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">{% timeline 2022 %}</span><br><span class="line">&lt;!-- timeline 01-02 --&gt;</span><br><span class="line">这是测试页面</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">{% endtimeline %}</span><br></pre></td></tr></tbody></table></figure>
 <div class="timeline undefined"><div class="timeline-item headline"><div class="timeline-item-title"><div class="item-circle"><p>2022</p>
 </div></div></div><div class="timeline-item"><div class="timeline-item-title"><div class="item-circle"><p>01-02</p>
-</div></div><div class="timeline-item-content"><p>這是測試頁面</p>
+</div></div><div class="timeline-item-content"><p>这是测试页面</p>
 </div></div></div>
 
 <h3 id="flink"><a href="#flink" class="headerlink" title="flink"></a>flink</h3><p>友链</p>
@@ -1820,129 +1820,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Union-find 算法笔记</title>
-    <url>/2022/12/16/08-36-38/</url>
-    <content><![CDATA[<h1 id="Union-find-算法笔记"><a href="#Union-find-算法笔记" class="headerlink" title="Union-find 算法笔记"></a><strong>Union-find</strong> 算法笔记</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>问题的输入是一列整数对, 其中每个整数都有表示一个某种类型的对象, 一对整数 p, q 可以理解为” p 和 q 是相连的”. 假设, 相连是一种等价关系, 它具有:</p>
-<ul>
-<li><mark class="hl-label blue">自反性</mark> : p 和 p是相连的</li>
-<li><mark class="hl-label blue">对称性</mark> : 若 p 和 q 相连, 则 q 和 p 也相连</li>
-<li><mark class="hl-label blue">传递性</mark> : 若 p 和 q 相连, 且 q 和 r 相连, 则 p 和 r 相连
-现在, 给定点的数目和一些坐标点矩阵(x, y) 其中 x, y ∈ Z 代表 x 和 y 相连, 要求找出整个点矩阵拥有的连通分量数目, 例如:<br>输入: <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">8 </span><br><span class="line">0 1</span><br><span class="line">2 3</span><br><span class="line">0 4</span><br><span class="line">2 6</span><br><span class="line">3 7</span><br><span class="line">4 5</span><br><span class="line">6 7</span><br></pre></td></tr></tbody></table></figure>
-输出:<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">2</span><br></pre></td></tr></tbody></table></figure>
-解释:<br>按要求画出连通图<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
-    0 --- 1
-    2 --- 3
-    0 --- 4
-    2 --- 6
-    3 --- 7
-    4 --- 5
-    6 --- 7
-  </pre></div>
-其中 6, 7 之间连通是不必要的, 且此点阵 0, 1, 4, 5 间连通, 2, 3, 6, 7 间连通, 拥有两个连通分量<div class="note info simple"><p>输入样本:<br><a href="https://algs4.cs.princeton.edu/15uf/tinyUF.txt">10个点</a><br><a href="https://algs4.cs.princeton.edu/15uf/mediumUF.txt">625个点</a><br><a href="https://algs4.cs.princeton.edu/15uf/largeUF.txt">1000000个点</a></p>
-</div></li>
-</ul>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>程序将按以下的 API 编写</p>
-<table>
-<thead>
-<tr>
-<th>方法签名</th>
-<th>注释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>UnionFind (int N)</td>
-<td>初始化 N 个点</td>
-</tr>
-<tr>
-<td>void union (int p, int q)</td>
-<td>将 p 和 q 连通</td>
-</tr>
-<tr>
-<td>int find (int p)</td>
-<td>找出点 p 所属的分量标识</td>
-</tr>
-<tr>
-<td>boolean connected (int p, int q)</td>
-<td>判断 p 和 q 之间是否连通</td>
-</tr>
-<tr>
-<td>int count ()</td>
-<td>连通分量数量</td>
-</tr>
-</tbody></table>
-<h3 id="Quick-find"><a href="#Quick-find" class="headerlink" title="Quick-find"></a>Quick-find</h3><p>这种算法维护着一个整形数组 id[], 数组下标是点的序号, 值为点所属的分量标识.<br>刚开始是每个点都是一个连通分量, 当要连接两个连通分量时, 需要把一个连通分量中的所有点所属的分量标识改为与另一个连通分量相同.</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UnionFind</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] id;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> count; <span class="comment">// 连通分量数量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UnionFind</span><span class="params">(<span class="type">int</span> number)</span> {</span><br><span class="line">        id = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        count = number;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; id.length; i++) {</span><br><span class="line">            id[i] = i;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">union</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!isConnected(p, q)) {</span><br><span class="line">            <span class="type">var</span> <span class="variable">qId</span> <span class="operator">=</span> find(q);</span><br><span class="line">            <span class="type">var</span> <span class="variable">pId</span> <span class="operator">=</span> find(p);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; id.length; i++)</span><br><span class="line">                <span class="keyword">if</span> (id[i] == qId)</span><br><span class="line">                    id[i] = pId;</span><br><span class="line"></span><br><span class="line">            count--;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> p)</span> {</span><br><span class="line">        <span class="keyword">return</span> id[p];          </span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isConnected</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line">        <span class="keyword">return</span> find(p) == find(q);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">count</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<p>这种算法的时间复杂度为:</p>
-<ul>
-<li>构造函数: O(N) = N</li>
-<li>union(): O(N) = N</li>
-<li>find(): O(N) = 1<br>这种算法中的 union() 方法的数组访问次数最坏是 N^2 次, 当解决输入规模较大的问题时将会非常吃力</li>
-</ul>
-<h3 id="Quick-union-算法"><a href="#Quick-union-算法" class="headerlink" title="Quick-union 算法"></a>Quick-union 算法</h3><p>这种算法维护着一个整形数组 id[], 数组下标是点的序号, 值为比这个点序号大, 同时属于同一个连通分量的点的序号.<br>一个连通分量中序号最大的点的值指向自己.<br>刚开始是每个点都是一个连通分量, 当要连接两个连通分量时, 需要把一个连通分量序号最大的点的值改为另一个连通分量中任意点的序号.</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UnionFind</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] id;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> count; <span class="comment">// 连通分量数量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UnionFind</span><span class="params">(<span class="type">int</span> number)</span> {</span><br><span class="line">        id = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        count = number;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; id.length; i++) {</span><br><span class="line">            id[i] = i;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">union</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line">        <span class="keyword">if</span> (!isConnected(p, q)) { </span><br><span class="line">            <span class="type">var</span> <span class="variable">qId</span> <span class="operator">=</span> find(q);</span><br><span class="line">            <span class="type">var</span> <span class="variable">pId</span> <span class="operator">=</span> find(p);</span><br><span class="line"></span><br><span class="line">            id[pId] = qId;</span><br><span class="line"></span><br><span class="line">            count--;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> p)</span> {</span><br><span class="line">        <span class="keyword">while</span> (p != id[p]){</span><br><span class="line">            id[p] = id[id[p]];</span><br><span class="line">            p = id[p];</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isConnected</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line">        <span class="keyword">return</span> find(p) == find(q);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">count</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<mark class="hl-label purple">例1</mark> 当输入:
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">10</span><br><span class="line">4 3</span><br><span class="line">3 8</span><br><span class="line">6 5</span><br><span class="line">9 4</span><br><span class="line">2 1</span><br><span class="line">5 0</span><br><span class="line">7 2</span><br></pre></td></tr></tbody></table></figure>
-<p>后树为</p>
-<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
-    0 --- 5
-    5 --- 6
-    1 --- 2
-    1 --- 7
-    8 --- 3
-    3 --- 4
-    8 --- 9
-  </pre></div>
-<p>再次输入 <code>6 1</code> 后</p>
-<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
-    1 --- 0
-    0 --- 5
-    5 --- 6
-    1 --- 2
-    1 --- 7
-    8 --- 3
-    3 --- 4
-    8 --- 9
-  </pre></div>
-<p>这种算法的时间复杂度为:</p>
-<ul>
-<li>构造函数: O(N) = N</li>
-<li>union(): O(N) = 树高</li>
-<li>find(): O(N) = 树高<br>这种算法的 find() 方法数组访问次数最坏是 N^2 次, 仍然不适合解决输入较大的问题</li>
-</ul>
-<h3 id="加权-Quick-union-算法"><a href="#加权-Quick-union-算法" class="headerlink" title="加权 Quick-union 算法"></a>加权 Quick-union 算法</h3><p>这种算法和 Quick-union 算法思想基本相同. 不一样的地方在于, 在连接两个树是, 总是将深度小的树连接到深度大的树上</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UnionFind</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] size; <span class="comment">// 各树对应的深度, 下标为点序号</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> count; <span class="comment">// 连通分量数量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UnionFind</span><span class="params">(<span class="type">int</span> number)</span> {</span><br><span class="line">        id = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        size = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        count = number;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; id.length; i++) {</span><br><span class="line">            id[i] = i;</span><br><span class="line">            size[i] = <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">union</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!isConnected(p, q)) {</span><br><span class="line">            <span class="type">var</span> <span class="variable">qId</span> <span class="operator">=</span> find(q);</span><br><span class="line">            <span class="type">var</span> <span class="variable">pId</span> <span class="operator">=</span> find(p);</span><br><span class="line">            <span class="keyword">if</span>(size[pId] &lt; size[qId]) {</span><br><span class="line">                id[pId] = qId;</span><br><span class="line">                size[qId] = Math.max(size[qId], size[pId] + <span class="number">1</span>);</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                id[qId] = pId;</span><br><span class="line">                size[pId] = Math.max(size[qId] + <span class="number">1</span>, size[pId]);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            count--;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> p)</span> {</span><br><span class="line">        <span class="keyword">while</span> (p != id[p]){</span><br><span class="line">            p = id[p];</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isConnected</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line">        <span class="keyword">return</span> find(p) == find(q);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">count</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>以 Quick-union 算法中的 <mark class="hl-label purple">例1</mark>  为例, 当最后输入 <code>6 1</code> 后, 树图为</p>
-<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
-    0 --- 1
-    0 --- 5
-    5 --- 6
-    1 --- 2
-    1 --- 7
-    8 --- 3
-    3 --- 4
-    8 --- 9
-  </pre></div>
-<p>这种算法的时间复杂度为:</p>
-<ul>
-<li>构造函数: O(N) = N</li>
-<li>union(): O(N) = lbN</li>
-<li>find(): O(N) = lbN<br>这个算法在处理 N 个点 M条连接时, 最多访问 cMlbN (c为常数) 次数组, 能在合理的时间内解决大规模的输入问题</li>
-</ul>
-<h3 id="压缩加权-Quick-union-算法"><a href="#压缩加权-Quick-union-算法" class="headerlink" title="压缩加权 Quick-union 算法"></a>压缩加权 Quick-union 算法</h3><p>这种算法和加权 Quick-union 算法思想基本相同. 不一样的地方在于, 在 find() 方法中会将所有点直接连接到根节点上, 将树压缩</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UnionFind</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] size; <span class="comment">// 各树对应的深度, 下标为点序号</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> count; <span class="comment">// 连通分量数量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UnionFind</span><span class="params">(<span class="type">int</span> number)</span> {</span><br><span class="line">        id = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        size = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        count = number;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; id.length; i++) {</span><br><span class="line">            id[i] = i;</span><br><span class="line">            size[i] = <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">union</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!isConnected(p, q)) {</span><br><span class="line">            <span class="type">var</span> <span class="variable">qId</span> <span class="operator">=</span> find(q);</span><br><span class="line">            <span class="type">var</span> <span class="variable">pId</span> <span class="operator">=</span> find(p);</span><br><span class="line">            <span class="keyword">if</span>(size[pId] &lt; size[qId]) {</span><br><span class="line">                id[pId] = qId;</span><br><span class="line">                size[qId] = Math.max(size[qId], size[pId] + <span class="number">1</span>);</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                id[qId] = pId;</span><br><span class="line">                size[pId] = Math.max(size[qId] + <span class="number">1</span>, size[pId]);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            count--;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> p)</span> {</span><br><span class="line">        <span class="keyword">while</span> (p != id[p]){</span><br><span class="line">            p = id[p];</span><br><span class="line">        }</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> p;</span><br><span class="line">        <span class="keyword">while</span> (p != id[p]){</span><br><span class="line">            id[p] = result;</span><br><span class="line">            p = id[p];</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isConnected</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line">        <span class="keyword">return</span> find(p) == find(q);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">count</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>相比加权 Quick-union 算法, 这个算法对性能提升并不大.</p>
-]]></content>
-      <categories>
-        <category>Note</category>
-        <category>Algorithm</category>
-        <category>Union-find</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Union-find</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spring security 的学习笔记</title>
     <url>/2022/12/14/14-29-47/</url>
     <content><![CDATA[<h1 id="Spring-security-学习笔记"><a href="#Spring-security-学习笔记" class="headerlink" title="Spring security 学习笔记"></a><strong>Spring security</strong> 学习笔记</h1><p>Spring security 是一个能高度定制的身份验证和访问控制框架, 是基于 Spring 应用程序标准.<br>相似的的框架有 Shrio, 相比于 Spring security, Shrio 更轻一些. Spring secuity 对于 Spring 框架的兼容性更好, 但同时也更依赖于 Spring 框架.</p>
@@ -2231,6 +2108,209 @@
         <tag>Microservices</tag>
         <tag>Alibaba</tag>
         <tag>Nacos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排序算法笔记</title>
+    <url>/2023/01/04/11-15-55/</url>
+    <content><![CDATA[<h1 id="排序算法笔记"><a href="#排序算法笔记" class="headerlink" title="排序算法笔记"></a><strong>排序</strong>算法笔记</h1><p>排序算法是最基础的算法, 在算法学科中有着很高的地位<br>排序算法的目的是将一系列可比较元素按照某种规则进行排序. 其中需要重点关注的是不同算法的时间复杂度和空间复杂度, 以及使用场景</p>
+<h2 id="公共API"><a href="#公共API" class="headerlink" title="公共API"></a>公共API</h2><p>程序中将有以下公共 API </p>
+<table>
+<thead>
+<tr>
+<th>方法签名</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean less(Comparable v, Comparable w)</td>
+<td>当且仅当 v 小于 w 时, 返回 true</td>
+</tr>
+<tr>
+<td>void exchange(Comparable&lt;?&gt;[] a, int i, int j)</td>
+<td>交换 a 数组中索引为 i 和 j 位置的元素</td>
+</tr>
+</tbody></table>
+<div class="note info simple"><p>Comparable 接口的全类名为 java.lang.Comparable</p>
+</div>
+<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><div class="note info simple"><p>下文中的 N 无特殊说明时代表输入数组的长度</p>
+</div>
+
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>将数组划分为有序区和无序区, 重复按序遍历无序区元素, 每次将最小的元素放在有序区末尾, 直到无序区没有元素</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>选择排序算法需要经过 N * (N - 1) / 2 (~ N^2 / 2) 次元素比较, 与 N 次元素交换, 时间复杂度为 O(N^2), 空间复杂度为 O(1)<br>选择排序算法主要有以下特点:</p>
+<ul>
+<li>运行时间和输入无关</li>
+<li>与其他算法相比, 元素交换最少</li>
+<li>不稳定的排序算法</li>
+</ul>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">selection</span><span class="params">(Comparable&lt;?&gt;[] a)</span> {</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; a.length; i++) {</span><br><span class="line">        <span class="type">var</span> <span class="variable">minIndex</span> <span class="operator">=</span> i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">j</span> <span class="operator">=</span> i + <span class="number">1</span>; j &lt; a.length; j++)</span><br><span class="line">            <span class="keyword">if</span> (less(a[j], a[minIndex])) minIndex = j;</span><br><span class="line"></span><br><span class="line">        exchange(a, i , minIndex);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><mark class="hl-label blue">输入</mark> :
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">[10, 5, 11, 4, 6, 7, 2, 3, 1, 0, 8, 9]</span><br></pre></td></tr></tbody></table></figure>
+<mark class="hl-label purple">排序过程</mark> :
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">[0, 5, 11, 4, 6, 7, 2, 3, 1, 10, 8, 9]</span><br><span class="line">[0, 1, 11, 4, 6, 7, 2, 3, 5, 10, 8, 9]</span><br><span class="line">[0, 1, 2, 4, 6, 7, 11, 3, 5, 10, 8, 9]</span><br><span class="line">[0, 1, 2, 3, 6, 7, 11, 4, 5, 10, 8, 9]</span><br><span class="line">[0, 1, 2, 3, 4, 7, 11, 6, 5, 10, 8, 9]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 11, 6, 7, 10, 8, 9]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 11, 7, 10, 8, 9]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 11, 10, 8, 9]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 9]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 10]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]</span><br></pre></td></tr></tbody></table></figure>
+<mark class="hl-label green">输出</mark> :
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>将数组划分为有序区和无序区, 重复按序选择无序区元素, 将每次选择的元素放在有序区的合适位置, 直到无序区没有元素</p>
+<h4 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h4><p>在最好情况下, 插入排序算法需要经过 N - 1 次元素比较, 与 0 次元素交换;<br>在最坏情况下, 插入排序算法需要经过 ~ N^2 / 2 次元素比较, 与 ~ N^2 / 2 次元素交换;<br>平均情况下, 插入排序算法需要经过 ~ N^2 / 4 次元素比较, 与 ~ N^2 / 4 次元素交换.<br>插入排序算法时间复杂度为 O(N^2), 空间复杂度为 O(1).<br>插入排序算法主要有以下特点:</p>
+<ul>
+<li>对已有序的数组效率非常高</li>
+<li>稳定的排序算法</li>
+</ul>
+<h4 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">insertion</span><span class="params">(Comparable&lt;?&gt;[] a)</span> {</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">j</span> <span class="operator">=</span> i; j &gt; <span class="number">0</span> &amp;&amp; less(a[j], a[j - <span class="number">1</span>]); j--)</span><br><span class="line">            exchange(a, j , j - <span class="number">1</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<div class="note info simple"><p><mark class="hl-label blue">插入排序哨兵</mark><br>可以先将一个最小的元素放在有序区最前面, 这样可以避免边界判断</p>
+</div>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><mark class="hl-label blue">输入</mark> :
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">[10, 5, 11, 4, 6, 7, 2, 3, 1, 0, 8, 9]</span><br></pre></td></tr></tbody></table></figure>
+<mark class="hl-label purple">排序过程</mark> :
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">[10, 5, 11, 4, 6, 7, 2, 3, 1, 0, 8, 9]</span><br><span class="line">[5, 10, 11, 4, 6, 7, 2, 3, 1, 0, 8, 9]</span><br><span class="line">[5, 10, 11, 4, 6, 7, 2, 3, 1, 0, 8, 9]</span><br><span class="line">[4, 5, 10, 11, 6, 7, 2, 3, 1, 0, 8, 9]</span><br><span class="line">[4, 5, 6, 10, 11, 7, 2, 3, 1, 0, 8, 9]</span><br><span class="line">[4, 5, 6, 7, 10, 11, 2, 3, 1, 0, 8, 9]</span><br><span class="line">[2, 4, 5, 6, 7, 10, 11, 3, 1, 0, 8, 9]</span><br><span class="line">[2, 3, 4, 5, 6, 7, 10, 11, 1, 0, 8, 9]</span><br><span class="line">[1, 2, 3, 4, 5, 6, 7, 10, 11, 0, 8, 9]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 10, 11, 8, 9]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 9]</span><br><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]</span><br></pre></td></tr></tbody></table></figure>
+<mark class="hl-label green">输出</mark> :
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>希尔排序是基于插入排序的一种排序算法<br>希尔排序将数组按一定间隔 h 将原数组划分为若干子序列, 每个子序列中索引相同的元素归同一个子数组, 如数组 <code>a, b, c, d, e, f, g, h, i, j, k, l</code>, 当 h = 4 时, 子序列有  <code>a, b, c, d</code>, <code>e, f, g, h</code>, <code>i, j, k, l</code>, 子数组为<code>a, e, i</code>, <code>b, f, j</code>, <code>c, g, k</code> 和 <code>d, h, l</code>. 排序时, 先把每个子数组利用插入排序化为有序数组, 之后减小 h 的值重复操作, 直到 h 的值为 1</p>
+<h4 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h4><p>希尔排序在插入排序的基础上还权衡了子数组的规模和有序性, 其算法的性能与 h 的选取有很大关系. 在面对大数组时, 希尔排序比选择排序和插入排序优势较大, 但对规模非常大的输入排序不是最优选择. 希尔排序的时间复杂度为 O(N^1.5), 空间复杂度为 O(1)<br>插入排序算法主要有以下特点:</p>
+<ul>
+<li>不稳定的排序算法</li>
+</ul>
+<h4 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">shell</span><span class="params">(Comparable&lt;?&gt;[] a)</span> {</span><br><span class="line">    <span class="type">var</span> <span class="variable">h</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (h &lt; a.length / <span class="number">3</span>) <span class="comment">// 计算初始 h 值</span></span><br><span class="line">        h = <span class="number">3</span> * h + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (h &gt;= <span class="number">1</span>) {</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; a.length; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i; j &gt;= h &amp;&amp; less(a[j], a[j - h]); j -= h)</span><br><span class="line">                exchange(a, j, j - h);</span><br><span class="line">        h /= <span class="number">3</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h4><mark class="hl-label blue">输入</mark> :
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">[10, 5, 11, 4, 6, 7, 2, 3, 1, 0, 8, 9]</span><br></pre></td></tr></tbody></table></figure>
+<mark class="hl-label purple">排序过程</mark> :
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">h = 4 [10, 5, 11, 4, 6, 7, 2, 3, 1, 0, 8, 9]</span><br><span class="line">h = 4 [10, 5, 11, 4, 6, 7, 2, 3, 1, 0, 8, 9]</span><br><span class="line">h = 4 [10, 5, 11, 4, 6, 7, 2, 3, 1, 0, 8, 9]</span><br><span class="line">h = 4 [10, 5, 11, 4, 6, 7, 2, 3, 1, 0, 8, 9]</span><br><span class="line">h = 4 [6, 5, 11, 4, 10, 7, 2, 3, 1, 0, 8, 9]</span><br><span class="line">h = 4 [6, 5, 11, 4, 10, 7, 2, 3, 1, 0, 8, 9]</span><br><span class="line">h = 4 [6, 5, 2, 4, 10, 7, 11, 3, 1, 0, 8, 9]</span><br><span class="line">h = 4 [6, 5, 2, 3, 10, 7, 11, 4, 1, 0, 8, 9]</span><br><span class="line">h = 4 [1, 5, 2, 3, 6, 7, 11, 4, 10, 0, 8, 9]</span><br><span class="line">h = 4 [1, 0, 2, 3, 6, 5, 11, 4, 10, 7, 8, 9]</span><br><span class="line">h = 4 [1, 0, 2, 3, 6, 5, 8, 4, 10, 7, 11, 9]</span><br><span class="line">h = 4 [1, 0, 2, 3, 6, 5, 8, 4, 10, 7, 11, 9]</span><br><span class="line">h = 1 [1, 0, 2, 3, 6, 5, 8, 4, 10, 7, 11, 9]</span><br><span class="line">h = 1 [0, 1, 2, 3, 6, 5, 8, 4, 10, 7, 11, 9]</span><br><span class="line">h = 1 [0, 1, 2, 3, 6, 5, 8, 4, 10, 7, 11, 9]</span><br><span class="line">h = 1 [0, 1, 2, 3, 6, 5, 8, 4, 10, 7, 11, 9]</span><br><span class="line">h = 1 [0, 1, 2, 3, 6, 5, 8, 4, 10, 7, 11, 9]</span><br><span class="line">h = 1 [0, 1, 2, 3, 5, 6, 8, 4, 10, 7, 11, 9]</span><br><span class="line">h = 1 [0, 1, 2, 3, 5, 6, 8, 4, 10, 7, 11, 9]</span><br><span class="line">h = 1 [0, 1, 2, 3, 4, 5, 6, 8, 10, 7, 11, 9]</span><br><span class="line">h = 1 [0, 1, 2, 3, 4, 5, 6, 8, 10, 7, 11, 9]</span><br><span class="line">h = 1 [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 9]</span><br><span class="line">h = 1 [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 9]</span><br><span class="line">h = 1 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]</span><br></pre></td></tr></tbody></table></figure>
+<mark class="hl-label green">输出</mark> :
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3>]]></content>
+      <categories>
+        <category>Note</category>
+        <category>Algorithm</category>
+        <category>Sort</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Union-find 算法笔记</title>
+    <url>/2022/12/16/08-36-38/</url>
+    <content><![CDATA[<h1 id="Union-find-算法笔记"><a href="#Union-find-算法笔记" class="headerlink" title="Union-find 算法笔记"></a><strong>Union-find</strong> 算法笔记</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>问题的输入是一列整数对, 其中每个整数都有表示一个某种类型的对象, 一对整数 p, q 可以理解为” p 和 q 是相连的”. 假设, 相连是一种等价关系, 它具有:</p>
+<ul>
+<li><mark class="hl-label blue">自反性</mark> : p 和 p是相连的</li>
+<li><mark class="hl-label blue">对称性</mark> : 若 p 和 q 相连, 则 q 和 p 也相连</li>
+<li><mark class="hl-label blue">传递性</mark> : 若 p 和 q 相连, 且 q 和 r 相连, 则 p 和 r 相连
+现在, 给定点的数目和一些坐标点矩阵(x, y) 其中 x, y ∈ Z 代表 x 和 y 相连, 要求找出整个点矩阵拥有的连通分量数目, 例如:<br>输入: <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">8 </span><br><span class="line">0 1</span><br><span class="line">2 3</span><br><span class="line">0 4</span><br><span class="line">2 6</span><br><span class="line">3 7</span><br><span class="line">4 5</span><br><span class="line">6 7</span><br></pre></td></tr></tbody></table></figure>
+输出:<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">2</span><br></pre></td></tr></tbody></table></figure>
+解释:<br>按要求画出连通图<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
+    0 --- 1
+    2 --- 3
+    0 --- 4
+    2 --- 6
+    3 --- 7
+    4 --- 5
+    6 --- 7
+  </pre></div>
+其中 6, 7 之间连通是不必要的, 且此点阵 0, 1, 4, 5 间连通, 2, 3, 6, 7 间连通, 拥有两个连通分量<div class="note info simple"><p>输入样本:<br><a href="https://algs4.cs.princeton.edu/15uf/tinyUF.txt">10个点</a><br><a href="https://algs4.cs.princeton.edu/15uf/mediumUF.txt">625个点</a><br><a href="https://algs4.cs.princeton.edu/15uf/largeUF.txt">1000000个点</a></p>
+</div></li>
+</ul>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>程序将按以下的 API 编写</p>
+<table>
+<thead>
+<tr>
+<th>方法签名</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UnionFind (int N)</td>
+<td>初始化 N 个点</td>
+</tr>
+<tr>
+<td>void union (int p, int q)</td>
+<td>将 p 和 q 连通</td>
+</tr>
+<tr>
+<td>int find (int p)</td>
+<td>找出点 p 所属的分量标识</td>
+</tr>
+<tr>
+<td>boolean connected (int p, int q)</td>
+<td>判断 p 和 q 之间是否连通</td>
+</tr>
+<tr>
+<td>int count ()</td>
+<td>连通分量数量</td>
+</tr>
+</tbody></table>
+<h3 id="Quick-find"><a href="#Quick-find" class="headerlink" title="Quick-find"></a>Quick-find</h3><p>这种算法维护着一个整形数组 id[], 数组下标是点的序号, 值为点所属的分量标识.<br>刚开始是每个点都是一个连通分量, 当要连接两个连通分量时, 需要把一个连通分量中的所有点所属的分量标识改为与另一个连通分量相同.</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UnionFind</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] id;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> count; <span class="comment">// 连通分量数量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UnionFind</span><span class="params">(<span class="type">int</span> number)</span> {</span><br><span class="line">        id = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        count = number;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; id.length; i++) {</span><br><span class="line">            id[i] = i;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">union</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!isConnected(p, q)) {</span><br><span class="line">            <span class="type">var</span> <span class="variable">qId</span> <span class="operator">=</span> find(q);</span><br><span class="line">            <span class="type">var</span> <span class="variable">pId</span> <span class="operator">=</span> find(p);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; id.length; i++)</span><br><span class="line">                <span class="keyword">if</span> (id[i] == qId)</span><br><span class="line">                    id[i] = pId;</span><br><span class="line"></span><br><span class="line">            count--;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> p)</span> {</span><br><span class="line">        <span class="keyword">return</span> id[p];          </span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isConnected</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line">        <span class="keyword">return</span> find(p) == find(q);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">count</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>这种算法的时间复杂度为:</p>
+<ul>
+<li>构造函数: O(N) = N</li>
+<li>union(): O(N) = N</li>
+<li>find(): O(N) = 1<br>这种算法中的 union() 方法的数组访问次数最坏是 N^2 次, 当解决输入规模较大的问题时将会非常吃力</li>
+</ul>
+<h3 id="Quick-union-算法"><a href="#Quick-union-算法" class="headerlink" title="Quick-union 算法"></a>Quick-union 算法</h3><p>这种算法维护着一个整形数组 id[], 数组下标是点的序号, 值为比这个点序号大, 同时属于同一个连通分量的点的序号.<br>一个连通分量中序号最大的点的值指向自己.<br>刚开始是每个点都是一个连通分量, 当要连接两个连通分量时, 需要把一个连通分量序号最大的点的值改为另一个连通分量中任意点的序号.</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UnionFind</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] id;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> count; <span class="comment">// 连通分量数量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UnionFind</span><span class="params">(<span class="type">int</span> number)</span> {</span><br><span class="line">        id = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        count = number;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; id.length; i++) {</span><br><span class="line">            id[i] = i;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">union</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line">        <span class="keyword">if</span> (!isConnected(p, q)) { </span><br><span class="line">            <span class="type">var</span> <span class="variable">qId</span> <span class="operator">=</span> find(q);</span><br><span class="line">            <span class="type">var</span> <span class="variable">pId</span> <span class="operator">=</span> find(p);</span><br><span class="line"></span><br><span class="line">            id[pId] = qId;</span><br><span class="line"></span><br><span class="line">            count--;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> p)</span> {</span><br><span class="line">        <span class="keyword">while</span> (p != id[p]){</span><br><span class="line">            id[p] = id[id[p]];</span><br><span class="line">            p = id[p];</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isConnected</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line">        <span class="keyword">return</span> find(p) == find(q);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">count</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<mark class="hl-label purple">例1</mark> 当输入:
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">10</span><br><span class="line">4 3</span><br><span class="line">3 8</span><br><span class="line">6 5</span><br><span class="line">9 4</span><br><span class="line">2 1</span><br><span class="line">5 0</span><br><span class="line">7 2</span><br></pre></td></tr></tbody></table></figure>
+<p>后树为</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
+    0 --- 5
+    5 --- 6
+    1 --- 2
+    1 --- 7
+    8 --- 3
+    3 --- 4
+    8 --- 9
+  </pre></div>
+<p>再次输入 <code>6 1</code> 后</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
+    1 --- 0
+    0 --- 5
+    5 --- 6
+    1 --- 2
+    1 --- 7
+    8 --- 3
+    3 --- 4
+    8 --- 9
+  </pre></div>
+<p>这种算法的时间复杂度为:</p>
+<ul>
+<li>构造函数: O(N) = N</li>
+<li>union(): O(N) = 树高</li>
+<li>find(): O(N) = 树高<br>这种算法的 find() 方法数组访问次数最坏是 N^2 次, 仍然不适合解决输入较大的问题</li>
+</ul>
+<h3 id="加权-Quick-union-算法"><a href="#加权-Quick-union-算法" class="headerlink" title="加权 Quick-union 算法"></a>加权 Quick-union 算法</h3><p>这种算法和 Quick-union 算法思想基本相同. 不一样的地方在于, 在连接两个树是, 总是将深度小的树连接到深度大的树上</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UnionFind</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] size; <span class="comment">// 各树对应的深度, 下标为点序号</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> count; <span class="comment">// 连通分量数量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UnionFind</span><span class="params">(<span class="type">int</span> number)</span> {</span><br><span class="line">        id = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        size = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        count = number;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; id.length; i++) {</span><br><span class="line">            id[i] = i;</span><br><span class="line">            size[i] = <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">union</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!isConnected(p, q)) {</span><br><span class="line">            <span class="type">var</span> <span class="variable">qId</span> <span class="operator">=</span> find(q);</span><br><span class="line">            <span class="type">var</span> <span class="variable">pId</span> <span class="operator">=</span> find(p);</span><br><span class="line">            <span class="keyword">if</span>(size[pId] &lt; size[qId]) {</span><br><span class="line">                id[pId] = qId;</span><br><span class="line">                size[qId] = Math.max(size[qId], size[pId] + <span class="number">1</span>);</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                id[qId] = pId;</span><br><span class="line">                size[pId] = Math.max(size[qId] + <span class="number">1</span>, size[pId]);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            count--;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> p)</span> {</span><br><span class="line">        <span class="keyword">while</span> (p != id[p]){</span><br><span class="line">            p = id[p];</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isConnected</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line">        <span class="keyword">return</span> find(p) == find(q);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">count</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>以 Quick-union 算法中的 <mark class="hl-label purple">例1</mark>  为例, 当最后输入 <code>6 1</code> 后, 树图为</p>
+<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
+    0 --- 1
+    0 --- 5
+    5 --- 6
+    1 --- 2
+    1 --- 7
+    8 --- 3
+    3 --- 4
+    8 --- 9
+  </pre></div>
+<p>这种算法的时间复杂度为:</p>
+<ul>
+<li>构造函数: O(N) = N</li>
+<li>union(): O(N) = lbN</li>
+<li>find(): O(N) = lbN<br>这个算法在处理 N 个点 M条连接时, 最多访问 cMlbN (c为常数) 次数组, 能在合理的时间内解决大规模的输入问题</li>
+</ul>
+<h3 id="压缩加权-Quick-union-算法"><a href="#压缩加权-Quick-union-算法" class="headerlink" title="压缩加权 Quick-union 算法"></a>压缩加权 Quick-union 算法</h3><p>这种算法和加权 Quick-union 算法思想基本相同. 不一样的地方在于, 在 find() 方法中会将所有点直接连接到根节点上, 将树压缩</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UnionFind</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span>[] size; <span class="comment">// 各树对应的深度, 下标为点序号</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> count; <span class="comment">// 连通分量数量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UnionFind</span><span class="params">(<span class="type">int</span> number)</span> {</span><br><span class="line">        id = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        size = <span class="keyword">new</span> <span class="title class_">int</span>[number];</span><br><span class="line">        count = number;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">var</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; id.length; i++) {</span><br><span class="line">            id[i] = i;</span><br><span class="line">            size[i] = <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">union</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!isConnected(p, q)) {</span><br><span class="line">            <span class="type">var</span> <span class="variable">qId</span> <span class="operator">=</span> find(q);</span><br><span class="line">            <span class="type">var</span> <span class="variable">pId</span> <span class="operator">=</span> find(p);</span><br><span class="line">            <span class="keyword">if</span>(size[pId] &lt; size[qId]) {</span><br><span class="line">                id[pId] = qId;</span><br><span class="line">                size[qId] = Math.max(size[qId], size[pId] + <span class="number">1</span>);</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                id[qId] = pId;</span><br><span class="line">                size[pId] = Math.max(size[qId] + <span class="number">1</span>, size[pId]);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            count--;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> p)</span> {</span><br><span class="line">        <span class="keyword">while</span> (p != id[p]){</span><br><span class="line">            p = id[p];</span><br><span class="line">        }</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> p;</span><br><span class="line">        <span class="keyword">while</span> (p != id[p]){</span><br><span class="line">            id[p] = result;</span><br><span class="line">            p = id[p];</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isConnected</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> {</span><br><span class="line">        <span class="keyword">return</span> find(p) == find(q);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">count</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>相比加权 Quick-union 算法, 这个算法对性能提升并不大.</p>
+]]></content>
+      <categories>
+        <category>Note</category>
+        <category>Algorithm</category>
+        <category>Union-find</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Union-find</tag>
       </tags>
   </entry>
 </search>
