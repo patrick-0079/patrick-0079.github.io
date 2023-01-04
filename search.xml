@@ -2075,7 +2075,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Nacos-note</title>
+    <title>Nacos 的学习笔记</title>
     <url>/2023/01/02/14-50-07/</url>
     <content><![CDATA[<h1 id="Nacos-学习笔记"><a href="#Nacos-学习笔记" class="headerlink" title="Nacos 学习笔记"></a><strong>Nacos</strong> 学习笔记</h1><p>Nacos 是 Alibaba 开发的, 具有服务管理, 注册与发现, 配置发布与获取功能的框架<br>集成了注册中心, 配置中心, 服务管理功能<br>Nacos 关键特性有:</p>
 <ul>
