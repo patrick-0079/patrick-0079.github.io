@@ -2509,8 +2509,13 @@
 <li>TM (Transaction Manager) -&gt; 事务管理, 控制事务</li>
 <li>RM (Resource Manager) -&gt; 资源管理, 管理分支事务处理资源, 与 TC 通信, 驱动分支事务</li>
 </ul>
-<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>Seata 具有 AT, TCC, SAGA 和 XA 事务模式, 详情参考 <a href="https://seata.io/zh-cn/docs/overview/what-is-seata.html">https://seata.io/zh-cn/docs/overview/what-is-seata.html</a></p>
-<h3 id="AT-常用"><a href="#AT-常用" class="headerlink" title="AT (常用)"></a>AT (常用)</h3><p>AT 模式在数据库本地事务隔离级别是读已提交 (Read Committed) 或以上的基础上, Seata的默认全局隔离级别是读未提交 (Read Uncommitted)<br>若要求全局事务级别是读已提交, Seata 的实现方式是通过 <code>SELECT FOR UPDATE</code> SQL 语句的代理<br>事务前后会生成两张快照, 当接到 TC 发来的回滚指令时, Seata 会根据快照生成逆向 SQL 回滚</p>
+<h2 id="全局事务实现"><a href="#全局事务实现" class="headerlink" title="全局事务实现"></a>全局事务实现</h2><p>全局事务实现通常有 2PC (两阶段提交协议) 和 3PC (三阶段提交协议) 两种</p>
+<h3 id="2PC"><a href="#2PC" class="headerlink" title="2PC"></a>2PC</h3><p>2PC (Two-Phase Commit), 两阶段提交协议包含: Prepare 和 Commit 两个阶段<br>2PC 有着同步阻塞, 单点故障, 数据一致性的问题</p>
+<h4 id="Prepare-阶段"><a href="#Prepare-阶段" class="headerlink" title="Prepare 阶段"></a>Prepare 阶段</h4><p>与 TC 通信, TC 与相关参与者通信, 相关参与者进行数据处理并进行响应</p>
+<h4 id="Commit-阶段"><a href="#Commit-阶段" class="headerlink" title="Commit 阶段"></a>Commit 阶段</h4><p>TC 与相关参与者发送 Commit 或 Rollback 命令, 参与者执行命令并作响应以及释放资源</p>
+<h3 id="3PC"><a href="#3PC" class="headerlink" title="3PC"></a><del>3PC</del></h3><p>3PC 协议较难实现, 主流的分布式事务框架实现的是 2PC 协议</p>
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>Seata 具有 AT, TCC, SAGA 和 XA 事务模式</p>
+<h3 id="AT-Auto-Transaction-常用"><a href="#AT-Auto-Transaction-常用" class="headerlink" title="AT (Auto Transaction) 常用"></a>AT (Auto Transaction) <em>常用</em></h3><p>AT 模式在数据库本地事务隔离级别是读已提交 (Read Committed) 或以上的基础上, Seata的默认全局隔离级别是读未提交 (Read Uncommitted)<br>若要求全局事务级别是读已提交, Seata 的实现方式是通过 <code>SELECT FOR UPDATE</code> SQL 语句的代理<br>事务前后会生成两张快照, 当接到 TC 发来的回滚指令时, Seata 会根据快照生成逆向 SQL 回滚</p>
 <h4 id="机制"><a href="#机制" class="headerlink" title="机制"></a>机制</h4><ol>
 <li>一阶段: 业务数据和回滚日志记录在同一个本地事务中提交, 释放本地锁和连接资源</li>
 <li>二阶段:<ul>
@@ -2519,7 +2524,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="TCC"><a href="#TCC" class="headerlink" title="TCC"></a>TCC</h3><p>TCC 模式, 是指支持把自定义的分支事务纳入到全局事务的管理中, 不依赖于底层数据资源的事务支持</p>
+<h3 id="TCC-Try-Confirm-Cancel"><a href="#TCC-Try-Confirm-Cancel" class="headerlink" title="TCC (Try Confirm Cancel)"></a>TCC (Try Confirm Cancel)</h3><p>TCC 模式, 是指支持把自定义的分支事务纳入到全局事务的管理中, 不依赖于底层数据资源的事务支持<br>TCC 模式是利用消息队列基于可靠消息的全局事务解决方案</p>
 <h3 id="SAGA"><a href="#SAGA" class="headerlink" title="SAGA"></a>SAGA</h3><p>业务流程中每个参与者都提交本地事务, 当出现某一个参与者失败则补偿前面已经成功的参与者, 一阶段正向服务和二阶段补偿服务都由业务开发实现. 适合长事务解决方案</p>
 <h3 id="XA"><a href="#XA" class="headerlink" title="XA"></a>XA</h3><p>XA 模式需要支持 XA 事务的数据库<br>MySQL 5.0+ 中的 InnoDB 引擎支持XA事务</p>
 <hr>
