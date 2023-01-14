@@ -2500,4 +2500,56 @@
         <tag>Open feign</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Seata 的简单使用笔记</title>
+    <url>/2023/01/14/10-49-45/</url>
+    <content><![CDATA[<h1 id="Seata-简单使用笔记"><a href="#Seata-简单使用笔记" class="headerlink" title="Seata 简单使用笔记"></a><strong>Seata</strong> 简单使用笔记</h1><p>Seata 是 Alibaba 开源的分布式事务组件.<br>分布式事务与本地事务不同, 本地事务是针对单一数据库的操作, 使用 Spring boot 的 @Transactional 注解即可实现, 而分布式事务可能会涉及多个服务多个库, 这就是需要多个服务间的协调.</p>
+<h2 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h2><ul>
+<li>TC (Transaction Coordinator) -&gt; 事务协调, 维护事务状态, 是单独的服务</li>
+<li>TM (Transaction Manager) -&gt; 事务管理, 控制事务</li>
+<li>RM (Resource Manager) -&gt; 资源管理, 管理分支事务处理资源, 与 TC 通信, 驱动分支事务</li>
+</ul>
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>Seata 具有 AT, TCC, SAGA 和 XA 事务模式, 详情参考 <a href="https://seata.io/zh-cn/docs/overview/what-is-seata.html">https://seata.io/zh-cn/docs/overview/what-is-seata.html</a></p>
+<h3 id="AT-常用"><a href="#AT-常用" class="headerlink" title="AT (常用)"></a>AT (常用)</h3><p>AT 模式在数据库本地事务隔离级别是读已提交 (Read Committed) 或以上的基础上, Seata的默认全局隔离级别是读未提交 (Read Uncommitted)<br>若要求全局事务级别是读已提交, Seata 的实现方式是通过 <code>SELECT FOR UPDATE</code> SQL 语句的代理<br>事务前后会生成两张快照, 当接到 TC 发来的回滚指令时, Seata 会根据快照生成逆向 SQL 回滚</p>
+<h4 id="机制"><a href="#机制" class="headerlink" title="机制"></a>机制</h4><ol>
+<li>一阶段: 业务数据和回滚日志记录在同一个本地事务中提交, 释放本地锁和连接资源</li>
+<li>二阶段:<ul>
+<li>提交异步化, 非常快速地完成</li>
+<li>回滚通过一阶段的回滚日志进行反向补偿</li>
+</ul>
+</li>
+</ol>
+<h3 id="TCC"><a href="#TCC" class="headerlink" title="TCC"></a>TCC</h3><p>TCC 模式, 是指支持把自定义的分支事务纳入到全局事务的管理中, 不依赖于底层数据资源的事务支持</p>
+<h3 id="SAGA"><a href="#SAGA" class="headerlink" title="SAGA"></a>SAGA</h3><p>业务流程中每个参与者都提交本地事务, 当出现某一个参与者失败则补偿前面已经成功的参与者, 一阶段正向服务和二阶段补偿服务都由业务开发实现. 适合长事务解决方案</p>
+<h3 id="XA"><a href="#XA" class="headerlink" title="XA"></a>XA</h3><p>XA 模式需要支持 XA 事务的数据库<br>MySQL 5.0+ 中的 InnoDB 引擎支持XA事务</p>
+<hr>
+<div class="flink"><div class="flink-name">相关文档</div> <div class="flink-list">
+          <div class="flink-list-item">
+            <a href="https://seata.io/zh-cn/docs/overview/what-is-seata.html" title="Seata Documentation" target="_blank">
+              <div class="flink-item-icon">
+                <img class="no-lightbox" src="https://img.alicdn.com/tfs/TB1gqL1w4D1gK0jSZFyXXciOVXa-1497-401.png" onerror="this.onerror=null;this.src=&quot;/img/friend_404.gif&quot;" alt="Seata Documentation">
+              </div>
+              <div class="flink-item-name">Seata Documentation</div> 
+              <div class="flink-item-desc" title="Seata 官方文档">Seata 官方文档</div>
+            </a>
+          </div></div></div>]]></content>
+      <categories>
+        <category>Note</category>
+        <category>Spring</category>
+        <category>Spring boot</category>
+        <category>Spring cloud</category>
+        <category>Spring cloud Alibaba</category>
+        <category>Seata</category>
+      </categories>
+      <tags>
+        <tag>Note</tag>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>Spring boot</tag>
+        <tag>Microservices</tag>
+        <tag>Alibaba</tag>
+        <tag>Seata</tag>
+        <tag>Database</tag>
+      </tags>
+  </entry>
 </search>
