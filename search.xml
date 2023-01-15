@@ -2557,4 +2557,103 @@
         <tag>Database</tag>
       </tags>
   </entry>
+  <entry>
+    <title>RocketMQ 的简单使用笔记</title>
+    <url>/2023/01/14/16-50-44/</url>
+    <content><![CDATA[<h1 id="RocketMQ-简单使用笔记"><a href="#RocketMQ-简单使用笔记" class="headerlink" title="RocketMQ 简单使用笔记"></a><strong>RocketMQ</strong> 简单使用笔记</h1><p>RocketMQ (Rocket Message Queue) 是一种提供消息队列的中间件, 提供了消息的生产, 储存, 消费功能API</p>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><p>消息队列是分布式系统中重要的组件, 当不需要立即获得结果而且并发量又需要进行控制的时候, 就是需要使用消息队列的时候<br>消息队列主要解决了应用耦合, 异步处理, 流量削锋等问题<br>当前使用较多的消息队列有</p>
+<ul>
+<li>RabbitMQ</li>
+<li>RocketMQ</li>
+<li>ActiveMQ</li>
+<li>Kafka</li>
+<li>ZeroMQ</li>
+<li>MetaMq<br>部分数据库如 Redis, Mysql 等也可实现消息队列的功能</li>
+</ul>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
+<li>应用耦合: 多应用间通过消息队列对同一消息进行处理, 避免调用接口失败导致整个过程失败</li>
+<li>异步处理: 多应用对消息队列中同一消息进行处理, 应用间并发处理消息, 相比串行处理减少处理时间</li>
+<li>限流削峰: 广泛应用于秒杀或抢购活动中, 避免流量过大导致应用系统宕机</li>
+<li>消息驱动的系统: 系统分为消息队列, 消息生产者, 消息消费者, 生产者负责产生消息, 消费者负责对消息进行处理</li>
+</ul>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="主题-Topic"><a href="#主题-Topic" class="headerlink" title="主题 (Topic)"></a>主题 (Topic)</h3><p>用于标识同一类业务逻辑的消息. 主题通过TopicName来做唯一标识和区分</p>
+<h3 id="消息类型-MessageType"><a href="#消息类型-MessageType" class="headerlink" title="消息类型 (MessageType)"></a>消息类型 (MessageType)</h3><p>ocketMQ 支持的消息类型有</p>
+<ul>
+<li>普通消息</li>
+<li>顺序消息</li>
+<li>事务消息</li>
+<li>定时消息</li>
+<li>延时消息</li>
+</ul>
+<h3 id="消息队列-MessageQueue"><a href="#消息队列-MessageQueue" class="headerlink" title="消息队列 (MessageQueue)"></a>消息队列 (MessageQueue)</h3><p>队列是消息存储和传输的实际容器, 也是消息的最小存储单元. 队列通过 QueueId 来做唯一标识和区分<br>主题都是由多个队列组成, 以此实现队列数量的水平拆分和队列内部的流式存储</p>
+<h3 id="消息-Message"><a href="#消息-Message" class="headerlink" title="消息 (Message)"></a>消息 (Message)</h3><p>消息是最小数据传输单元. 生产者将业务数据的负载和拓展属性包装成消息发送到服务端, 服务端按照相关语义将消息投递到消费端进行消费</p>
+<h3 id="消息视图-MessageView"><a href="#消息视图-MessageView" class="headerlink" title="消息视图 (MessageView)"></a>消息视图 (MessageView)</h3><p>通过消息视图可以读取消息内部的多个属性和负载信息</p>
+<h3 id="消息标签-MessageTag"><a href="#消息标签-MessageTag" class="headerlink" title="消息标签 (MessageTag)"></a>消息标签 (MessageTag)</h3><p>消息标签是细粒度消息分类属性, 消费者通过订阅特定的标签来实现细粒度过滤</p>
+<h3 id="消息位点-MessageQueueOffset"><a href="#消息位点-MessageQueueOffset" class="headerlink" title="消息位点 (MessageQueueOffset)"></a>消息位点 (MessageQueueOffset)</h3><p>标识消息在队列中的位置</p>
+<h3 id="消费位点-ConsumerOffset"><a href="#消费位点-ConsumerOffset" class="headerlink" title="消费位点 (ConsumerOffset)"></a>消费位点 (ConsumerOffset)</h3><p>每个消费者分组记录消费过的最新一条消息的位点是消费位点</p>
+<h3 id="消息索引-MessageKey"><a href="#消息索引-MessageKey" class="headerlink" title="消息索引 (MessageKey)"></a>消息索引 (MessageKey)</h3><p>通过设置的消息索引可以快速查找到对应的消息内容</p>
+<h3 id="生产者-Producer"><a href="#生产者-Producer" class="headerlink" title="生产者 (Producer)"></a>生产者 (Producer)</h3><p>生产者是用来构建并传输消息到服务端的运行实体</p>
+<h3 id="事务检查器-TransactionChecker"><a href="#事务检查器-TransactionChecker" class="headerlink" title="事务检查器 (TransactionChecker)"></a>事务检查器 (TransactionChecker)</h3><p>事务检查器生产者用来执行本地事务检查和异常事务恢复的监听器</p>
+<h3 id="事务状态-TransactionResolution"><a href="#事务状态-TransactionResolution" class="headerlink" title="事务状态 (TransactionResolution)"></a>事务状态 (TransactionResolution)</h3><p>事务状态是事务消息发送过程中, 事务提交的状态标识<br>服务端通过事务状态控制事务消息是否应该提交和投递<br>事务状态包括:</p>
+<ul>
+<li>事务提交</li>
+<li>事务回滚</li>
+<li>事务未决</li>
+</ul>
+<h3 id="消费者分组-ConsumerGroup"><a href="#消费者分组-ConsumerGroup" class="headerlink" title="消费者分组 (ConsumerGroup)"></a>消费者分组 (ConsumerGroup)</h3><p>消费者分组不是运行实体而是一个逻辑资源, 作用是承载多个消费行为一致的消费者的负载均衡分组</p>
+<h3 id="消费者-Consumer"><a href="#消费者-Consumer" class="headerlink" title="消费者 (Consumer)"></a>消费者 (Consumer)</h3><p>消费者是用来接收并处理消息的运行实体</p>
+<h3 id="消费结果-ConsumeResult"><a href="#消费结果-ConsumeResult" class="headerlink" title="消费结果 (ConsumeResult)"></a>消费结果 (ConsumeResult)</h3><p>消费结果是消费监听器处理消息完成后返回的处理结果，用来标识本次消息是否正确处理</p>
+<h3 id="订阅关系-Subscription"><a href="#订阅关系-Subscription" class="headerlink" title="订阅关系 (Subscription)"></a>订阅关系 (Subscription)</h3><p>订阅关系是消费者获取消息, 处理消息的规则和状态配置<br>订阅关系由消费者分组动态注册到服务端系统, 并在后续的消息传输中按照订阅关系定义的过滤规则进行消息匹配和消费进度维护</p>
+<h3 id="消息过滤"><a href="#消息过滤" class="headerlink" title="消息过滤"></a>消息过滤</h3><p>消费者可以通过订阅指定消息标签对消息进行过滤, 确保最终只接收被过滤后的消息合集</p>
+<h3 id="重置消费位点"><a href="#重置消费位点" class="headerlink" title="重置消费位点"></a>重置消费位点</h3><p>在消息持久化存储的时间范围内, 重新设置消费者分组对已订阅主题的消费进度</p>
+<h3 id="消息轨迹"><a href="#消息轨迹" class="headerlink" title="消息轨迹"></a>消息轨迹</h3><p>消息轨迹是在一条消息从生产者发出到消费者接收并处理过程中, 经由各个相关节点的时间地点等数据汇聚而成的完整链路信息</p>
+<h3 id="消息堆积"><a href="#消息堆积" class="headerlink" title="消息堆积"></a>消息堆积</h3><p>由于消费者的消费能力有限, 未能在短时间内将所有消息正确消费掉, 此时在服务端保存着未被消费的消息的状态即消息堆积</p>
+<h3 id="事务消息"><a href="#事务消息" class="headerlink" title="事务消息"></a>事务消息</h3><p>事务消息用于在分布式场景下保障消息生产和本地事务的最终一致性</p>
+<h3 id="定时-x2F-延时消息"><a href="#定时-x2F-延时消息" class="headerlink" title="定时/延时消息"></a>定时/延时消息</h3><p>消息被发送至服务端后, 在指定时间后才能被消费者消费. 通过设置一定的定时时间可以实现分布式场景的延时调度触发效果</p>
+<h3 id="顺序消息"><a href="#顺序消息" class="headerlink" title="顺序消息"></a>顺序消息</h3><p>顺序消息可以使费者按照发送消息的先后顺序获取消息, 从而实现业务场景中的顺序处理</p>
+<h2 id="RocketMQ-启动"><a href="#RocketMQ-启动" class="headerlink" title="RocketMQ 启动"></a>RocketMQ 启动</h2><h3 id="下载-RocketMQ-5-0-0"><a href="#下载-RocketMQ-5-0-0" class="headerlink" title="下载 RocketMQ 5.0.0"></a>下载 RocketMQ 5.0.0</h3><p><a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-bin-release.zip">RocketMQ二进制包</a><br><a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-source-release.zip">RocketMQ源码</a></p>
+<h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p>将 <code>ROCKETMQ_HOME</code> 添加至环境变量中</p>
+<div class="note warning simple"><p>由于JDK15+ 中删除了 CMS 垃圾收集器 (实测 JDK11 也无法正常启动), 在使用 JDK15+ 时启动脚本 <code>runserver.cmd</code> 或 <code>runserver.sh</code> 中需要修改 JVM 启动参数, 删除</p>
+<figure class="highlight bat"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> "JAVA_OPT=<span class="variable">%JAVA_OPT%</span> -XX:+UseConcMarkSweepGC -XX:+UseCMSCompactAtFullCollection -XX:CMSInitiatingOccupancyFraction=<span class="number">70</span> -XX:+CMSParallelRemarkEnabled -XX:SoftRefLRUPolicyMSPerMB=<span class="number">0</span> -XX:+CMSClassUnloadingEnabled -XX:SurvivorRatio=<span class="number">8</span> -XX:-UseParNewGC"</span><br><span class="line"><span class="built_in">set</span> "JAVA_OPT=<span class="variable">%JAVA_OPT%</span> -verbose:gc -Xloggc:"<span class="variable">%USERPROFILE%</span>\rmq_srv_gc.log" -XX:+PrintGCDetails -XX:+PrintGCDateStamps"</span><br></pre></td></tr></tbody></table></figure></div>
+<h3 id="启动-RocketMQ"><a href="#启动-RocketMQ" class="headerlink" title="启动 RocketMQ"></a>启动 RocketMQ</h3><p>在 <code>bin</code> 目录下, 执行 <code>./mqnamesrv</code> 或 <code>./mqnamesrv.cmd</code></p>
+<h3 id="启动-Broker-Proxy"><a href="#启动-Broker-Proxy" class="headerlink" title="启动 Broker + Proxy"></a>启动 Broker + Proxy</h3><p>在 <code>bin</code> 目录下, 执行 <code>./mqbroker -n localhost:9876 --enable-proxy</code> 或 <code>./mqbroker.cmd -n localhost:9876 autoCreateTopicEnable=true</code></p>
+<div class="note warning simple"><p>在使用 JDK15+ 时启动脚本 <code>runserver.cmd</code> 或 <code>runserver.sh</code> 中需要修改 JVM 启动参数, 删除</p>
+<figure class="highlight bat"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> "JAVA_OPT=<span class="variable">%JAVA_OPT%</span> -XX:+UseG1GC -XX:G1HeapRegionSize=<span class="number">16</span>m -XX:G1ReservePercent=<span class="number">25</span> -XX:InitiatingHeapOccupancyPercent=<span class="number">30</span> -XX:SoftRefLRUPolicyMSPerMB=<span class="number">0</span> -XX:SurvivorRatio=<span class="number">8</span>"</span><br><span class="line"><span class="built_in">set</span> "JAVA_OPT=<span class="variable">%JAVA_OPT%</span> -verbose:gc -Xloggc:<span class="variable">%USERPROFILE%</span>\mq_gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCApplicationStoppedTime -XX:+PrintAdaptiveSizePolicy"</span><br><span class="line"><span class="built_in">set</span> "JAVA_OPT=<span class="variable">%JAVA_OPT%</span> -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=<span class="number">5</span> -XX:GCLogFileSize=<span class="number">30</span>m"</span><br></pre></td></tr></tbody></table></figure></div>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><ol>
+<li>在 <code>bin</code> 目录下启动生产者<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> NAMESRV_ADDR=localhost:9876</span><br><span class="line">sh tools.sh org.apache.rocketmq.example.quickstart.Producer</span><br></pre></td></tr></tbody></table></figure>
+或<figure class="highlight bat"><table><tbody><tr><td class="code"><pre><span class="line">$env:NAMESRV_ADDR="localhost:<span class="number">9876</span>"</span><br><span class="line">./tools.<span class="built_in">cmd</span>  org.apache.rocketmq.example.quickstart.Producer</span><br></pre></td></tr></tbody></table></figure></li>
+<li>在 <code>bin</code> 目录下启动消费<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> NAMESRV_ADDR=localhost:9876</span><br><span class="line">sh tools.sh org.apache.rocketmq.example.quickstart.Consumer</span><br></pre></td></tr></tbody></table></figure>
+或<figure class="highlight bat"><table><tbody><tr><td class="code"><pre><span class="line">$env:NAMESRV_ADDR="localhost:<span class="number">9876</span>"</span><br><span class="line">./tools.<span class="built_in">cmd</span>  org.apache.rocketmq.example.quickstart.Consumer</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<hr>
+<div class="flink"><div class="flink-name">相关文档</div> <div class="flink-list">
+          <div class="flink-list-item">
+            <a href="https://rocketmq.apache.org/zh/docs/" title="RocketMQ Documentation" target="_blank">
+              <div class="flink-item-icon">
+                <img class="no-lightbox" src="https://rocketmq.apache.org/zh/img/Apache_RocketMQ_logo.svg.png" onerror="this.onerror=null;this.src=&quot;/img/friend_404.gif&quot;" alt="RocketMQ Documentation">
+              </div>
+              <div class="flink-item-name">RocketMQ Documentation</div> 
+              <div class="flink-item-desc" title="RocketMQ 官方文档">RocketMQ 官方文档</div>
+            </a>
+          </div></div></div>
+]]></content>
+      <categories>
+        <category>Note</category>
+        <category>Spring</category>
+        <category>Spring boot</category>
+        <category>Spring cloud</category>
+        <category>Spring cloud Alibaba</category>
+        <category>RocketMQ</category>
+      </categories>
+      <tags>
+        <tag>Note</tag>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>Spring boot</tag>
+        <tag>Microservices</tag>
+        <tag>Alibaba</tag>
+        <tag>RocketMQ</tag>
+        <tag>MQ</tag>
+      </tags>
+  </entry>
 </search>
