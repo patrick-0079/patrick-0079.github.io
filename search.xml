@@ -2564,10 +2564,10 @@
 <h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><p>消息队列是分布式系统中重要的组件, 当不需要立即获得结果而且并发量又需要进行控制的时候, 就是需要使用消息队列的时候<br>消息队列主要解决了应用耦合, 异步处理, 流量削锋等问题</p>
 <h3 id="常见消息队列"><a href="#常见消息队列" class="headerlink" title="常见消息队列"></a>常见消息队列</h3><p>当前使用较多的消息队列有</p>
 <ul>
-<li>RabbitMQ *</li>
-<li>RocketMQ *</li>
-<li>ActiveMQ *</li>
-<li>Kafka *</li>
+<li><strong>RabbitMQ</strong></li>
+<li><strong>RocketMQ</strong></li>
+<li><strong>ActiveMQ</strong></li>
+<li><strong>Kafka</strong></li>
 <li>ZeroMQ</li>
 <li>MetaMq<br>部分数据库如 Redis, Mysql 等也可实现消息队列的功能</li>
 </ul>
@@ -2619,7 +2619,51 @@
 <li>事务回滚</li>
 <li>事务未决</li>
 </ul>
-<h2 id="RocketMQ-架构"><a href="#RocketMQ-架构" class="headerlink" title="RocketMQ 架构"></a>RocketMQ 架构</h2><p><a href="https://rocketmq.apache.org/zh/docs/domainModel/01main"><img src="https://rocketmq.apache.org/zh/assets/images/mainarchi-9b036e7ff5133d050950f25838367a17.png" alt="Apache RocketMQ 领域模型" title="Apache RocketMQ 领域模型"></a></p>
+<h2 id="RocketMQ-逻辑架构"><a href="#RocketMQ-逻辑架构" class="headerlink" title="RocketMQ 逻辑架构"></a>RocketMQ 逻辑架构</h2><p><a href="https://rocketmq.apache.org/zh/docs/domainModel/01main"><img src="https://rocketmq.apache.org/zh/assets/images/mainarchi-9b036e7ff5133d050950f25838367a17.png" alt="Apache RocketMQ 领域模型" title="Apache RocketMQ 领域模型"></a></p>
+<mark class="hl-label blue">RocketMQ&nbsp;架构图</mark> 
+<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
+    Name_Server_1 --- Broker_Master_1
+    Name_Server_2 --- Broker_Master_1
+    Name_Server_3 --- Broker_Master_1
+    Name_Server_1 --- Broker_Master_2
+    Name_Server_2 --- Broker_Master_2
+    Name_Server_3 --- Broker_Master_2
+    Name_Server_1 --- Broker_Master_3
+    Name_Server_2 --- Broker_Master_3
+    Name_Server_3 --- Broker_Master_3
+    Broker_Master_1 --- Broker_Slave_1-1
+    Broker_Master_1 --- Broker_Slave_1-2
+    Broker_Master_2 --- Broker_Slave_2-1
+    Broker_Master_2 --- Broker_Slave_2-2
+    Broker_Master_3 --- Broker_Slave_3-1
+    Broker_Master_3 --- Broker_Slave_3-2
+  </pre></div>
+<mark class="hl-label blue">RocketMQ&nbsp;集群架构图</mark> 
+<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
+    Name_Server_集群 --- Broker_集群_1
+    Name_Server_集群 --- Broker_集群_2
+    Name_Server_集群 --- Broker_集群_3
+  </pre></div>
+<mark class="hl-label blue">Broker&nbsp;集群&nbsp;1&nbsp;架构图</mark> 
+<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
+    Name_Server_集群 --- Broker_Master_1
+    Broker_Master_1 --- Broker_Slave_1-1
+    Broker_Master_1 --- Broker_Slave_1-2
+  </pre></div>
+<div class="note info simple"><p>Broker 是主备集群</p>
+</div>
+<mark class="hl-label blue">Name&nbsp;Server&nbsp;集群架构图</mark> 
+<div class="mermaid-wrap"><pre class="mermaid-src" hidden="">  flowchart TD
+    Name_Server_1 --- Broker_集群_1
+    Name_Server_2 --- Broker_集群_1
+    Name_Server_3 --- Broker_集群_1
+    Name_Server_1 --- Broker_集群_2
+    Name_Server_2 --- Broker_集群_2
+    Name_Server_3 --- Broker_集群_2
+    Name_Server_1 --- Broker_集群_3
+    Name_Server_2 --- Broker_集群_3
+    Name_Server_3 --- Broker_集群_3
+  </pre></div>
 <h3 id="Producer"><a href="#Producer" class="headerlink" title="Producer"></a>Producer</h3><p>Producer (生产者), 负责生产消息. Producer 通过 MRocketMQ 的负载均衡模块, 选择 Brocker 集群队列进行消息投递<br>生产者往往组成生产者组, 投递相同 Topic 的消息</p>
 <h3 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h3><p>Consumer (消费者), 负责消费消息. Consumer 负责从 Broker 服务器中获取消息, 并对消息进行相应处理<br>消费者往往组成消费者组, 消费相同 Topic 的消息</p>
 <div class="note info simple"><p><strong>负载均衡和容错</strong><br>Producer 和 Consumer 分别成组, 对 Message Queue 实现负载均衡和对 Message 的容错<br>当 消费者组 中的 Consumer 比 Message Queue 还多时, 负载均衡将不能很好运行</p>
@@ -2627,12 +2671,14 @@
 <h3 id="Name-Server"><a href="#Name-Server" class="headerlink" title="Name Server"></a>Name Server</h3><p>Name Server 是 Broker 的注册中心以及 Topic 的路由中心, 支持 Broker 的动态注册与发现<br>早期版本是由 Zookeeper 替代<br>Name Server 集群的实例间不进行通信, 这就导致了 Name Server 扩容上的麻烦</p>
 <h4 id="Broker-管理"><a href="#Broker-管理" class="headerlink" title="Broker 管理"></a>Broker 管理</h4><p>管理 Broker 的注册信息, 检测 Broker 是否存活</p>
 <h4 id="路由信息管理"><a href="#路由信息管理" class="headerlink" title="路由信息管理"></a>路由信息管理</h4><p>管理 Broker 集群的路由信息, 以及用于客户端查询的队列信息<br>Producer 和 Consumer 通过 Name Server 获取 Broker 集群信息<br>路由信息是依靠客户端主动拉取, 默认 30s 拉取一次</p>
-<h3 id="Broker"><a href="#Broker" class="headerlink" title="Broker"></a>Broker</h3><p>Broker 对消息进行存储和转发, 是 RocketMQ 的核心部分</p>
+<h3 id="Broker"><a href="#Broker" class="headerlink" title="Broker"></a>Broker</h3><p>Broker 对消息进行存储和转发, 是 RocketMQ 的核心部分<br>Broker Master 负责读写请求, Broker Slave 只负责读请求</p>
 <h4 id="Remoting-Module"><a href="#Remoting-Module" class="headerlink" title="Remoting Module"></a>Remoting Module</h4><p>Boker 实体, 处理客户端请求</p>
 <h4 id="Client-Manager"><a href="#Client-Manager" class="headerlink" title="Client Manager"></a>Client Manager</h4><p>客户端管理器, 负责接受和解析客户端请求</p>
 <h4 id="Store-Service"><a href="#Store-Service" class="headerlink" title="Store Service"></a>Store Service</h4><p>存储服务, 负责管理消息存储到硬盘以及消息查询</p>
 <h4 id="HA-Service"><a href="#HA-Service" class="headerlink" title="HA Service"></a>HA Service</h4><p>高可用服务, 负责 Broker 集群实例间的数据同步</p>
 <h4 id="Index-Service"><a href="#Index-Service" class="headerlink" title="Index Service"></a>Index Service</h4><p>索引服务,  根据 MessageKey 对投递到 Broker 的消息提供索引和快速查询服务</p>
+<h3 id="分片"><a href="#分片" class="headerlink" title="分片"></a><del>分片</del></h3><p>在 Broker 集群中, 不同 Broker 可能存有相同 Topic, 例如 Broker1 存有 TopicA, TopicA. 那么, 存有 TopicA 的部分是一个分片</p>
+<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a><del>分区</del></h3><p>分片中的 Queue</p>
 <h2 id="RocketMQ-部署"><a href="#RocketMQ-部署" class="headerlink" title="RocketMQ 部署"></a>RocketMQ 部署</h2><h3 id="RocketMQ-单节点部署"><a href="#RocketMQ-单节点部署" class="headerlink" title="RocketMQ 单节点部署"></a>RocketMQ 单节点部署</h3><h4 id="下载-RocketMQ-5-0-0"><a href="#下载-RocketMQ-5-0-0" class="headerlink" title="下载 RocketMQ 5.0.0"></a>下载 RocketMQ 5.0.0</h4><p><a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-bin-release.zip">RocketMQ二进制包</a><br><a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-source-release.zip">RocketMQ源码</a></p>
 <h4 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h4><p>将 <code>ROCKETMQ_HOME</code> 添加至环境变量中</p>
 <h4 id="启动-RocketMQ"><a href="#启动-RocketMQ" class="headerlink" title="启动 RocketMQ"></a>启动 RocketMQ</h4><p>在 <code>bin</code> 目录下, 执行 <code>./mqnamesrv</code> 或 <code>./mqnamesrv.cmd</code></p>
@@ -2671,6 +2717,8 @@
 <h2 id="使用-Java-测试-RocketMQ"><a href="#使用-Java-测试-RocketMQ" class="headerlink" title="使用 Java 测试 RocketMQ"></a>使用 Java 测试 RocketMQ</h2><h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><figure class="highlight groovy"><table><tbody><tr><td class="code"><pre><span class="line">implementation <span class="string">'org.apache.rocketmq:rocketmq-client:5.0.0'</span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="创建-Topic"><a href="#创建-Topic" class="headerlink" title="创建 Topic"></a>创建 Topic</h3><p>在 <code>bin</code> 目录下运行</p>
 <figure class="highlight bat"><table><tbody><tr><td class="code"><pre><span class="line">./mqadmin updatetopic -n localhost:<span class="number">9876</span> -t TestTopic -c DefaultCluster</span><br></pre></td></tr></tbody></table></figure>
+<div class="note info simple"><p>若启动 Broker 时指定属性 <code>autoCreateTopicEnable=true</code> 时, 可以不手动创建 Topic</p>
+</div>
 <h3 id="编写测试代码"><a href="#编写测试代码" class="headerlink" title="编写测试代码"></a>编写测试代码</h3><figure class="highlight kotlin"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.rocketmq.client.consumer.DefaultMQPushConsumer</span><br><span class="line"><span class="keyword">import</span> org.apache.rocketmq.client.consumer.MessageSelector</span><br><span class="line"><span class="keyword">import</span> org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus</span><br><span class="line"><span class="keyword">import</span> org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently</span><br><span class="line"><span class="keyword">import</span> org.apache.rocketmq.client.producer.DefaultMQProducer</span><br><span class="line"><span class="keyword">import</span> org.apache.rocketmq.common.message.Message</span><br><span class="line"><span class="keyword">import</span> org.apache.rocketmq.remoting.common.RemotingHelper</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> nameServer: String = <span class="string">"localhost:9876"</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> topic: String = <span class="string">"TestTopic"</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> tag: String = <span class="string">"TestTag"</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> group: String = <span class="string">"TestGroup"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">push</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="comment">// 实例化消息生产者Producer</span></span><br><span class="line">    <span class="keyword">val</span> producer = DefaultMQProducer(group)</span><br><span class="line">    <span class="comment">// 设置NameServer的地址</span></span><br><span class="line">    producer.namesrvAddr = nameServer</span><br><span class="line">    <span class="comment">// 启动Producer实例</span></span><br><span class="line">    producer.start()</span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0.</span><span class="number">.9</span>) {</span><br><span class="line">        <span class="comment">// 创建消息</span></span><br><span class="line">        <span class="keyword">val</span> msg = Message(</span><br><span class="line">            topic,</span><br><span class="line">            tag,</span><br><span class="line">            <span class="string">"Hello RocketMQ <span class="variable">$i</span>"</span>.toByteArray(charset(RemotingHelper.DEFAULT_CHARSET))</span><br><span class="line">        )</span><br><span class="line">        <span class="comment">// 发送单向消息</span></span><br><span class="line">        producer.sendOneway(msg)</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关闭Producer实例</span></span><br><span class="line">    producer.shutdown()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">pull</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="comment">// 实例化消费者</span></span><br><span class="line">    <span class="keyword">val</span> consumer = DefaultMQPushConsumer(group)</span><br><span class="line">    <span class="comment">// 设置NameServer的地址</span></span><br><span class="line">    consumer.namesrvAddr = nameServer</span><br><span class="line">    <span class="comment">// 订阅一个或者多个Topic，以及Tag来过滤需要消费的消息</span></span><br><span class="line">    <span class="comment">// 需要配置broker的enablePropertyFilter=true</span></span><br><span class="line">    consumer.subscribe(topic, <span class="string">"*"</span>)</span><br><span class="line">    <span class="comment">// 注册回调实现类来处理从broker拉取回来的消息</span></span><br><span class="line">    consumer.registerMessageListener(MessageListenerConcurrently { msgs, _ -&gt;</span><br><span class="line">        println(<span class="string">"Receive New Messages: <span class="variable">$msgs</span>"</span>)</span><br><span class="line">        <span class="comment">// 标记该消息已经被成功消费</span></span><br><span class="line">        ConsumeConcurrentlyStatus.CONSUME_SUCCESS</span><br><span class="line">    })</span><br><span class="line">    <span class="comment">// 启动消费者实例</span></span><br><span class="line">    consumer.start()</span><br><span class="line">    println(<span class="string">"Consumer Started."</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">    push()</span><br><span class="line">    pull()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <div class="note info simple"><p>RocketMQ 持久化目录为 <code>C:\Users\${userName}\store</code></p>
 </div>
