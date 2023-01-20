@@ -889,7 +889,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>段落一\n段落二</td>
+<td>段落一<br><br>段落二</td>
 <td><code>&lt;p&gt;段落一&lt;/p&gt;&lt;p&gt;段落二&lt;/p&gt;</code></td>
 <td><p>段落一</p><p>段落二</p></td>
 </tr>
@@ -2587,7 +2587,7 @@
 <h3 id="生产者-Producer"><a href="#生产者-Producer" class="headerlink" title="生产者 (Producer)"></a>生产者 (Producer)</h3><p>生产者是用来构建并传输消息到服务端的运行实体</p>
 <h3 id="消费者-Consumer"><a href="#消费者-Consumer" class="headerlink" title="消费者 (Consumer)"></a>消费者 (Consumer)</h3><p>消费者是用来接收并处理消息的运行实体</p>
 <h3 id="消费者分组-ConsumerGroup"><a href="#消费者分组-ConsumerGroup" class="headerlink" title="消费者分组 (ConsumerGroup)"></a>消费者分组 (ConsumerGroup)</h3><p>消费者分组不是运行实体而是一个逻辑资源, 作用是承载多个消费行为一致的消费者的负载均衡分组</p>
-<h3 id="消息队列-MessageQueue"><a href="#消息队列-MessageQueue" class="headerlink" title="消息队列 (MessageQueue)"></a>消息队列 (MessageQueue)</h3><p>队列是消息存储和传输的实际容器, 也是消息的最小存储单元. 队列通过 QueueId 来做唯一标识和区分<br>主题都是由多个队列组成, 以此实现队列数量的水平拆分和队列内部的流式存储<br>一个消息队列中的消息只能被同一消费者组中的一个消费者消费</p>
+<h3 id="消息队列-MessageQueue"><a href="#消息队列-MessageQueue" class="headerlink" title="消息队列 (MessageQueue)"></a>消息队列 (MessageQueue)</h3><p>队列是消息存储和传输的实际容器, 也是消息的最小存储单元. 队列通过 QueueId 来做唯一标识和区分<br>主题都是由多个队列组成, 以此实现队列数量的水平拆分和队列内部的流式存储<br>一个消息队列中的消息只能被同一消费者组中的一个消费者消费<br>一个队列从逻辑上可有读队列和写队列的属性</p>
 <h3 id="订阅关系-Subscription"><a href="#订阅关系-Subscription" class="headerlink" title="订阅关系 (Subscription)"></a>订阅关系 (Subscription)</h3><p>订阅关系是消费者获取消息, 处理消息的规则和状态配置<br>订阅关系由消费者分组动态注册到服务端系统, 并在后续的消息传输中按照订阅关系定义的过滤规则进行消息匹配和消费进度维护</p>
 <h3 id="消息-Message"><a href="#消息-Message" class="headerlink" title="消息 (Message)"></a>消息 (Message)</h3><p>消息是最小数据传输单元. 生产者将业务数据的负载和拓展属性包装成消息发送到服务端, 服务端按照相关语义将消息投递到消费端进行消费</p>
 <h3 id="消息类型-MessageType"><a href="#消息类型-MessageType" class="headerlink" title="消息类型 (MessageType)"></a>消息类型 (MessageType)</h3><p>RocketMQ 支持的消息类型有</p>
@@ -2664,21 +2664,35 @@
     Name_Server_2 --- Broker_集群_3
     Name_Server_3 --- Broker_集群_3
   </pre></div>
-<h3 id="Producer"><a href="#Producer" class="headerlink" title="Producer"></a>Producer</h3><p>Producer (生产者), 负责生产消息. Producer 通过 MRocketMQ 的负载均衡模块, 选择 Brocker 集群队列进行消息投递<br>生产者往往组成生产者组, 投递相同 Topic 的消息</p>
-<h3 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h3><p>Consumer (消费者), 负责消费消息. Consumer 负责从 Broker 服务器中获取消息, 并对消息进行相应处理<br>消费者往往组成消费者组, 消费相同 Topic 的消息</p>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><h4 id="Producer"><a href="#Producer" class="headerlink" title="Producer"></a>Producer</h4><p>Producer (生产者), 负责生产消息. Producer 通过 MRocketMQ 的负载均衡模块, 选择 Brocker 集群队列进行消息投递<br>生产者往往组成生产者组, 投递相同 Topic 的消息</p>
+<h4 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h4><p>Consumer (消费者), 负责消费消息. Consumer 负责从 Broker 服务器中获取消息, 并对消息进行相应处理<br>消费者往往组成消费者组, 消费相同 Topic 的消息</p>
 <div class="note info simple"><p><strong>负载均衡和容错</strong><br>Producer 和 Consumer 分别成组, 对 Message Queue 实现负载均衡和对 Message 的容错<br>当 消费者组 中的 Consumer 比 Message Queue 还多时, 负载均衡将不能很好运行</p>
 </div>
-<h3 id="Name-Server"><a href="#Name-Server" class="headerlink" title="Name Server"></a>Name Server</h3><p>Name Server 是 Broker 的注册中心以及 Topic 的路由中心, 支持 Broker 的动态注册与发现<br>早期版本是由 Zookeeper 替代<br>Name Server 集群的实例间不进行通信, 这就导致了 Name Server 扩容上的麻烦</p>
-<h4 id="Broker-管理"><a href="#Broker-管理" class="headerlink" title="Broker 管理"></a>Broker 管理</h4><p>管理 Broker 的注册信息, 检测 Broker 是否存活</p>
-<h4 id="路由信息管理"><a href="#路由信息管理" class="headerlink" title="路由信息管理"></a>路由信息管理</h4><p>管理 Broker 集群的路由信息, 以及用于客户端查询的队列信息<br>Producer 和 Consumer 通过 Name Server 获取 Broker 集群信息<br>路由信息是依靠客户端主动拉取, 默认 30s 拉取一次</p>
-<h3 id="Broker"><a href="#Broker" class="headerlink" title="Broker"></a>Broker</h3><p>Broker 对消息进行存储和转发, 是 RocketMQ 的核心部分<br>Broker Master 负责读写请求, Broker Slave 只负责读请求</p>
-<h4 id="Remoting-Module"><a href="#Remoting-Module" class="headerlink" title="Remoting Module"></a>Remoting Module</h4><p>Boker 实体, 处理客户端请求</p>
-<h4 id="Client-Manager"><a href="#Client-Manager" class="headerlink" title="Client Manager"></a>Client Manager</h4><p>客户端管理器, 负责接受和解析客户端请求</p>
-<h4 id="Store-Service"><a href="#Store-Service" class="headerlink" title="Store Service"></a>Store Service</h4><p>存储服务, 负责管理消息存储到硬盘以及消息查询</p>
-<h4 id="HA-Service"><a href="#HA-Service" class="headerlink" title="HA Service"></a>HA Service</h4><p>高可用服务, 负责 Broker 集群实例间的数据同步</p>
-<h4 id="Index-Service"><a href="#Index-Service" class="headerlink" title="Index Service"></a>Index Service</h4><p>索引服务,  根据 MessageKey 对投递到 Broker 的消息提供索引和快速查询服务</p>
-<h3 id="分片"><a href="#分片" class="headerlink" title="分片"></a><del>分片</del></h3><p>在 Broker 集群中, 不同 Broker 可能存有相同 Topic, 例如 Broker1 存有 TopicA, TopicA. 那么, 存有 TopicA 的部分是一个分片</p>
-<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a><del>分区</del></h3><p>分片中的 Queue</p>
+<h4 id="Name-Server"><a href="#Name-Server" class="headerlink" title="Name Server"></a>Name Server</h4><p>Name Server 是 Broker 的注册中心以及 Topic 的路由中心, 支持 Broker 的动态注册与发现<br>早期版本是由 Zookeeper 替代<br>Name Server 集群的实例间不进行通信, 这就导致了 Name Server 扩容上的麻烦</p>
+<h5 id="Broker-管理"><a href="#Broker-管理" class="headerlink" title="Broker 管理"></a>Broker 管理</h5><p>管理 Broker 的注册信息, 检测 Broker 是否存活</p>
+<h5 id="路由信息管理"><a href="#路由信息管理" class="headerlink" title="路由信息管理"></a>路由信息管理</h5><p>管理 Broker 集群的路由信息, 以及用于客户端查询的队列信息<br>Producer 和 Consumer 通过 Name Server 获取 Broker 集群信息<br>路由信息是依靠客户端主动拉取, 默认 30s 拉取一次</p>
+<h4 id="Broker"><a href="#Broker" class="headerlink" title="Broker"></a>Broker</h4><p>Broker 对消息进行存储和转发, 是 RocketMQ 的核心部分<br>Broker Master 负责读写请求, Broker Slave 只负责读请求</p>
+<h5 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h5><h6 id="Remoting-Module"><a href="#Remoting-Module" class="headerlink" title="Remoting Module"></a>Remoting Module</h6><p>Boker 实体, 处理客户端请求</p>
+<h6 id="Client-Manager"><a href="#Client-Manager" class="headerlink" title="Client Manager"></a>Client Manager</h6><p>客户端管理器, 负责接受和解析客户端请求</p>
+<h5 id="Store-Service"><a href="#Store-Service" class="headerlink" title="Store Service"></a>Store Service</h5><p>存储服务, 负责管理消息存储到硬盘以及消息查询</p>
+<h6 id="HA-Service"><a href="#HA-Service" class="headerlink" title="HA Service"></a>HA Service</h6><p>高可用服务, 负责 Broker 集群实例间的数据同步</p>
+<h6 id="Index-Service"><a href="#Index-Service" class="headerlink" title="Index Service"></a>Index Service</h6><p>索引服务,  根据 MessageKey 对投递到 Broker 的消息提供索引和快速查询服务</p>
+<h5 id="数据保存策略"><a href="#数据保存策略" class="headerlink" title="数据保存策略"></a>数据保存策略</h5><h6 id="复制策略"><a href="#复制策略" class="headerlink" title="复制策略"></a>复制策略</h6><p>Broker Master 和 Slave 间同步数据的方式, 通常有两种方式:</p>
+<ul>
+<li>同步策略: 消息到达 Master 后, Master 将数据同步给 Slave 后将 ACK 返回给客户端</li>
+<li>异步策略: 消息到达 Master 后立即返回 ACK, 稍后将数据同步给 Slave</li>
+</ul>
+<h6 id="刷盘策略"><a href="#刷盘策略" class="headerlink" title="刷盘策略"></a>刷盘策略</h6><p>Broker 将内存中数据与磁盘中的数据同步的方式, 通常有两种方式:</p>
+<ul>
+<li>同步刷盘: 当消息持久化后算作消息写入成功</li>
+<li>异步刷盘: 当消息到达内存后 算作消息写入成功</li>
+</ul>
+<h4 id="分片"><a href="#分片" class="headerlink" title="分片"></a><del>分片</del></h4><p>在 Broker 集群中, 不同 Broker 可能存有相同 Topic, 例如 Broker1 存有 TopicA, TopicA. 那么, 存有 TopicA 的部分是一个分片</p>
+<h4 id="分区"><a href="#分区" class="headerlink" title="分区"></a><del>分区</del></h4><p>分片中的 Queue</p>
+<h2 id="部署模式"><a href="#部署模式" class="headerlink" title="部署模式"></a>部署模式</h2><h3 id="Master"><a href="#Master" class="headerlink" title="Master"></a>Master</h3><h4 id="单-Master-无-Slave"><a href="#单-Master-无-Slave" class="headerlink" title="单 Master 无 Slave"></a>单 Master 无 Slave</h4><p>单节点部署, 只部署一个 Broker, 部署方式较为简单<br>可靠性非常差, 一般只在开发环境使用</p>
+<h4 id="多-Master-无-Slave"><a href="#多-Master-无-Slave" class="headerlink" title="多 Master 无 Slave"></a>多 Master 无 Slave</h4><p>多节点部署, 部署多个 Broker Master, 同一个 Topic 会在不同节点存有切片, 各个分区平均分布<br>注意配置较为简单, 单个 Master 宕机对集群几乎没有影响. 但是宕机期间, 该 Master 的订阅者不可进行操作</p>
+<h4 id="多-Master-多-Slave-异步赋值机制"><a href="#多-Master-多-Slave-异步赋值机制" class="headerlink" title="多 Master 多 Slave 异步赋值机制"></a>多 Master 多 Slave 异步赋值机制</h4><p>多节点部署, 部署多个 Broker Master, 每个 Broker Master 配置有 Broker Slave (一般一个即可)<br>当 Broker Master 宕机后, Broker Slave 会自动取代 Broker Master. 由于异步赋值机制, 消息可能会有小概率丢失</p>
+<h4 id="多-Master-多-Slave-同步赋值机制"><a href="#多-Master-多-Slave-同步赋值机制" class="headerlink" title="多 Master 多 Slave 同步赋值机制"></a>多 Master 多 Slave 同步赋值机制</h4><h3 id="Name-Server-1"><a href="#Name-Server-1" class="headerlink" title="Name Server"></a>Name Server</h3><p>由于 Name Server 之间是无状态模式, 只需将各个 Name Server 的地址告诉 Broker 即可, 所以说 Name Server 集群部署非常简单</p>
 <h2 id="RocketMQ-部署"><a href="#RocketMQ-部署" class="headerlink" title="RocketMQ 部署"></a>RocketMQ 部署</h2><h3 id="RocketMQ-单节点部署"><a href="#RocketMQ-单节点部署" class="headerlink" title="RocketMQ 单节点部署"></a>RocketMQ 单节点部署</h3><h4 id="下载-RocketMQ-5-0-0"><a href="#下载-RocketMQ-5-0-0" class="headerlink" title="下载 RocketMQ 5.0.0"></a>下载 RocketMQ 5.0.0</h4><p><a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-bin-release.zip">RocketMQ二进制包</a><br><a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/5.0.0/rocketmq-all-5.0.0-source-release.zip">RocketMQ源码</a></p>
 <h4 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h4><p>将 <code>ROCKETMQ_HOME</code> 添加至环境变量中</p>
 <h4 id="启动-RocketMQ"><a href="#启动-RocketMQ" class="headerlink" title="启动 RocketMQ"></a>启动 RocketMQ</h4><p>在 <code>bin</code> 目录下, 执行 <code>./mqnamesrv</code> 或 <code>./mqnamesrv.cmd</code></p>
@@ -2709,10 +2723,14 @@
 <li>启动服务 <code>java -jar target/rocketmq-dashboard-1.0.1-SNAPSHOT.jar</code></li>
 </ol>
 <h3 id="运维"><a href="#运维" class="headerlink" title="运维"></a>运维</h3><h4 id="Brocker-停机重启"><a href="#Brocker-停机重启" class="headerlink" title="Brocker 停机重启"></a>Brocker 停机重启</h4><ol>
-<li>首先将 Broker 中 Topic (除系统和重试 Queue) w 权限取消<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">./mqadmin updateTopic -c rocketmq-cluster -b broker-a主节点的ip:10911 -t topic名称 -n 任意一台namesrv的ip:9876 -p 4 -r 读队列数 -w 写队列数</span><br></pre></td></tr></tbody></table></figure></li>
+<li>首先将 Broker 中 Topic (除系统和重试 Queue) w 权限取消 (将 perm 设置为 4)<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">./mqadmin updateTopic -c rocketmq-cluster -b broker-a主节点的ip:10911 -t topic名称 -n 任意一台namesrv的ip:9876 -p 4 -r 读队列数 -w 写队列数</span><br></pre></td></tr></tbody></table></figure></li>
 <li>观测到 Broker 无流量后将 Broker 停机</li>
 <li>启动 Broker</li>
-<li>恢复 Broker 中 Topic 的权限<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">./mqadmin updateTopic -c rocketmq-cluster -b broker-a主节点的ip:10911 -t topic名称 -n 任意一台namesrv的ip:9876 -p 6 -r 读队列数 -w 写队列数</span><br></pre></td></tr></tbody></table></figure></li>
+<li>恢复 Broker 中 Topic 的权限 (将 perm 设置为 6)<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">./mqadmin updateTopic -c rocketmq-cluster -b broker-a主节点的ip:10911 -t topic名称 -n 任意一台namesrv的ip:9876 -p 6 -r 读队列数 -w 写队列数</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<h4 id="队列缩容"><a href="#队列缩容" class="headerlink" title="队列缩容"></a>队列缩容</h4><ol>
+<li>读队列数量保持不变, 减少写队列数量</li>
+<li>只读队列里无消息后, 减少读队列数量</li>
 </ol>
 <h2 id="使用-Java-测试-RocketMQ"><a href="#使用-Java-测试-RocketMQ" class="headerlink" title="使用 Java 测试 RocketMQ"></a>使用 Java 测试 RocketMQ</h2><h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><figure class="highlight groovy"><table><tbody><tr><td class="code"><pre><span class="line">implementation <span class="string">'org.apache.rocketmq:rocketmq-client:5.0.0'</span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="创建-Topic"><a href="#创建-Topic" class="headerlink" title="创建 Topic"></a>创建 Topic</h3><p>在 <code>bin</code> 目录下运行</p>
