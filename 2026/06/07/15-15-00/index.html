@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Eureka 的简单使用笔记 | Patrick</title><meta name="author" content="Patrick"><meta name="copyright" content="Patrick"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="TestNG 核心概念理解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eureka 的简单使用笔记">
+<meta property="og:url" content="https://patrick-0079.github.io/2026/06/07/15-15-00/index.html">
+<meta property="og:site_name" content="Patrick">
+<meta property="og:description" content="TestNG 核心概念理解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://patrick-0079.github.io/static/img/avatar.jpg">
+<meta property="article:published_time" content="2026-06-07T07:15:00.000Z">
+<meta property="article:modified_time" content="2026-06-07T07:15:00.000Z">
+<meta property="article:author" content="Patrick">
+<meta property="article:tag" content="Note">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="TestNG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://patrick-0079.github.io/static/img/avatar.jpg"><link rel="shortcut icon" href="/static/img/logo.ico"><link rel="canonical" href="https://patrick-0079.github.io/2026/06/07/15-15-00/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Eureka 的简单使用笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-06-07 15:15:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/static/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/history"><i class="fa-fw fa fa-history"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/static/img/background.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Patrick</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/history"><i class="fa-fw fa fa-history"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Eureka 的简单使用笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-07T07:15:00.000Z" title="发表于 2026-06-07 15:15:00">2026-06-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-07T07:15:00.000Z" title="更新于 2026-06-07 15:15:00">2026-06-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Note/">Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Note/test/">test</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Note/test/TestNG/">TestNG</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Eureka 的简单使用笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="TestNG-核心概念详解"><a href="#TestNG-核心概念详解" class="headerlink" title="TestNG 核心概念详解"></a>TestNG 核心概念详解</h1><h2 id="🧬-1-TestNG-生命周期"><a href="#🧬-1-TestNG-生命周期" class="headerlink" title="🧬 1. TestNG 生命周期"></a>🧬 1. TestNG 生命周期</h2><p>TestNG 的生命周期由一系列注解驱动，它们按照特定的顺序执行，用于测试前的环境准备、测试后的资源清理以及测试逻辑本身的执行。</p>
+<h3 id="执行层级与顺序"><a href="#执行层级与顺序" class="headerlink" title="执行层级与顺序"></a>执行层级与顺序</h3><p>TestNG 的注解遵循从宏观到微观的执行顺序：</p>
+<h4 id="1-1-BeforeSuite-x2F-AfterSuite"><a href="#1-1-BeforeSuite-x2F-AfterSuite" class="headerlink" title="1.1 BeforeSuite / AfterSuite"></a>1.1 BeforeSuite / AfterSuite</h4><ul>
+<li><strong>作用域</strong>：整个测试套件（<code>&lt;suite&gt;</code>）</li>
+<li><strong>执行时机</strong>：在所有测试开始之前执行一次，或在所有测试结束之后执行一次</li>
+<li><strong>用途</strong>：通常用于全局资源的初始化（如启动数据库服务）或生成最终的测试报告</li>
+</ul>
+<h4 id="1-2-BeforeTest-x2F-AfterTest"><a href="#1-2-BeforeTest-x2F-AfterTest" class="headerlink" title="1.2 BeforeTest / AfterTest"></a>1.2 BeforeTest / AfterTest</h4><ul>
+<li><strong>作用域</strong>：测试组（<code>&lt;test&gt;</code>）</li>
+<li><strong>执行时机</strong>：在 <code>&lt;test&gt;</code> 标签包含的所有类运行之前或之后执行</li>
+<li><strong>用途</strong>：适用于针对特定测试模块的配置</li>
+</ul>
+<h4 id="1-3-BeforeGroups-x2F-AfterGroups"><a href="#1-3-BeforeGroups-x2F-AfterGroups" class="headerlink" title="1.3 BeforeGroups / AfterGroups"></a>1.3 BeforeGroups / AfterGroups</h4><ul>
+<li><strong>作用域</strong>：测试组（Group）</li>
+<li><strong>执行时机</strong>：在属于指定组的第一个测试方法运行之前，或该组的最后一个测试方法运行之后执行</li>
+<li><strong>用途</strong>：用于配置特定业务逻辑组的上下文</li>
+</ul>
+<h4 id="1-4-BeforeClass-x2F-AfterClass"><a href="#1-4-BeforeClass-x2F-AfterClass" class="headerlink" title="1.4 BeforeClass / AfterClass"></a>1.4 BeforeClass / AfterClass</h4><ul>
+<li><strong>作用域</strong>：当前测试类</li>
+<li><strong>执行时机</strong>：在当前类的第一个测试方法运行之前，或所有测试方法运行之后执行</li>
+<li><strong>用途</strong>：常用于初始化当前类的静态变量或共享对象</li>
+</ul>
+<h4 id="1-5-BeforeMethod-x2F-AfterMethod"><a href="#1-5-BeforeMethod-x2F-AfterMethod" class="headerlink" title="1.5 BeforeMethod / AfterMethod"></a>1.5 BeforeMethod / AfterMethod</h4><ul>
+<li><strong>作用域</strong>：单个测试方法</li>
+<li><strong>执行时机</strong>：在每个 <code>@Test</code> 方法运行之前或之后执行</li>
+<li><strong>用途</strong>：最常用的配置，用于重置数据、关闭浏览器窗口或清理临时文件，确保每个测试用例的独立性</li>
+</ul>
+<h4 id="1-6-Test"><a href="#1-6-Test" class="headerlink" title="1.6 Test"></a>1.6 Test</h4><ul>
+<li><strong>作用域</strong>：测试逻辑本身</li>
+<li><strong>用途</strong>：标记为具体的测试用例入口</li>
+</ul>
+<hr>
+<h2 id="⚙️-2-配置文件-testng-xml"><a href="#⚙️-2-配置文件-testng-xml" class="headerlink" title="⚙️ 2. 配置文件 (testng.xml)"></a>⚙️ 2. 配置文件 (testng.xml)</h2><p><code>testng.xml</code> 是 TestNG 的指挥中心，它不编写测试逻辑，而是定义”如何运行”这些测试。</p>
+<h3 id="2-1-核心结构"><a href="#2-1-核心结构" class="headerlink" title="2.1 核心结构"></a>2.1 核心结构</h3><h4 id="Suite-套件"><a href="#Suite-套件" class="headerlink" title="Suite (套件)"></a>Suite (套件)</h4><ul>
+<li>根节点，代表一个完整的测试流程</li>
+<li>可以配置并行执行模式（<code>parallel</code>）和线程数（<code>thread-count</code>）</li>
+<li>用于实现多线程并发测试</li>
+</ul>
+<h4 id="Test-测试"><a href="#Test-测试" class="headerlink" title="Test (测试)"></a>Test (测试)</h4><ul>
+<li>Suite 的子集，用于将测试类分组</li>
+<li>一个 Suite 可以包含多个 Test 块</li>
+</ul>
+<h4 id="Groups-组"><a href="#Groups-组" class="headerlink" title="Groups (组)"></a>Groups (组)</h4><ul>
+<li>用于对测试方法进行逻辑分类（如 <code>smoke</code>, <code>regression</code>）</li>
+<li>可以在 XML 中灵活地指定只运行某些组，或者排除某些组</li>
+</ul>
+<h4 id="Classes-类"><a href="#Classes-类" class="headerlink" title="Classes (类)"></a>Classes (类)</h4><ul>
+<li>指定具体要运行的 Java 类</li>
+</ul>
+<h4 id="Methods-方法"><a href="#Methods-方法" class="headerlink" title="Methods (方法)"></a>Methods (方法)</h4><ul>
+<li>精确控制类中哪些方法需要运行</li>
+<li>支持 <code>include</code>（包含）和 <code>exclude</code>（排除）</li>
+</ul>
+<h4 id="Parameters-参数"><a href="#Parameters-参数" class="headerlink" title="Parameters (参数)"></a>Parameters (参数)</h4><ul>
+<li>允许在 XML 中定义键值对</li>
+<li>传递给 Java 代码中的 <code>@Parameters</code> 注解</li>
+<li>实现测试数据与代码的分离</li>
+</ul>
+<hr>
+<h2 id="✅-3-断言-Assertions"><a href="#✅-3-断言-Assertions" class="headerlink" title="✅ 3. 断言 (Assertions)"></a>✅ 3. 断言 (Assertions)</h2><p>断言是自动化测试的”裁判”，用于验证实际结果是否符合预期结果。</p>
+<h3 id="3-1-硬断言"><a href="#3-1-硬断言" class="headerlink" title="3.1 硬断言"></a>3.1 硬断言</h3><h4 id="机制"><a href="#机制" class="headerlink" title="机制"></a>机制</h4><p>一旦断言失败（例如 <code>assertEquals</code> 不匹配），立即抛出异常并终止当前测试方法的执行。</p>
+<h4 id="常用类型"><a href="#常用类型" class="headerlink" title="常用类型"></a>常用类型</h4><ul>
+<li><code>assertEquals(actual, expected)</code>：验证相等性</li>
+<li><code>assertTrue(condition)</code>：验证条件为真</li>
+<li><code>assertFalse(condition)</code>：验证条件为假</li>
+<li><code>assertNotNull(object)</code>：验证对象非空</li>
+</ul>
+<h3 id="3-2-软断言"><a href="#3-2-软断言" class="headerlink" title="3.2 软断言"></a>3.2 软断言</h3><h4 id="机制-1"><a href="#机制-1" class="headerlink" title="机制"></a>机制</h4><p>当断言失败时，不会立即中断测试，而是记录错误并继续执行后续步骤。</p>
+<h4 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h4><p>必须在测试结束前调用 <code>assertAll()</code> 方法，该方法会统一汇报所有收集到的断言失败信息。</p>
+<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>适用于需要在一次测试中验证多个独立字段（如表单验证）的场景。</p>
+<hr>
+<h2 id="💉-4-依赖注入"><a href="#💉-4-依赖注入" class="headerlink" title="💉 4. 依赖注入"></a>💉 4. 依赖注入</h2><p>TestNG 支持通过依赖注入的方式，将运行时对象自动传递给测试方法或配置方法的参数中，无需手动实例化。</p>
+<h3 id="4-1-本机注入"><a href="#4-1-本机注入" class="headerlink" title="4.1 本机注入"></a>4.1 本机注入</h3><p>TestNG 原生支持注入以下对象：</p>
+<h4 id="ITestContext"><a href="#ITestContext" class="headerlink" title="ITestContext"></a>ITestContext</h4><ul>
+<li>提供当前测试上下文的完整信息</li>
+<li>可用于在不同测试方法间共享数据</li>
+</ul>
+<h4 id="ITestResult"><a href="#ITestResult" class="headerlink" title="ITestResult"></a>ITestResult</h4><ul>
+<li>仅在 <code>@AfterMethod</code> 中使用</li>
+<li>反映刚刚执行的测试结果是成功还是失败</li>
+</ul>
+<h4 id="XmlTest"><a href="#XmlTest" class="headerlink" title="XmlTest"></a>XmlTest</h4><ul>
+<li>对应 <code>testng.xml</code> 中的 <code>&lt;test&gt;</code> 标签</li>
+<li>可获取该测试块的属性</li>
+</ul>
+<h4 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h4><ul>
+<li>反射对象，代表即将运行或刚刚运行过的测试方法</li>
+</ul>
+<h3 id="4-2-外部注入"><a href="#4-2-外部注入" class="headerlink" title="4.2 外部注入"></a>4.2 外部注入</h3><p>TestNG 可以与第三方依赖注入框架（如 Guice）集成，通过 <code>@Guice</code> 注解来管理复杂的对象依赖关系。</p>
+<hr>
+<h2 id="🏭-5-Factory-注解"><a href="#🏭-5-Factory-注解" class="headerlink" title="🏭 5. @Factory 注解"></a>🏭 5. @Factory 注解</h2><p><code>@Factory</code> 是一种高级特性，用于在运行时动态创建测试类的实例。</p>
+<h3 id="5-1-核心功能"><a href="#5-1-核心功能" class="headerlink" title="5.1 核心功能"></a>5.1 核心功能</h3><h4 id="动态实例化"><a href="#动态实例化" class="headerlink" title="动态实例化"></a>动态实例化</h4><ul>
+<li>被 <code>@Factory</code> 注解的方法必须返回一个 <code>Object[]</code> 数组</li>
+<li>数组中的每个元素都是一个测试类的实例</li>
+</ul>
+<h4 id="多实例执行"><a href="#多实例执行" class="headerlink" title="多实例执行"></a>多实例执行</h4><p>TestNG 会为数组中的每一个实例分别运行其内部所有的 <code>@Test</code> 方法。</p>
+<h3 id="5-2-应用场景"><a href="#5-2-应用场景" class="headerlink" title="5.2 应用场景"></a>5.2 应用场景</h3><h4 id="数据驱动"><a href="#数据驱动" class="headerlink" title="数据驱动"></a>数据驱动</h4><p>当你需要使用不同的数据集初始化同一个测试类，并希望每种数据都作为一个独立的测试实体运行时，使用 <code>@Factory</code> 最为合适。</p>
+<h4 id="与-DataProvider-的区别"><a href="#与-DataProvider-的区别" class="headerlink" title="与 DataProvider 的区别"></a>与 DataProvider 的区别</h4><ul>
+<li><strong>@DataProvider</strong>：针对同一个实例重复运行同一个测试方法</li>
+<li><strong>@Factory</strong>：创建多个实例，每个实例运行其所有测试方法</li>
+</ul>
+<hr>
+<h2 id="📌-总结"><a href="#📌-总结" class="headerlink" title="📌 总结"></a>📌 总结</h2><p>TestNG 作为一个功能强大的测试框架，通过其灵活的生命周期管理、配置文件支持、丰富的断言机制、依赖注入功能以及动态实例化能力，为自动化测试提供了全面的解决方案。理解这些核心概念有助于更好地设计和维护测试套件，提高测试效率和质量。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Note/">Note</a><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/TestNG/">TestNG</a></div><div class="post_share"><div class="social-share" data-image="/static/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/12/14/19-30-57/" title="Eureka 的简单使用笔记"><img class="cover" src="/static/img/background.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-14</div><div class="title">Eureka 的简单使用笔记</div></div></a></div><div><a href="/2023/01/02/14-50-07/" title="Nacos 的简单使用笔记"><img class="cover" src="/static/img/background.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">Nacos 的简单使用笔记</div></div></a></div><div><a href="/2022/12/14/14-29-47/" title="Spring security 的简单使用笔记"><img class="cover" src="/static/img/background.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-14</div><div class="title">Spring security 的简单使用笔记</div></div></a></div><div><a href="/2023/01/13/11-31-45/" title="Open Feign 的简单使用笔记"><img class="cover" src="/static/img/background.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-13</div><div class="title">Open Feign 的简单使用笔记</div></div></a></div><div><a href="/2023/01/14/10-49-45/" title="Seata 的简单使用笔记"><img class="cover" src="/static/img/background.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-14</div><div class="title">Seata 的简单使用笔记</div></div></a></div><div><a href="/2023/01/14/16-50-44/" title="RocketMQ 的简单使用笔记"><img class="cover" src="/static/img/background.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-14</div><div class="title">RocketMQ 的简单使用笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/static/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Patrick</div><div class="author-info__description">这里是派大星的博客呀！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">29</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/patrick-0079"><i class="fab fa-github"></i><span>patrick-0079</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:patrick0079@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TestNG-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E8%AF%A6%E8%A7%A3"><span class="toc-text">TestNG 核心概念详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%AC-1-TestNG-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">🧬 1. TestNG 生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E5%B1%82%E7%BA%A7%E4%B8%8E%E9%A1%BA%E5%BA%8F"><span class="toc-text">执行层级与顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-BeforeSuite-x2F-AfterSuite"><span class="toc-text">1.1 BeforeSuite &#x2F; AfterSuite</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-BeforeTest-x2F-AfterTest"><span class="toc-text">1.2 BeforeTest &#x2F; AfterTest</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-BeforeGroups-x2F-AfterGroups"><span class="toc-text">1.3 BeforeGroups &#x2F; AfterGroups</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-BeforeClass-x2F-AfterClass"><span class="toc-text">1.4 BeforeClass &#x2F; AfterClass</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-BeforeMethod-x2F-AfterMethod"><span class="toc-text">1.5 BeforeMethod &#x2F; AfterMethod</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-Test"><span class="toc-text">1.6 Test</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9A%99%EF%B8%8F-2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-testng-xml"><span class="toc-text">⚙️ 2. 配置文件 (testng.xml)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%A0%B8%E5%BF%83%E7%BB%93%E6%9E%84"><span class="toc-text">2.1 核心结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Suite-%E5%A5%97%E4%BB%B6"><span class="toc-text">Suite (套件)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Test-%E6%B5%8B%E8%AF%95"><span class="toc-text">Test (测试)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Groups-%E7%BB%84"><span class="toc-text">Groups (组)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Classes-%E7%B1%BB"><span class="toc-text">Classes (类)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Methods-%E6%96%B9%E6%B3%95"><span class="toc-text">Methods (方法)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Parameters-%E5%8F%82%E6%95%B0"><span class="toc-text">Parameters (参数)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-3-%E6%96%AD%E8%A8%80-Assertions"><span class="toc-text">✅ 3. 断言 (Assertions)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E7%A1%AC%E6%96%AD%E8%A8%80"><span class="toc-text">3.1 硬断言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%BA%E5%88%B6"><span class="toc-text">机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-text">常用类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%BD%AF%E6%96%AD%E8%A8%80"><span class="toc-text">3.2 软断言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%BA%E5%88%B6-1"><span class="toc-text">机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%87%E6%80%BB"><span class="toc-text">汇总</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF"><span class="toc-text">场景</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%89-4-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="toc-text">💉 4. 依赖注入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%9C%AC%E6%9C%BA%E6%B3%A8%E5%85%A5"><span class="toc-text">4.1 本机注入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ITestContext"><span class="toc-text">ITestContext</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ITestResult"><span class="toc-text">ITestResult</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XmlTest"><span class="toc-text">XmlTest</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Method"><span class="toc-text">Method</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%A4%96%E9%83%A8%E6%B3%A8%E5%85%A5"><span class="toc-text">4.2 外部注入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%AD-5-Factory-%E6%B3%A8%E8%A7%A3"><span class="toc-text">🏭 5. @Factory 注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-text">5.1 核心功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="toc-text">动态实例化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E5%AE%9E%E4%BE%8B%E6%89%A7%E8%A1%8C"><span class="toc-text">多实例执行</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">5.2 应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8"><span class="toc-text">数据驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8E-DataProvider-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">与 DataProvider 的区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8C-%E6%80%BB%E7%BB%93"><span class="toc-text">📌 总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/07/15-15-00/" title="Eureka 的简单使用笔记">Eureka 的简单使用笔记</a><time datetime="2026-06-07T07:15:00.000Z" title="发表于 2026-06-07 15:15:00">2026-06-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/27/08-34-26/" title="Spring 的研究笔记">Spring 的研究笔记</a><time datetime="2023-03-27T00:34:26.000Z" title="发表于 2023-03-27 08:34:26">2023-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/01/14/16-50-44/" title="RocketMQ 的简单使用笔记">RocketMQ 的简单使用笔记</a><time datetime="2023-01-14T08:50:44.000Z" title="发表于 2023-01-14 16:50:44">2023-01-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/01/14/10-49-45/" title="Seata 的简单使用笔记">Seata 的简单使用笔记</a><time datetime="2023-01-14T02:49:45.000Z" title="发表于 2023-01-14 10:49:45">2023-01-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/01/13/11-31-45/" title="Open Feign 的简单使用笔记">Open Feign 的简单使用笔记</a><time datetime="2023-01-13T03:31:45.000Z" title="发表于 2023-01-13 11:31:45">2023-01-13</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/static/img/foot.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2026 By Patrick</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to Patrick's blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="Hello,This,is,Patrick,Nice,to,meet,you" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body></html>

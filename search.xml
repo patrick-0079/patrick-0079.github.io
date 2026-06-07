@@ -2998,8 +2998,175 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring</title>
+    <title>Spring 的研究笔记</title>
     <url>/2023/03/27/08-34-26/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="Spring-的研究笔记"><a href="#Spring-的研究笔记" class="headerlink" title="Spring 的研究笔记"></a><strong>Spring 的研究笔记</strong></h1><p>Spring 框架的核心是 AOP、IOC、DI。其中，学习重点是 IOC 容器如何解决 Bean 的循环依赖问题。</p>
+<h2 id="BeanFactor-和-ApplicationContext-区别"><a href="#BeanFactor-和-ApplicationContext-区别" class="headerlink" title="BeanFactor 和 ApplicationContext 区别"></a>BeanFactor 和 ApplicationContext 区别</h2><p>BeanFactor 是懒加载的，而 ApplicationContext 默认是非懒加载。 ApplicationContext 是 BeanFactor 的一种扩展。</p>
+<h2 id="控制反转"><a href="#控制反转" class="headerlink" title="控制反转"></a>控制反转</h2><p>IOC 容器可以用来管理资源，使得不同资源间依赖程度降低。</p>
+<h3 id="依赖倒置"><a href="#依赖倒置" class="headerlink" title="依赖倒置"></a>依赖倒置</h3><p>资源使用第三方来管理，而不使用资源使用方或者提供方来管理。这样可以降低模块间的耦合度。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><!-- todo： 代码 -->
+
+<h3 id="配置-Bean-的作用域对象"><a href="#配置-Bean-的作用域对象" class="headerlink" title="配置 Bean 的作用域对象"></a>配置 Bean 的作用域对象</h3><p>不指定 @Scope 的情况下，所有的 Bean 都是单实例的 Bean， 而且是非懒加载</p>
+<h4 id="Scope"><a href="#Scope" class="headerlink" title="@Scope"></a>@Scope</h4><p>@Scope 的取值及其作用域</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>作用域</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>singleton</td>
+<td>单例模式（默认）</td>
+</tr>
+<tr>
+<td>prototype</td>
+<td>多实例懒加载</td>
+</tr>
+<tr>
+<td>request</td>
+<td>同一次请求</td>
+</tr>
+<tr>
+<td>session</td>
+<td>同一次会话</td>
+</tr>
+</tbody></table>
+<h3 id="向-IOC-中添加-Bean的方式"><a href="#向-IOC-中添加-Bean的方式" class="headerlink" title="向 IOC 中添加 Bean的方式"></a>向 IOC 中添加 Bean的方式</h3><ul>
+<li>Beans.xml</li>
+<li>@Bean</li>
+<li>@CompentScan + @Compent</li>
+<li>@Import</li>
+<li>@ImportBeanDefinitionRegister</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Study</category>
+        <category>Java</category>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+        <tag>Study</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Eureka 的简单使用笔记</title>
+    <url>/2026/06/07/15-15-00/</url>
+    <content><![CDATA[<h1 id="TestNG-核心概念详解"><a href="#TestNG-核心概念详解" class="headerlink" title="TestNG 核心概念详解"></a>TestNG 核心概念详解</h1><h2 id="🧬-1-TestNG-生命周期"><a href="#🧬-1-TestNG-生命周期" class="headerlink" title="🧬 1. TestNG 生命周期"></a>🧬 1. TestNG 生命周期</h2><p>TestNG 的生命周期由一系列注解驱动，它们按照特定的顺序执行，用于测试前的环境准备、测试后的资源清理以及测试逻辑本身的执行。</p>
+<h3 id="执行层级与顺序"><a href="#执行层级与顺序" class="headerlink" title="执行层级与顺序"></a>执行层级与顺序</h3><p>TestNG 的注解遵循从宏观到微观的执行顺序：</p>
+<h4 id="1-1-BeforeSuite-x2F-AfterSuite"><a href="#1-1-BeforeSuite-x2F-AfterSuite" class="headerlink" title="1.1 BeforeSuite / AfterSuite"></a>1.1 BeforeSuite / AfterSuite</h4><ul>
+<li><strong>作用域</strong>：整个测试套件（<code>&lt;suite&gt;</code>）</li>
+<li><strong>执行时机</strong>：在所有测试开始之前执行一次，或在所有测试结束之后执行一次</li>
+<li><strong>用途</strong>：通常用于全局资源的初始化（如启动数据库服务）或生成最终的测试报告</li>
+</ul>
+<h4 id="1-2-BeforeTest-x2F-AfterTest"><a href="#1-2-BeforeTest-x2F-AfterTest" class="headerlink" title="1.2 BeforeTest / AfterTest"></a>1.2 BeforeTest / AfterTest</h4><ul>
+<li><strong>作用域</strong>：测试组（<code>&lt;test&gt;</code>）</li>
+<li><strong>执行时机</strong>：在 <code>&lt;test&gt;</code> 标签包含的所有类运行之前或之后执行</li>
+<li><strong>用途</strong>：适用于针对特定测试模块的配置</li>
+</ul>
+<h4 id="1-3-BeforeGroups-x2F-AfterGroups"><a href="#1-3-BeforeGroups-x2F-AfterGroups" class="headerlink" title="1.3 BeforeGroups / AfterGroups"></a>1.3 BeforeGroups / AfterGroups</h4><ul>
+<li><strong>作用域</strong>：测试组（Group）</li>
+<li><strong>执行时机</strong>：在属于指定组的第一个测试方法运行之前，或该组的最后一个测试方法运行之后执行</li>
+<li><strong>用途</strong>：用于配置特定业务逻辑组的上下文</li>
+</ul>
+<h4 id="1-4-BeforeClass-x2F-AfterClass"><a href="#1-4-BeforeClass-x2F-AfterClass" class="headerlink" title="1.4 BeforeClass / AfterClass"></a>1.4 BeforeClass / AfterClass</h4><ul>
+<li><strong>作用域</strong>：当前测试类</li>
+<li><strong>执行时机</strong>：在当前类的第一个测试方法运行之前，或所有测试方法运行之后执行</li>
+<li><strong>用途</strong>：常用于初始化当前类的静态变量或共享对象</li>
+</ul>
+<h4 id="1-5-BeforeMethod-x2F-AfterMethod"><a href="#1-5-BeforeMethod-x2F-AfterMethod" class="headerlink" title="1.5 BeforeMethod / AfterMethod"></a>1.5 BeforeMethod / AfterMethod</h4><ul>
+<li><strong>作用域</strong>：单个测试方法</li>
+<li><strong>执行时机</strong>：在每个 <code>@Test</code> 方法运行之前或之后执行</li>
+<li><strong>用途</strong>：最常用的配置，用于重置数据、关闭浏览器窗口或清理临时文件，确保每个测试用例的独立性</li>
+</ul>
+<h4 id="1-6-Test"><a href="#1-6-Test" class="headerlink" title="1.6 Test"></a>1.6 Test</h4><ul>
+<li><strong>作用域</strong>：测试逻辑本身</li>
+<li><strong>用途</strong>：标记为具体的测试用例入口</li>
+</ul>
+<hr>
+<h2 id="⚙️-2-配置文件-testng-xml"><a href="#⚙️-2-配置文件-testng-xml" class="headerlink" title="⚙️ 2. 配置文件 (testng.xml)"></a>⚙️ 2. 配置文件 (testng.xml)</h2><p><code>testng.xml</code> 是 TestNG 的指挥中心，它不编写测试逻辑，而是定义”如何运行”这些测试。</p>
+<h3 id="2-1-核心结构"><a href="#2-1-核心结构" class="headerlink" title="2.1 核心结构"></a>2.1 核心结构</h3><h4 id="Suite-套件"><a href="#Suite-套件" class="headerlink" title="Suite (套件)"></a>Suite (套件)</h4><ul>
+<li>根节点，代表一个完整的测试流程</li>
+<li>可以配置并行执行模式（<code>parallel</code>）和线程数（<code>thread-count</code>）</li>
+<li>用于实现多线程并发测试</li>
+</ul>
+<h4 id="Test-测试"><a href="#Test-测试" class="headerlink" title="Test (测试)"></a>Test (测试)</h4><ul>
+<li>Suite 的子集，用于将测试类分组</li>
+<li>一个 Suite 可以包含多个 Test 块</li>
+</ul>
+<h4 id="Groups-组"><a href="#Groups-组" class="headerlink" title="Groups (组)"></a>Groups (组)</h4><ul>
+<li>用于对测试方法进行逻辑分类（如 <code>smoke</code>, <code>regression</code>）</li>
+<li>可以在 XML 中灵活地指定只运行某些组，或者排除某些组</li>
+</ul>
+<h4 id="Classes-类"><a href="#Classes-类" class="headerlink" title="Classes (类)"></a>Classes (类)</h4><ul>
+<li>指定具体要运行的 Java 类</li>
+</ul>
+<h4 id="Methods-方法"><a href="#Methods-方法" class="headerlink" title="Methods (方法)"></a>Methods (方法)</h4><ul>
+<li>精确控制类中哪些方法需要运行</li>
+<li>支持 <code>include</code>（包含）和 <code>exclude</code>（排除）</li>
+</ul>
+<h4 id="Parameters-参数"><a href="#Parameters-参数" class="headerlink" title="Parameters (参数)"></a>Parameters (参数)</h4><ul>
+<li>允许在 XML 中定义键值对</li>
+<li>传递给 Java 代码中的 <code>@Parameters</code> 注解</li>
+<li>实现测试数据与代码的分离</li>
+</ul>
+<hr>
+<h2 id="✅-3-断言-Assertions"><a href="#✅-3-断言-Assertions" class="headerlink" title="✅ 3. 断言 (Assertions)"></a>✅ 3. 断言 (Assertions)</h2><p>断言是自动化测试的”裁判”，用于验证实际结果是否符合预期结果。</p>
+<h3 id="3-1-硬断言"><a href="#3-1-硬断言" class="headerlink" title="3.1 硬断言"></a>3.1 硬断言</h3><h4 id="机制"><a href="#机制" class="headerlink" title="机制"></a>机制</h4><p>一旦断言失败（例如 <code>assertEquals</code> 不匹配），立即抛出异常并终止当前测试方法的执行。</p>
+<h4 id="常用类型"><a href="#常用类型" class="headerlink" title="常用类型"></a>常用类型</h4><ul>
+<li><code>assertEquals(actual, expected)</code>：验证相等性</li>
+<li><code>assertTrue(condition)</code>：验证条件为真</li>
+<li><code>assertFalse(condition)</code>：验证条件为假</li>
+<li><code>assertNotNull(object)</code>：验证对象非空</li>
+</ul>
+<h3 id="3-2-软断言"><a href="#3-2-软断言" class="headerlink" title="3.2 软断言"></a>3.2 软断言</h3><h4 id="机制-1"><a href="#机制-1" class="headerlink" title="机制"></a>机制</h4><p>当断言失败时，不会立即中断测试，而是记录错误并继续执行后续步骤。</p>
+<h4 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h4><p>必须在测试结束前调用 <code>assertAll()</code> 方法，该方法会统一汇报所有收集到的断言失败信息。</p>
+<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>适用于需要在一次测试中验证多个独立字段（如表单验证）的场景。</p>
+<hr>
+<h2 id="💉-4-依赖注入"><a href="#💉-4-依赖注入" class="headerlink" title="💉 4. 依赖注入"></a>💉 4. 依赖注入</h2><p>TestNG 支持通过依赖注入的方式，将运行时对象自动传递给测试方法或配置方法的参数中，无需手动实例化。</p>
+<h3 id="4-1-本机注入"><a href="#4-1-本机注入" class="headerlink" title="4.1 本机注入"></a>4.1 本机注入</h3><p>TestNG 原生支持注入以下对象：</p>
+<h4 id="ITestContext"><a href="#ITestContext" class="headerlink" title="ITestContext"></a>ITestContext</h4><ul>
+<li>提供当前测试上下文的完整信息</li>
+<li>可用于在不同测试方法间共享数据</li>
+</ul>
+<h4 id="ITestResult"><a href="#ITestResult" class="headerlink" title="ITestResult"></a>ITestResult</h4><ul>
+<li>仅在 <code>@AfterMethod</code> 中使用</li>
+<li>反映刚刚执行的测试结果是成功还是失败</li>
+</ul>
+<h4 id="XmlTest"><a href="#XmlTest" class="headerlink" title="XmlTest"></a>XmlTest</h4><ul>
+<li>对应 <code>testng.xml</code> 中的 <code>&lt;test&gt;</code> 标签</li>
+<li>可获取该测试块的属性</li>
+</ul>
+<h4 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h4><ul>
+<li>反射对象，代表即将运行或刚刚运行过的测试方法</li>
+</ul>
+<h3 id="4-2-外部注入"><a href="#4-2-外部注入" class="headerlink" title="4.2 外部注入"></a>4.2 外部注入</h3><p>TestNG 可以与第三方依赖注入框架（如 Guice）集成，通过 <code>@Guice</code> 注解来管理复杂的对象依赖关系。</p>
+<hr>
+<h2 id="🏭-5-Factory-注解"><a href="#🏭-5-Factory-注解" class="headerlink" title="🏭 5. @Factory 注解"></a>🏭 5. @Factory 注解</h2><p><code>@Factory</code> 是一种高级特性，用于在运行时动态创建测试类的实例。</p>
+<h3 id="5-1-核心功能"><a href="#5-1-核心功能" class="headerlink" title="5.1 核心功能"></a>5.1 核心功能</h3><h4 id="动态实例化"><a href="#动态实例化" class="headerlink" title="动态实例化"></a>动态实例化</h4><ul>
+<li>被 <code>@Factory</code> 注解的方法必须返回一个 <code>Object[]</code> 数组</li>
+<li>数组中的每个元素都是一个测试类的实例</li>
+</ul>
+<h4 id="多实例执行"><a href="#多实例执行" class="headerlink" title="多实例执行"></a>多实例执行</h4><p>TestNG 会为数组中的每一个实例分别运行其内部所有的 <code>@Test</code> 方法。</p>
+<h3 id="5-2-应用场景"><a href="#5-2-应用场景" class="headerlink" title="5.2 应用场景"></a>5.2 应用场景</h3><h4 id="数据驱动"><a href="#数据驱动" class="headerlink" title="数据驱动"></a>数据驱动</h4><p>当你需要使用不同的数据集初始化同一个测试类，并希望每种数据都作为一个独立的测试实体运行时，使用 <code>@Factory</code> 最为合适。</p>
+<h4 id="与-DataProvider-的区别"><a href="#与-DataProvider-的区别" class="headerlink" title="与 DataProvider 的区别"></a>与 DataProvider 的区别</h4><ul>
+<li><strong>@DataProvider</strong>：针对同一个实例重复运行同一个测试方法</li>
+<li><strong>@Factory</strong>：创建多个实例，每个实例运行其所有测试方法</li>
+</ul>
+<hr>
+<h2 id="📌-总结"><a href="#📌-总结" class="headerlink" title="📌 总结"></a>📌 总结</h2><p>TestNG 作为一个功能强大的测试框架，通过其灵活的生命周期管理、配置文件支持、丰富的断言机制、依赖注入功能以及动态实例化能力，为自动化测试提供了全面的解决方案。理解这些核心概念有助于更好地设计和维护测试套件，提高测试效率和质量。</p>
+]]></content>
+      <categories>
+        <category>Note</category>
+        <category>test</category>
+        <category>TestNG</category>
+      </categories>
+      <tags>
+        <tag>Note</tag>
+        <tag>Java</tag>
+        <tag>TestNG</tag>
+      </tags>
   </entry>
 </search>
